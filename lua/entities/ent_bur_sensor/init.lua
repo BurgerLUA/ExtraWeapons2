@@ -164,11 +164,19 @@ function ENT:Think()
 	end
 	
 	if self.target then
+
 		if self.target:IsValid() then
-			if not self.target:Alive() then 
-				SafeRemoveEntity(self)
-			end	
+		
+			if self.target:IsPlayer() then
+				if not self.target:Alive() then 
+					SafeRemoveEntity(self)
+				end	
+			end
+			
+		else
+			SafeRemoveEntity(self)
 		end
+		
 	end
 	
 end

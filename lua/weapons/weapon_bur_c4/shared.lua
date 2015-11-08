@@ -19,9 +19,9 @@ SWEP.ViewModel			= "models/weapons/v_slam.mdl"
 SWEP.WorldModel			= "models/weapons/w_slam.mdl"
 
 SWEP.Primary.ClipSize		= -1
-SWEP.Primary.DefaultClip	= -1
+SWEP.Primary.DefaultClip	= 3
 SWEP.Primary.Automatic		= true
-SWEP.Primary.Ammo		= "none"
+SWEP.Primary.Ammo		= "slam"
 
 SWEP.Secondary.ClipSize		= -1
 SWEP.Secondary.DefaultClip	= -1
@@ -32,23 +32,28 @@ if CLIENT then
 	killicon.AddFont( "ent_bur_slam", "HL2MPTypeDeath", "*", Color( 255, 200, 0, 255 ) )
 end
 
-
-
 function SWEP:PrimaryAttack()
 	
 	
 	if ( CLIENT ) then return end
 	self.Weapon:SetNextPrimaryFire( CurTime() + 0.75 )	
-	Count = 0
+	
+	if self.Owner:GetAmmoCount(self.Primary.Ammo) <= 0 then return end
+	
+	
+	local Count = 0
+	
 	for k, v in pairs(ents.FindByClass("ent_bur_slam")) do
 		if v:GetOwner() == self.Owner then Count = Count + 1 end
 	end
 	
 	if Count > 5 then return end
 	
+	
+	
 	self:SendWeaponAnim( ACT_SLAM_THROW_THROW )
 		
-	
+	self:TakePrimaryAmmo(1)
 	
 
 	timer.Simple(0.5,function() 

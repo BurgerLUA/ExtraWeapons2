@@ -26,9 +26,9 @@ SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/ar2/npc_ar2_altfire.wav")
 SWEP.Primary.Cone			= 0.01
 SWEP.Primary.ClipSize		= 1
-SWEP.Primary.SpareClip		= 1
+SWEP.Primary.SpareClip		= 3
 SWEP.Primary.Delay			= 1
-SWEP.Primary.Ammo			= "shotgun"
+SWEP.Primary.Ammo			= "SMG1_Grenade"
 SWEP.Primary.Automatic 		= false
 
 SWEP.RecoilMul				= 1
@@ -61,9 +61,13 @@ SWEP.ReloadDelay = 0
 
 
 function SWEP:PrimaryAttack()	
+
+	if self.Owner:GetAmmoCount(self.Primary.Ammo) <= 0 then return end
+
 	if self:Clip1() == 0 then
 		self:Reload()
 	return end
+	
 	self.Owner:SetAnimation(PLAYER_ATTACK1)
 	self:SendWeaponAnim(ACT_VM_PRIMARYATTACK)
 	self:TakePrimaryAmmo(1)
@@ -91,7 +95,11 @@ end
 
 
 function SWEP:Reload()
+
 	if self:Clip1() >= self.Primary.ClipSize then return end
+
+	if self.Owner:GetAmmoCount(self.Primary.Ammo) <= 0 then return end
+	
 	if self.IsReloading == true then return end
 	self:SendWeaponAnim(ACT_VM_HOLSTER)
 	self.IsReloading = true
@@ -111,8 +119,13 @@ end
 function SWEP:Think()
 	if self.ReloadDelay < CurTime() then
 		if self.IsReloading == true then
-			self:SetClip1(1)
 			self:SendWeaponAnim(ACT_VM_DRAW)
+			
+			self.Owner:RemoveAmmo(1,self.Primary.Ammo)
+			self:SetClip1(1)
+			
+			
+			
 			self.IsReloading = false
 		end
 	end
