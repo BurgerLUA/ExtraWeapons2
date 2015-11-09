@@ -62,10 +62,10 @@ SWEP.ReloadDelay = 0
 
 function SWEP:PrimaryAttack()	
 
-	if self.Owner:GetAmmoCount(self.Primary.Ammo) <= 0 then return end
+
 
 	if self:Clip1() == 0 then
-		self:Reload()
+			self:Reload()
 	return end
 	
 	self.Owner:SetAnimation(PLAYER_ATTACK1)

@@ -183,8 +183,10 @@ end
 
 function ENT:OnRemove()
 	
-	if self.target:IsValid() then
-		self.target:SetMaterial("")
+	if self.target then
+		if self.target:IsValid() then
+			self.target:SetMaterial("")
+		end
 	end
 	
 end
