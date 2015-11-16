@@ -19,7 +19,7 @@ SWEP.ViewModel			= "models/weapons/v_slam.mdl"
 SWEP.WorldModel			= "models/weapons/w_slam.mdl"
 
 SWEP.Primary.ClipSize		= -1
-SWEP.Primary.DefaultClip	= 3
+SWEP.Primary.DefaultClip	= 5
 SWEP.Primary.Automatic		= true
 SWEP.Primary.Ammo		= "slam"
 

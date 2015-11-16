@@ -4,36 +4,28 @@ function ENT:Initialize()
 
 end
 
-function ENT:Draw()
-	
-	self:DrawModel()
-		
-	self.Enable = self:GetNWBool( "Enable", false )
-
-	if self.Enable then
-		self.HitP = self:GetNWVector( self.Entity.EntIndex().."HITP", Vector( 0, 0, 0 ) )
-		self.HitN = self:GetNWVector( self.Entity.EntIndex().."HITTD", Vector( 0, 0, 0 ) )
-		
-		self:SetRenderBoundsWS( self.HitP, self.HitN )
-		
-		--HitN = self:GetNWVector( "TraceHitPos", Vector( 0, 0, 0 ) )
-	
-		render.SetMaterial(Material("sprites/bluelaser1"))
-		render.DrawBeam(self.HitP, self.HitN, 2, 0, 12.5, Color(255, 0, 0, 255))
-	end
-	
-	
-	
-end
-	
-	
-	
-
+local NextThink = 0
+local Mat = Material("sprites/bomb_planted_ring")
 
 function ENT:Think()
 
+	if NextThink <= CurTime() then
+		EmitSound("common/stuck1.wav",self:GetPos(),self:EntIndex(),CHAN_AUTO,1,75,0,100)
+		NextThink = CurTime() + 1
+	end
 
+end
+
+function ENT:Draw()
 	
+	self:DrawModel()
 
+	if self:GetVelocity():Length() < 1 then
+	
+		local Pos = self:GetPos() + self:OBBCenter()
+	
+		render.SetMaterial(Mat)
+		render.DrawSprite(Pos,5,5,Color(255,0,0,255))
+	end
 
-end 
+end

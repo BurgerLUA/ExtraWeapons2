@@ -50,19 +50,7 @@ SWEP.HasSideRecoil			= true
 SWEP.IsReloading = false
 SWEP.ReloadDelay = 0
 
-
-
-
-
-
-
-
-
-
-
 function SWEP:PrimaryAttack()	
-
-
 
 	if self:Clip1() == 0 then
 			self:Reload()
@@ -86,7 +74,8 @@ function SWEP:PrimaryAttack()
 		nade:SetPos(pos)
 		nade:SetAngles(EA + Angle(ConeMod01,ConeMod02,0) )
 		nade:Spawn()
-		nade:SetOwner(self.Owner)
+		nade.RealOwner = self.Owner
+		--nade:SetOwner(self.Owner)
 
 	end
 	
