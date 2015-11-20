@@ -1,4 +1,4 @@
-local DrawMaterial = "burger/ignorez"
+local DrawMaterial = "dev/glow_color"
 
 function SensorHandleDrawing(ply)
 
@@ -20,9 +20,9 @@ function SensorHandleDrawing(ply)
 	end
 	
 	if IsInSensor == true then
-		ply:SetSubMaterial(0,DrawMaterial)
+		ply:SetMaterial(DrawMaterial)
 	elseif IsInSensor == false then
-		ply:SetSubMaterial(0,nil)
+		ply:SetMaterial(nil)
 	end
 
 end
