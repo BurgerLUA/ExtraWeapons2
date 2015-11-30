@@ -27,7 +27,7 @@ function ENT:PhysicsCollide(data, physobj)
 	
 	if self.Hit then return end
 
-	if data.HitEntity:GetClass() == "worldspawn" or data.HitEntity:GetClass() == "prop_physics" or data.HitEntity:GetClass() == "prop_door_rotating" or data.HitEntity:GetClass() == "player" then 
+	if data.HitEntity:GetClass() == "worldspawn" or data.HitEntity:GetClass() == "prop_physics" or data.HitEntity:GetClass() == "player" then 
 		if data.HitEntity:GetClass() == self:GetClass() then return end
 		
 		self:SetSolid(SOLID_NONE)
@@ -122,7 +122,7 @@ end
 
 function ENT:Think()
 
-	if not self.Owner:IsValid() then self:Remove() return end
+	if not self.FakeOwner:IsValid() then self:Remove() return end
 	
 	if not self.Hit then return end
 
@@ -134,9 +134,9 @@ function ENT:Think()
 		end
 	else return end
 
-	if not self.Owner:Alive() then self:Detonate(self,self:GetPos()) return end
+	if not self.FakeOwner:Alive() then self:Detonate(self,self:GetPos()) return end
 	
-	if self.Owner:GetActiveWeapon():GetClass() == "weapon_bur_c4" and self.Owner:KeyDown( IN_ATTACK2 ) then
+	if self.FakeOwner:GetActiveWeapon():GetClass() == "weapon_bur_c4" and self.FakeOwner:KeyDown( IN_ATTACK2 ) then
 		if self.Parented == 1 then
 			self:Detonate(self,self.HitEntity:GetPos())
 		else
@@ -144,8 +144,6 @@ function ENT:Think()
 		end
 			
 	end
-	
-	
 
 end
 
@@ -155,19 +153,10 @@ function ENT:Use( activator, caller )
  
 	self:Remove()
  
-	if ( activator:IsPlayer() ) then
- 
-		// Give the collecting player some free health
-		local health = activator:Health()
-		activator:SetHealth( health + 5 )
- 
-	end
- 
 end
 
 
 function ENT:OnTakeDamage( dmginfo )
-	--print(dmginfo.attacker)
 	return dmginfo
 end
 
@@ -179,8 +168,7 @@ function ENT:Detonate(self,pos)
 		effectdata:SetOrigin( pos )
 		effectdata:SetScale( 1 )
 	util.Effect( "Explosion", effectdata )	
-	--print(pos)
-	util.BlastDamage(self, self.Owner, pos, 250, 100)
+	util.BlastDamage(self, self.FakeOwner, pos, 250, 100)
 	
 	if table.Count(ents.FindInSphere(self:GetPos(),250)) > 0 then
 		for k,v in pairs(ents.FindInSphere(self:GetPos(),250)) do

@@ -18,9 +18,4 @@ end
 
 function ENT:Draw()	
 	self:DrawModel()
-	if self:GetVelocity():Length() < 1 then
-		local Pos = self:GetPos() + self:OBBCenter()
-		render.SetMaterial(Mat)
-		render.DrawSprite(Pos,5,5,Color(255,0,0,255))
-	end
 end

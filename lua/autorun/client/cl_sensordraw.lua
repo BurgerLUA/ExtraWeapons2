@@ -1,4 +1,4 @@
-local DrawMaterial = "dev/glow_color"
+local Mat = Material("sprites/bomb_planted_ring")
 
 function SensorHandleDrawing(ply)
 
@@ -20,9 +20,9 @@ function SensorHandleDrawing(ply)
 	end
 	
 	if IsInSensor == true then
-		ply:SetMaterial(DrawMaterial)
-	elseif IsInSensor == false then
-		ply:SetMaterial(nil)
+		local Pos = ply:GetPos() + (ply:OBBCenter()*1.2)
+		render.SetMaterial(Mat)
+		render.DrawSprite(Pos,((ply:OBBMaxs().x + ply:OBBMaxs().y) / 2)*1.2,ply:OBBMaxs().z*1.2, Color(255,0,0,255))
 	end
 
 end

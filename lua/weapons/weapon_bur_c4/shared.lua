@@ -48,35 +48,30 @@ function SWEP:PrimaryAttack()
 	end
 	
 	if Count > 5 then return end
-	
-	
-	
+
 	self:SendWeaponAnim( ACT_SLAM_THROW_THROW )
 		
 	self:TakePrimaryAmmo(1)
-	
 
 	timer.Simple(0.5,function() 
-	if self  == nil then return end
-	if self:IsValid() == false then return end
-	if self.Owner == nil then return end
-	if self.Owner:IsValid() == false then return end
-	if self.Owner:Alive() == false then return end
+		if self  == nil then return end
+		if self:IsValid() == false then return end
+		if self.Owner == nil then return end
+		if self.Owner:IsValid() == false then return end
+		if self.Owner:Alive() == false then return end
 
-	self:SendWeaponAnim( ACT_SLAM_DETONATOR_DRAW )
-	local ent = ents.Create( "ent_bur_slam" )
-	
-		EA =  self.Owner:EyeAngles()
-		pos = self.Owner:GetShootPos()
-		pos = pos + EA:Right() * 5 - EA:Up() * 4 + EA:Forward() * 8
-					
-		ent:SetPos(pos)
-		ent:SetAngles(EA + Angle(-90,0,0))
-		ent:Spawn()
-		ent:Activate()
-		ent:SetOwner(self.Owner)
-		ent:GetPhysicsObject():SetVelocity(self.Owner:GetVelocity() + EA:Forward() * 500 + EA:Up()*100)
-		
+		self:SendWeaponAnim( ACT_SLAM_DETONATOR_DRAW )
+		local ent = ents.Create( "ent_bur_slam" )
+			EA =  self.Owner:EyeAngles()
+			pos = self.Owner:GetShootPos()
+			pos = pos + EA:Right() * 5 - EA:Up() * 4 + EA:Forward() * 8
+						
+			ent:SetPos(pos)
+			ent:SetAngles(EA + Angle(-90,0,0))
+			ent:Spawn()
+			ent:Activate()
+			ent.FakeOwner = self.Owner
+			ent:GetPhysicsObject():SetVelocity(self.Owner:GetVelocity() + EA:Forward() * 500 + EA:Up()*100)
 	end)
 
 end
