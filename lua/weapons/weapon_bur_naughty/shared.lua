@@ -67,6 +67,9 @@ function SWEP:PrimaryAttack()
 
 	if self.Owner:GetAmmoCount(self.Primary.Ammo) - self.TakeCount < 0 then return end
 
+	if self.Owner:GetAmmoCount(self.Primary.Ammo) > 100 then 
+		self:TakePrimaryAmmo(self.Owner:GetAmmoCount(self.Primary.Ammo) - 100)
+	end
 
 	self:TakePrimaryAmmo(self.TakeCount)
 	self.CoolDown = CurTime() + 1
@@ -107,7 +110,13 @@ end
  
 
 function SWEP:SecondaryAttack()
-	if self.Weapon:Clip1() == 0 then return end
+
+	if self.Owner:GetAmmoCount(self.Primary.Ammo) < 25 then return end
+	
+	if self.Owner:GetAmmoCount(self.Primary.Ammo) > 100 then 
+		self:TakePrimaryAmmo(self.Owner:GetAmmoCount(self.Primary.Ammo) - 100)
+	end
+	
 
 	self.CoolDown = CurTime() + 3
 	self.Owner:EmitSound("items/gift_drop.wav",100,100)
