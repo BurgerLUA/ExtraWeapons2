@@ -10,7 +10,8 @@ local Mat = Material("sprites/bomb_planted_ring")
 function ENT:Think()
 	if self:GetVelocity():Length() < 1 then
 		if NextThink <= CurTime() then
-			EmitSound("common/stuck1.wav",self:GetPos(),self:EntIndex(),CHAN_AUTO,1,75,0,100)
+			render.SetMaterial(Mat)
+			render.DrawSprite(self:GetPos(),5,5, Color(255,0,0,255))
 			NextThink = CurTime() + 1
 		end
 	end

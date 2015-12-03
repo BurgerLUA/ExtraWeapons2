@@ -26,7 +26,7 @@ SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/ar2/npc_ar2_altfire.wav")
 SWEP.Primary.Cone			= 0.01
 SWEP.Primary.ClipSize		= 1
-SWEP.Primary.SpareClip		= 3
+SWEP.Primary.SpareClip		= 2
 SWEP.Primary.Delay			= 1
 SWEP.Primary.Ammo			= "SMG1_Grenade"
 SWEP.Primary.Automatic 		= false
@@ -97,11 +97,8 @@ function SWEP:Reload()
 	end
 	if self.ReloadDelay > CurTime() then return end
 	
-	self.ReloadDelay=CurTime() + 4
+	self.ReloadDelay=CurTime() + 1
 	self.Weapon:EmitSound("weapons/357/357_reload1.wav",100,100)
-
-	timer.Simple(1.5,function() self.Weapon:EmitSound("weapons/357/357_reload3.wav",100,100) end)
-	timer.Simple(3,function() self.Weapon:EmitSound("weapons/357/357_reload4.wav",100,100) end)
 
 end
 

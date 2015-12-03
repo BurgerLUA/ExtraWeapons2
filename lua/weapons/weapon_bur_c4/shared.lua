@@ -36,6 +36,8 @@ function SWEP:PrimaryAttack()
 	
 	
 	if ( CLIENT ) then return end
+	
+	
 	self.Weapon:SetNextPrimaryFire( CurTime() + 0.75 )	
 	
 	if self.Owner:GetAmmoCount(self.Primary.Ammo) <= 0 then return end
@@ -44,7 +46,7 @@ function SWEP:PrimaryAttack()
 	local Count = 0
 	
 	for k, v in pairs(ents.FindByClass("ent_bur_slam")) do
-		if v:GetOwner() == self.Owner then Count = Count + 1 end
+		if v.FakeOwner == self.Owner then Count = Count + 1 end
 	end
 	
 	if Count > 5 then return end

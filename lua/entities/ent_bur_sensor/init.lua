@@ -101,3 +101,13 @@ function ENT:OnTakeDamage(dmginfo)
 	SafeRemoveEntity(self)
 end
 
+local NextThink = 0
+
+function ENT:Think()
+	if NextThink <= CurTime() then
+		if self.RealOwner:Alive() == false
+			SafeRemoveEntity(self)
+		end
+		NextThink = CurTime() + 0.25
+	end
+end
