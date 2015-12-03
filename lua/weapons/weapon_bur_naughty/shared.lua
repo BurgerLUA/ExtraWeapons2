@@ -12,7 +12,7 @@ SWEP.AutoSwitchFrom		= false
 SWEP.Category = "Burger's Weapons"
 
 SWEP.Slot				= 1
-SWEP.SlotPos			= 0
+SWEP.SlotPos			= 1
 SWEP.DrawAmmo			= true
 SWEP.DrawCrosshair		= true
 
@@ -44,7 +44,7 @@ function SWEP:Initialize()
 	self.ToggleSound = 1
 	self.ClickSound = 1
 	self.ReloadingTime = 0
-	self.CoolDown = CurTime() + 5
+	self.CoolDown = CurTime() + 1
 end
 
 function SWEP:Deploy()
@@ -52,7 +52,7 @@ function SWEP:Deploy()
 	self.ToggleSound = 1
 	self.ClickSound = 1
 	self.ReloadingTime = 0
-	self.CoolDown = CurTime() + 5
+	self.CoolDown = CurTime() + 1
 	return true
 end
 
