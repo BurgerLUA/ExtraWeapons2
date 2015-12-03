@@ -105,7 +105,7 @@ local NextThink = 0
 
 function ENT:Think()
 	if NextThink <= CurTime() then
-		if self.RealOwner:Alive() == false
+		if self.RealOwner:Alive() == false then
 			SafeRemoveEntity(self)
 		end
 		NextThink = CurTime() + 0.25
