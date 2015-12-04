@@ -19,7 +19,7 @@ function SensorHandleDrawing(ply)
 	if IsInSensor == true then
 		local Pos = ply:GetPos() + (ply:OBBCenter()*1.2)
 		render.SetMaterial(Mat)
-		render.DrawSprite(Pos,((ply:OBBMaxs().x + ply:OBBMaxs().y) / 2)*1.2,ply:OBBMaxs().z*1.2, Color(255,0,0,255))
+		render.DrawSprite(Pos,ply:OBBMaxs().z*1.2,ply:OBBMaxs().z*1.2, Color(255,0,0,25))
 	end
 
 end

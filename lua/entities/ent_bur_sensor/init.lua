@@ -18,8 +18,6 @@ function ENT:Initialize()
 		phys:AddGameFlag(FVPHYSICS_NO_IMPACT_DMG)
 		phys:AddGameFlag(FVPHYSICS_NO_NPC_IMPACT_DMG)
 		phys:AddGameFlag(FVPHYSICS_PENETRATING)
-		--phys:EnableDrag(false)
-		--phys:EnableGravity(false)
 		phys:SetVelocity(self:GetForward() * 9000 * phys:GetMass())
 	end
 	
