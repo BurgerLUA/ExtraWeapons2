@@ -14,7 +14,7 @@ SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
 
 SWEP.Slot					= 4
-SWEP.SlotPos				= 1
+SWEP.SlotPos				= 2
 
 SWEP.ViewModel			= "models/weapons/c_shotgun.mdl"
 SWEP.WorldModel			= "models/weapons/w_shotgun.mdl"

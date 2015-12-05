@@ -19,7 +19,7 @@ SWEP.Slot				= 0
 SWEP.SlotPos			= 1
 
 SWEP.Primary.ClipSize		= 100
-SWEP.Primary.DefaultClip	= 100
+SWEP.Primary.DefaultClip	= 50
 SWEP.Primary.Automatic		= true
 SWEP.Primary.Ammo			= "none"
 
@@ -28,8 +28,8 @@ SWEP.Secondary.DefaultClip	= -1
 SWEP.Secondary.Automatic	= true
 SWEP.Secondary.Ammo			= "none"
 
-SWEP.HealAmount = 10 -- Maximum heal amount per use
-SWEP.MaxAmmo = 50 -- Maxumum ammo
+SWEP.HealAmount = 5 -- Maximum heal amount per use
+SWEP.MaxAmmo = 100 -- Maxumum ammo
 
 local HealSound = Sound( "items/smallmedkit1.wav" )
 local DenySound = Sound( "items/medshotno1.wav" )

@@ -11,7 +11,7 @@ function SensorHandleDrawing(ply)
 		local Distance = ply:GetPos():Distance(v:GetPos())
 		local EntSpeed = v:GetVelocity():Length()
 		local PlySpeed = ply:GetVelocity():Length()
-		if Distance <= 256 and EntSpeed < 1 and PlySpeed > 1 then
+		if Distance <= 200 and EntSpeed < 1 and PlySpeed > 1 then
 			IsInSensor = true
 		end
 	end
@@ -19,7 +19,7 @@ function SensorHandleDrawing(ply)
 	if IsInSensor == true then
 		local Pos = ply:GetPos() + (ply:OBBCenter()*1.2)
 		render.SetMaterial(Mat)
-		render.DrawSprite(Pos,ply:OBBMaxs().z*1.2,ply:OBBMaxs().z*1.2, Color(255,0,0,25))
+		render.DrawSprite(Pos,ply:OBBMaxs().z*1.2,ply:OBBMaxs().z*1.2, Color(255,0,0,255))
 	end
 
 end

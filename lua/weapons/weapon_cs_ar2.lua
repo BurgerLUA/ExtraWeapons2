@@ -1,0 +1,43 @@
+if CLIENT then
+	killicon.AddFont( "weapon_cs_sig552", "csd", "A", Color( 255, 80, 0, 255 ) )
+	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/sg552")
+end
+
+SWEP.Category				= "HL2 to CSS"
+SWEP.PrintName				= "PULSE OSIPR"
+SWEP.Base					= "weapon_cs_base"
+SWEP.WeaponType				= "Primary"
+
+SWEP.Spawnable				= true
+SWEP.AdminOnly				= false
+
+SWEP.Slot					= 3
+SWEP.SlotPos				= 1
+
+SWEP.ViewModel 				= "models/weapons/c_irifle.mdl"
+SWEP.WorldModel				= "models/weapons/w_irifle.mdl"
+SWEP.VModelFlip 			= false
+SWEP.HoldType				= "ar2"
+
+SWEP.Primary.Damage			= 20
+SWEP.Primary.NumShots		= 1
+SWEP.Primary.Sound			= Sound("weapons/ar2/fire1.wav")
+SWEP.Primary.Cone			= .01
+SWEP.Primary.ClipSize		= 30
+SWEP.Primary.SpareClip		= 90
+SWEP.Primary.Delay			= 1/(666/60)
+SWEP.Primary.Ammo			= "AirboatGun"
+SWEP.Primary.Automatic 		= true
+
+SWEP.RecoilMul				= 0.75
+SWEP.HasScope 				= true
+SWEP.ZoomAmount 			= 4
+SWEP.HasCrosshair 			= true
+SWEP.HasCSSZoom 			= true
+
+SWEP.HasPumpAction 			= false
+SWEP.HasBoltAction 			= false
+SWEP.HasBurstFire 			= false
+SWEP.HasSilencer 			= false
+SWEP.HasDoubleZoom			= false
+SWEP.HasSideRecoil			= true
