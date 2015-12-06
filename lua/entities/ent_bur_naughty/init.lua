@@ -109,7 +109,8 @@ function ENT:PhysicsCollide(data, physobj)
 				data.HitEntity:TakeDamage( Damage, self.Owner, self.Entity )
 			end
 		end
-
+		
+		--[[
 		local Pent = ents.Create( "ent_bur_naughty" )
 		Pent:SetPos(self.HitP + self.HitN*10)
 		Pent:SetAngles(data.HitNormal:Angle() + Angle(180,0,0))
@@ -117,6 +118,7 @@ function ENT:PhysicsCollide(data, physobj)
 		Pent:Activate()
 		Pent:SetOwner(self.Owner)
 		Pent:GetPhysicsObject():SetVelocity(data.OurOldVelocity)
+		--]]
 
 	end	
 	
