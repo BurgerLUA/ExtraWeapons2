@@ -1,5 +1,5 @@
 if CLIENT then
-	killicon.AddFont( "weapon_cs_mp5", "csd", "x", Color( 255, 80, 0, 255 ) )
+	killicon.AddFont( "weapon_cs_smg",		"HL2MPTypeDeath",	"/",	Color( 255, 80, 0, 255 ) )
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/mp5")
 end
 
@@ -19,18 +19,27 @@ SWEP.WorldModel				= "models/weapons/w_smg1.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "smg"
 
-SWEP.Primary.Damage			= 13
+SWEP.Primary.Damage			= 4 * 3
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/smg1/smg1_fire1.wav")
-SWEP.Primary.Cone			= .008
+SWEP.Primary.Cone			= .02
 SWEP.Primary.ClipSize		= 45
 SWEP.Primary.SpareClip		= 120
 SWEP.Primary.Delay			= 1/(750/60)
 SWEP.Primary.Ammo			= "smg1"
 SWEP.Primary.Automatic 		= true
 SWEP.ReloadSound			= Sound("weapons/smg1/smg1_reload.wav")
+SWEP.BurstSound				= Sound("weapons/smg1/smg1_fireburst1.wav")
 
-SWEP.RecoilMul				= 1
+SWEP.Secondary.Sound 		= Sound("weapons/ar2/ar2_altfire.wav")
+SWEP.Secondary.Ammo 		= "SMG1_Grenade"
+SWEP.Secondary.ClipSize 	= -1
+SWEP.Secondary.DefaultClip 	= 1
+SWEP.Secondary.Automatic	= false
+
+SWEP.RecoilMul				= 6
+SWEP.VelConeMul				= 1
+
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 1
 SWEP.HasCrosshair 			= true
@@ -42,3 +51,19 @@ SWEP.HasBurstFire 			= false
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
+SWEP.Object					= "grenade_ar2"
+
+
+function SWEP:SecondaryAttack()
+	
+	if self.Owner:GetAmmoCount(self.Secondary.Ammo) > 0 then
+		self.Owner:SetAnimation(PLAYER_ATTACK1)
+		self:SendWeaponAnim(ACT_VM_SECONDARYATTACK)
+		self:ThrowObject(self.Object,1000)
+		self:EmitGunSound(self.Secondary.Sound)
+		self:TakeSecondaryAmmo(1)
+	end
+	
+	self:SetNextSecondaryFire(CurTime() + 1)
+	
+end

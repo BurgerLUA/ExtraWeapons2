@@ -1,5 +1,5 @@
 if CLIENT then
-	killicon.AddFont( "weapon_cs_sig552", "csd", "A", Color( 255, 80, 0, 255 ) )
+	killicon.AddFont( "weapon_cs_ar2",			"HL2MPTypeDeath",	"2",	Color( 255, 80, 0, 255 ) )
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/sg552")
 end
 
@@ -22,7 +22,7 @@ SWEP.WorldModel				= "models/weapons/w_irifle.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 
-SWEP.Primary.Damage			= 20
+SWEP.Primary.Damage			= 8 * 3
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/ar2/fire1.wav")
 SWEP.Primary.Cone			= .01
@@ -32,7 +32,7 @@ SWEP.Primary.Delay			= 1/(666/60)
 SWEP.Primary.Ammo			= "AirboatGun"
 SWEP.Primary.Automatic 		= true
 
-SWEP.RecoilMul				= 1
+SWEP.RecoilMul				= 4
 SWEP.VelConeMul				= 1.5
 
 SWEP.HasScope 				= true

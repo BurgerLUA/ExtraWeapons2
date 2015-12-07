@@ -28,7 +28,7 @@ SWEP.Primary.Cone			= 0.01
 SWEP.Primary.ClipSize		= 1
 SWEP.Primary.SpareClip		= 2
 SWEP.Primary.Delay			= 1
-SWEP.Primary.Ammo			= "SMG1_Grenade"
+SWEP.Primary.Ammo			= "none"
 SWEP.Primary.Automatic 		= false
 
 SWEP.RecoilMul				= 1

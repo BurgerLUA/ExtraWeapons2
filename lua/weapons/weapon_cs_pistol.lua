@@ -1,10 +1,10 @@
 if CLIENT then
-	killicon.AddFont( "weapon_cs_usp", "csd", "y", Color( 255, 80, 0, 255 ) )
+	killicon.AddFont( "weapon_cs_pistol",		"HL2MPTypeDeath",	"-",	Color( 255, 80, 0, 255 ) )
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/usp45")
 end
 
 SWEP.Category				= "HL2 to CSS"
-SWEP.PrintName				= ".40S&W USP MATCH"
+SWEP.PrintName				= "9MM USP MATCH"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Secondary"
 
@@ -19,18 +19,18 @@ SWEP.WorldModel				= "models/weapons/w_pistol.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "revolver"
 
-SWEP.Primary.Damage			= 32
+SWEP.Primary.Damage			= 5 * 3
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/pistol/pistol_fire2.wav")
-SWEP.Primary.Cone			= .01
-SWEP.Primary.ClipSize		= 12
-SWEP.Primary.SpareClip		= 100
+SWEP.Primary.Cone			= .005
+SWEP.Primary.ClipSize		= 18
+SWEP.Primary.SpareClip		= 150
 SWEP.Primary.Delay			= 1/(400/60)
 SWEP.Primary.Ammo			= "Battery"
 SWEP.Primary.Automatic 		= false
 SWEP.ReloadSound			= Sound("weapons/pistol/pistol_reload1.wav")
 
-SWEP.RecoilMul				= 0.5
+SWEP.RecoilMul				= 1
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 1
 SWEP.HasCrosshair 			= true

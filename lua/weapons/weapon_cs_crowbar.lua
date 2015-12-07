@@ -1,5 +1,5 @@
 if CLIENT then
-	killicon.AddFont( "weapon_cs_knife", "csd", "j", Color( 255, 80, 0, 255 ) )
+	killicon.AddFont( "weapon_cs_crowbar",		"HL2MPTypeDeath",	"6",	Color( 255, 80, 0, 255 ) )
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/achievements/pistol_round_knife_kill")
 end
 
@@ -22,7 +22,7 @@ SWEP.WorldModel				= "models/weapons/w_crowbar.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "melee"
 
-SWEP.Primary.Damage			= 10
+SWEP.Primary.Damage			= 25
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= -1
@@ -30,7 +30,7 @@ SWEP.Primary.Delay			= 0.5
 SWEP.Primary.Ammo			= "none"
 SWEP.Primary.Automatic 		= true 
 
-SWEP.Secondary.Damage		= 65
+SWEP.Secondary.Damage		= 50
 SWEP.Secondary.NumShots		= 1
 SWEP.Secondary.ClipSize		= -1
 SWEP.Secondary.SpareClip	= -1
