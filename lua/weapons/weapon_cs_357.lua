@@ -18,7 +18,7 @@ SWEP.AdminOnly				= false
 SWEP.Slot					= 1
 SWEP.SlotPos				= 1
 
-SWEP.ViewModel 				= "models/weapons/c_357.mdl"
+SWEP.ViewModel 				= "models/weapons/v_shot_mag7.mdl"
 SWEP.WorldModel				= "models/weapons/w_357.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "revolver"
@@ -26,7 +26,7 @@ SWEP.HoldType				= "revolver"
 SWEP.Primary.Damage			= 75
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/357/357_fire2.wav")
-SWEP.Primary.Cone			= 0
+SWEP.Primary.Cone			= 0.05
 SWEP.Primary.ClipSize		= 6
 SWEP.Primary.SpareClip		= 36
 SWEP.Primary.Delay			= 1/(80/60)

@@ -27,7 +27,7 @@ function ENT:PhysicsCollide(data, physobj)
 	
 	if self.Hit then return end
 
-	if data.HitEntity:GetClass() == "worldspawn" or data.HitEntity:GetClass() == "prop_physics" or data.HitEntity:GetClass() == "player" then 
+	if data.HitEntity:GetClass() == "worldspawn" or data.HitEntity:GetPhysicsObject():IsValid() or data.HitEntity:GetClass() == "player" then 
 		if data.HitEntity:GetClass() == self:GetClass() then return end
 		
 		self:SetSolid(SOLID_NONE)
@@ -46,7 +46,7 @@ function ENT:PhysicsCollide(data, physobj)
 		if data.HitEntity:GetClass() == "worldspawn" then
 			physobj:SetPos(self.HitP-self.HitN*2)
 	
-		elseif data.HitEntity:GetClass() == "prop_physics" or data.HitEntity:GetClass() == "prop_door_rotating" then
+		elseif data.HitEntity:GetClass() == "prop_physics" then
 			physobj:SetPos(self.HitP-self.HitN*2)
 			
 
@@ -71,11 +71,12 @@ function ENT:PhysicsCollide(data, physobj)
 			end)
 			
 	
-		elseif data.HitEntity:GetClass() == "player" and self.EnableHitPlayers == 1 then
+		else
 			physobj:SetPos(self.HitP+self.HitN*6)
 			
 			timer.Simple(0.1,function()
 				if data.HitEntity:IsValid() == false then return end
+				self:SetPos(data.HitPos)
 				self:SetParent(data.HitEntity)
 				self.Parented = 1
 				self.HitEntity = data.HitEntity
@@ -85,13 +86,13 @@ function ENT:PhysicsCollide(data, physobj)
 			timer.Create("CheckValid"..self:EntIndex(), 0, 0, function()
 				if data.HitEntity == nil then
 					timer.Destroy("CheckValid"..self:EntIndex()) 
-				return 
+					return 
 				
 				elseif data.HitEntity:IsValid() == false then
 					timer.Destroy("CheckValid"..self:EntIndex()) 
-				return
+					return
 				
-				elseif not data.HitEntity:Alive() then
+				elseif data.HitEntity:IsPlayer() and not data.HitEntity:Alive() then
 					if self:IsValid() then
 						self:Detonate(self,self.HitEntity:GetPos())
 						timer.Destroy("CheckValid"..self:EntIndex()) 

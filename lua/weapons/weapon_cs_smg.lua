@@ -37,7 +37,7 @@ SWEP.Secondary.ClipSize 	= -1
 SWEP.Secondary.DefaultClip 	= 1
 SWEP.Secondary.Automatic	= false
 
-SWEP.RecoilMul				= 6
+SWEP.RecoilMul				= 1
 SWEP.VelConeMul				= 1
 
 SWEP.HasScope 				= false

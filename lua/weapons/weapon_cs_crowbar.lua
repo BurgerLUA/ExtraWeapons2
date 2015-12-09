@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "HL2 to CSS"
-SWEP.PrintName				= "UTILITY CROWBAR"
+SWEP.PrintName				= "CROWBAR"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Free"
 

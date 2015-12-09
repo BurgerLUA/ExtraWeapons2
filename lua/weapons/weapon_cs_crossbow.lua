@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "HL2 to CSS"
-SWEP.PrintName				= "PULSE OSIPR"
+SWEP.PrintName				= "CROSSBOW"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
@@ -17,26 +17,26 @@ SWEP.AdminOnly				= false
 SWEP.Slot					= 3
 SWEP.SlotPos				= 1
 
-SWEP.ViewModel 				= "models/weapons/c_irifle.mdl"
-SWEP.WorldModel				= "models/weapons/w_irifle.mdl"
+SWEP.ViewModel 				= "models/weapons/v_crossbow.mdl"
+SWEP.WorldModel				= "models/weapons/w_crossbow.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 
-SWEP.Primary.Damage			= 8 * 3
+SWEP.Primary.Damage			= 150
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/ar2/fire1.wav")
-SWEP.Primary.Cone			= .01
-SWEP.Primary.ClipSize		= 30
-SWEP.Primary.SpareClip		= 90
-SWEP.Primary.Delay			= 1/(666/60)
+SWEP.Primary.Cone			= 0
+SWEP.Primary.ClipSize		= -1
+SWEP.Primary.SpareClip		= 6
+SWEP.Primary.Delay			= 1/(30/60)
 SWEP.Primary.Ammo			= "AirboatGun"
-SWEP.Primary.Automatic 		= true
+SWEP.Primary.Automatic 		= false
 
-SWEP.RecoilMul				= 1
-SWEP.VelConeMul				= 1.5
+SWEP.RecoilMul				= 0
+SWEP.VelConeMul				= 0
 
 SWEP.HasScope 				= true
-SWEP.ZoomAmount 			= 4
+SWEP.ZoomAmount 			= 8
 SWEP.HasCrosshair 			= true
 SWEP.HasCSSZoom 			= true
 
@@ -45,4 +45,9 @@ SWEP.HasBoltAction 			= false
 SWEP.HasBurstFire 			= false
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
-SWEP.HasSideRecoil			= true
+SWEP.HasSideRecoil			= false
+
+function SWEP:ShootBullet(Damage,Shots,Cone,Source,Direction,Source)
+	self:ThrowObject("ent_cs_bolt",10000)
+	self:SendWeaponAnim(ACT_VM_RELOAD)
+end
