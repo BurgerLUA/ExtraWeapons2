@@ -53,7 +53,6 @@ SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
 SWEP.Object					= "grenade_ar2"
 
-
 function SWEP:SecondaryAttack()
 	
 	if self.Owner:GetAmmoCount(self.Secondary.Ammo) > 0 then

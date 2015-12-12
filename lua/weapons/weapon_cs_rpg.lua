@@ -47,6 +47,13 @@ SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= false
 
+SWEP.HasIronSights 			= false
+SWEP.EnableIronCross		= false
+SWEP.HasGoodSights			= false
+SWEP.IronSightTime			= 0
+SWEP.IronSightsPos 			= Vector(0, 0, 0)
+SWEP.IronSightsAng 			= Vector(0, 0, 0)
+
 function SWEP:ShootBullet(Damage,Shots,Cone,Source,Direction,Source)
 	self:ThrowObject("ent_cs_rocket",10000)
 	self:SendWeaponAnim(ACT_VM_RELOAD)
