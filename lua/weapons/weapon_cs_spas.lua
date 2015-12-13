@@ -19,8 +19,9 @@ SWEP.WorldModel				= "models/weapons/w_shotgun.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "shotgun"
 
-SWEP.Primary.Damage			= 100/8
-SWEP.Primary.NumShots		= 8
+SWEP.Primary.Damage			= 100/32
+SWEP.Primary.Range			= 512
+SWEP.Primary.NumShots		= 32
 SWEP.Primary.Sound			= Sound("weapons/shotgun/shotgun_fire7.wav")
 SWEP.Primary.Cone			= 0.09
 SWEP.Primary.ClipSize		= 6
@@ -47,3 +48,12 @@ SWEP.HasBurstFire 			= true
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= false
+SWEP.BurstOverride			= 2
+SWEP.BurstSpeedOverride 	= 0
+
+SWEP.HasIronSights 			= true
+SWEP.EnableIronCross		= true
+SWEP.HasGoodSights			= true
+SWEP.IronSightTime			= 0.25
+SWEP.IronSightsPos 			= Vector(-6.3, 0, 1)
+SWEP.IronSightsAng 			= Vector(0, 0, 0)

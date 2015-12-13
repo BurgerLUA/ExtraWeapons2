@@ -19,10 +19,10 @@ SWEP.WorldModel				= "models/weapons/w_smg1.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "smg"
 
-SWEP.Primary.Damage			= 4 * 3
+SWEP.Primary.Damage			= 4 * 2
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/smg1/smg1_fire1.wav")
-SWEP.Primary.Cone			= .02
+SWEP.Primary.Cone			= .025
 SWEP.Primary.ClipSize		= 45
 SWEP.Primary.SpareClip		= 120
 SWEP.Primary.Delay			= 1/(750/60)
@@ -47,12 +47,22 @@ SWEP.HasCSSZoom 			= false
 
 SWEP.HasPumpAction 			= false
 SWEP.HasBoltAction 			= false
-SWEP.HasBurstFire 			= false
+SWEP.HasBurstFire 			= true
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
 SWEP.Object					= "grenade_ar2"
 
+SWEP.HasIronSights 			= true
+SWEP.EnableIronCross		= true
+SWEP.HasGoodSights			= true
+SWEP.IronSightTime			= 0.25
+SWEP.IronSightsPos 			= Vector(-6.43, 0, 0)
+SWEP.IronSightsAng 			= Vector(0, 0, 0)
+
+
+
+--[[
 function SWEP:SecondaryAttack()
 	
 	if self.Owner:GetAmmoCount(self.Secondary.Ammo) > 0 then
@@ -66,3 +76,4 @@ function SWEP:SecondaryAttack()
 	self:SetNextSecondaryFire(CurTime() + 1)
 	
 end
+--]]

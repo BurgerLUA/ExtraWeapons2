@@ -29,11 +29,11 @@ SWEP.Primary.Sound			= Sound("weapons/357/357_fire2.wav")
 SWEP.Primary.Cone			= 0.05
 SWEP.Primary.ClipSize		= 6
 SWEP.Primary.SpareClip		= 36
-SWEP.Primary.Delay			= 1/(80/60)
+SWEP.Primary.Delay			= 1/(160/60)
 SWEP.Primary.Ammo			= "357"
 SWEP.Primary.Automatic 		= false
 
-SWEP.RecoilMul 				= 10
+SWEP.RecoilMul 				= 2
 SWEP.VelConeMul				= 2
 
 SWEP.HasScope 				= false
@@ -43,10 +43,11 @@ SWEP.HasCSSZoom 			= false
 
 SWEP.HasPumpAction 			= false
 SWEP.HasBoltAction 			= false
-SWEP.HasBurstFire 			= false
+SWEP.HasBurstFire 			= true
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
+SWEP.BurstOverride			= 6
 
 SWEP.HasIronSights 			= true
 SWEP.EnableIronCross		= true
