@@ -27,12 +27,12 @@ SWEP.Primary.ClipSize		= 18
 SWEP.Primary.SpareClip		= 150
 SWEP.Primary.Delay			= 1/(400/60)
 SWEP.Primary.Ammo			= "Battery"
-SWEP.Primary.Automatic 		= false
+SWEP.Primary.Automatic 		= true
 SWEP.ReloadSound			= Sound("weapons/pistol/pistol_reload1.wav")
 
 SWEP.RecoilMul				= 1
 SWEP.HasScope 				= false
-SWEP.ZoomAmount 			= 1
+SWEP.ZoomAmount 			= 0.5
 SWEP.HasCrosshair 			= true
 SWEP.HasCSSZoom 			= false
 

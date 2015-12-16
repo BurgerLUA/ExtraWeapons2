@@ -41,7 +41,7 @@ SWEP.RecoilMul				= 1
 SWEP.VelConeMul				= 1
 
 SWEP.HasScope 				= false
-SWEP.ZoomAmount 			= 1
+SWEP.ZoomAmount 			= 0.25
 SWEP.HasCrosshair 			= true
 SWEP.HasCSSZoom 			= false
 

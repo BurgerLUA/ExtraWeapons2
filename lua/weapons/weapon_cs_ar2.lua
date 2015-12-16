@@ -36,16 +36,18 @@ SWEP.RecoilMul				= 1
 SWEP.VelConeMul				= 1.5
 
 SWEP.HasScope 				= true
-SWEP.ZoomAmount 			= 4
+SWEP.ZoomAmount 			= 3
 SWEP.HasCrosshair 			= true
 SWEP.HasCSSZoom 			= true
 
 SWEP.HasPumpAction 			= false
 SWEP.HasBoltAction 			= false
-SWEP.HasBurstFire 			= false
+SWEP.HasBurstFire 			= true
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
+SWEP.BurstOverride			= 30
+SWEP.BurstSpeedOverride 	= 0.5
 
 SWEP.HasIronSights 			= false
 SWEP.EnableIronCross		= false
