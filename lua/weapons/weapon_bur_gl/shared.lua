@@ -28,7 +28,7 @@ SWEP.Primary.Cone			= 0.01
 SWEP.Primary.ClipSize		= 1
 SWEP.Primary.SpareClip		= 2
 SWEP.Primary.Delay			= 1
-SWEP.Primary.Ammo			= "none"
+SWEP.Primary.Ammo			= "Thumper"
 SWEP.Primary.Automatic 		= false
 
 SWEP.RecoilMul				= 1

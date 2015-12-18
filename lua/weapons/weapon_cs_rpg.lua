@@ -29,7 +29,7 @@ SWEP.Primary.Cone			= .0025
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 1
 SWEP.Primary.Delay			= 1/(30/60)
-SWEP.Primary.Ammo			= "AirboatGun"
+SWEP.Primary.Ammo			= "RPG_Round"
 SWEP.Primary.Automatic 		= true
 
 SWEP.RecoilMul				= 1
@@ -50,7 +50,7 @@ SWEP.HasSideRecoil			= false
 SWEP.HasIronSights 			= false
 SWEP.EnableIronCross		= false
 SWEP.HasGoodSights			= false
-SWEP.IronSightTime			= 0
+SWEP.IronSightTime			= 0.5
 SWEP.IronSightsPos 			= Vector(0, 0, 0)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
