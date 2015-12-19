@@ -22,7 +22,7 @@ SWEP.HoldType				= "smg"
 SWEP.Primary.Damage			= 4 * 2
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/smg1/smg1_fire1.wav")
-SWEP.Primary.Cone			= .025
+SWEP.Primary.Cone			= .0125
 SWEP.Primary.ClipSize		= 45
 SWEP.Primary.SpareClip		= 120
 SWEP.Primary.Delay			= 1/(750/60)
@@ -37,7 +37,7 @@ SWEP.Secondary.ClipSize 	= -1
 SWEP.Secondary.DefaultClip 	= 1
 SWEP.Secondary.Automatic	= false
 
-SWEP.RecoilMul				= 1
+SWEP.RecoilMul				= 5
 SWEP.VelConeMul				= 1
 
 SWEP.HasScope 				= false
