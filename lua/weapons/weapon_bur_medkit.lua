@@ -1,4 +1,3 @@
-
 AddCSLuaFile()
 
 SWEP.PrintName			= "Modified Medkit"
