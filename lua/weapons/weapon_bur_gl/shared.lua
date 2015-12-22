@@ -27,7 +27,7 @@ SWEP.Primary.Sound			= Sound("weapons/ar2/npc_ar2_altfire.wav")
 SWEP.Primary.Cone			= 0.01
 SWEP.Primary.ClipSize		= 1
 SWEP.Primary.SpareClip		= 2
-SWEP.Primary.Delay			= 1
+SWEP.Primary.Delay			= 2
 SWEP.Primary.Ammo			= "Thumper"
 SWEP.Primary.Automatic 		= false
 

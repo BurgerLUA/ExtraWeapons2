@@ -20,19 +20,19 @@ SWEP.SlotPos				= 1
 SWEP.ViewModel 				= "models/weapons/v_crossbow.mdl"
 SWEP.WorldModel				= "models/weapons/w_crossbow.mdl"
 SWEP.VModelFlip 			= false
-SWEP.HoldType				= "ar2"
+SWEP.HoldType				= "crossbow"
 
-SWEP.Primary.Damage			= 150
+SWEP.Primary.Damage			= 100
 SWEP.Primary.NumShots		= 1
-SWEP.Primary.Sound			= Sound("weapons/ar2/fire1.wav")
+SWEP.Primary.Sound			= Sound("weapons/crossbow/xbow_fire1.wav")
 SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 6
 SWEP.Primary.Delay			= 1/(30/60)
-SWEP.Primary.Ammo			= "AirboatGun"
+SWEP.Primary.Ammo			= "XBowBolt"
 SWEP.Primary.Automatic 		= false
 
-SWEP.RecoilMul				= 0
+SWEP.RecoilMul				= 1
 SWEP.VelConeMul				= 0
 
 SWEP.HasScope 				= true
@@ -41,7 +41,7 @@ SWEP.HasCrosshair 			= true
 SWEP.HasCSSZoom 			= true
 
 SWEP.HasPumpAction 			= false
-SWEP.HasBoltAction 			= false
+SWEP.HasBoltAction 			= true
 SWEP.HasBurstFire 			= false
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
@@ -56,6 +56,8 @@ SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
 
 function SWEP:ShootBullet(Damage,Shots,Cone,Source,Direction,Source)
-	self:ThrowObject("ent_cs_bolt",10000)
+	self:ThrowObject("crossbow_bolt",3500)
 	self:SendWeaponAnim(ACT_VM_RELOAD)
+	self.Owner:SetAnimation(PLAYER_RELOAD)
+	self.Owner:EmitSound("weapons/crossbow/xbow_reload1.wav")
 end
