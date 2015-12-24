@@ -56,7 +56,7 @@ SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
 
 function SWEP:ShootBullet(Damage,Shots,Cone,Source,Direction,Source)
-	self:ThrowObject("crossbow_bolt",3500)
+	self:ThrowObject("crossbow_bolt",4000)
 	self:SendWeaponAnim(ACT_VM_RELOAD)
 	self.Owner:SetAnimation(PLAYER_RELOAD)
 	self.Owner:EmitSound("weapons/crossbow/xbow_reload1.wav")

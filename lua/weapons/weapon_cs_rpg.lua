@@ -58,4 +58,3 @@ function SWEP:ShootBullet(Damage,Shots,Cone,Source,Direction,Source)
 	self:ThrowObject("ent_cs_rocket",10000)
 	self:SendWeaponAnim(ACT_VM_RELOAD)
 end
-

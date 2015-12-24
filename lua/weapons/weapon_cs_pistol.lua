@@ -19,18 +19,18 @@ SWEP.WorldModel				= "models/weapons/w_pistol.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "revolver"
 
-SWEP.Primary.Damage			= 5 * 3
+SWEP.Primary.Damage			= 8 * 2
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/pistol/pistol_fire2.wav")
 SWEP.Primary.Cone			= .005
 SWEP.Primary.ClipSize		= 18
 SWEP.Primary.SpareClip		= 150
-SWEP.Primary.Delay			= 1/(400/60)
+SWEP.Primary.Delay			= 1/(800/60)
 SWEP.Primary.Ammo			= "Battery"
-SWEP.Primary.Automatic 		= true
+SWEP.Primary.Automatic 		= false
 SWEP.ReloadSound			= Sound("weapons/pistol/pistol_reload1.wav")
 
-SWEP.RecoilMul				= 1
+SWEP.RecoilMul				= 4
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 0.5
 SWEP.HasCrosshair 			= true

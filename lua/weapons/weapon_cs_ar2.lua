@@ -22,7 +22,7 @@ SWEP.WorldModel				= "models/weapons/w_irifle.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 
-SWEP.Primary.Damage			= 8 * 3
+SWEP.Primary.Damage			= 11 * 2
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/ar2/fire1.wav")
 SWEP.Primary.Cone			= .01
@@ -46,8 +46,10 @@ SWEP.HasBurstFire 			= true
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
-SWEP.BurstOverride			= 30
-SWEP.BurstSpeedOverride 	= 0.5
+SWEP.BurstOverride			= 5
+SWEP.BurstSpeedOverride 	= 1
+SWEP.BurstConeMul			= 0.8
+--SWEP.BurstSound = "weapons/ar1/ar1_dist1.wav"
 
 SWEP.HasIronSights 			= false
 SWEP.EnableIronCross		= false

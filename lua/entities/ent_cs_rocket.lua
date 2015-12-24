@@ -22,6 +22,10 @@ function ENT:Initialize()
 			phys:SetBuoyancyRatio(0)
 			phys:EnableGravity(false)
 		end
+		
+		
+		util.SpriteTrail( self, 0, Color(255,255,255,255), false, 0, 32,5, 32, "trails/smoke.vmt" )
+		
 	end
 end
 
@@ -30,20 +34,28 @@ function ENT:PhysicsCollide(data, physobj)
 	
 		self.HitP = data.HitPos
 		self.HitN = data.HitNormal
-
-		self:Detonate(data.HitPos)
+		
+		if not self:GetNWBool("Detonated",false) then 
+			self:Detonate(data.HitPos)
+		end
 		
 	end
 end
 
 function ENT:Think()
 	if SERVER then
-		self:GetPhysicsObject():ApplyForceCenter(self:GetUp()*-10)
+		
+		local Base = self.Owner:GetEyeTrace().HitPos - self:GetPos()
+		local Force = Base:GetNormal()*FrameTime()*self:GetPhysicsObject():GetMass()*300000
+		
+		self:GetPhysicsObject():ApplyForceCenter(Force)
+		
 	end
 end
 
 function ENT:Detonate(pos)
 	if SERVER then
+	
 		if not self:IsValid() then return end
 		
 		local effectdata = EffectData()
@@ -65,13 +77,25 @@ function ENT:Detonate(pos)
 			util.Decal("Scorch", self.Pos1, self.Pos2)
 		end
 				
-		self:Remove()
+		self:SetNWBool("Detonated",true)
+		
+		local Phys = self:GetPhysicsObject()
+		
+		if Phys:IsValid() then
+			Phys:EnableMotion(false)
+			Phys:EnableCollisions(false)
+		end
+		
+		SafeRemoveEntityDelayed(self,5)
+		
 	end
 end
 
 function ENT:Draw()
 	if CLIENT then
-		self:DrawModel()
+		if not self:GetNWBool("Detonated",false) then
+			self:DrawModel()
+		end
 	end
 end
 
