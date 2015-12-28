@@ -23,7 +23,7 @@ SWEP.Primary.Damage			= (63*2) / 7
 SWEP.Primary.Range			= 512
 SWEP.Primary.NumShots		= 7
 SWEP.Primary.Sound			= Sound("weapons/shotgun/shotgun_fire7.wav")
-SWEP.Primary.Cone			= 0.06
+SWEP.Primary.Cone			= 0.04
 SWEP.Primary.ClipSize		= 6
 SWEP.Primary.SpareClip		= 32
 SWEP.Primary.Delay			= 1/(60/60)
@@ -36,7 +36,7 @@ SWEP.ReloadSound = Sound("weapons/shotgun/shotgun_reload3.wav")
 SWEP.RecoilMul 				= 3
 SWEP.VelConeMul				= 1.5
 
-SWEP.RecoilMul				= 1
+SWEP.RecoilMul				= 2
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 0.25
 SWEP.HasCrosshair 			= true
@@ -58,3 +58,5 @@ SWEP.HasGoodSights			= true
 SWEP.IronSightTime			= 0.25
 SWEP.IronSightsPos 			= Vector(-6.3, 0, 1)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
+
+SWEP.DamageFalloff			= 150
