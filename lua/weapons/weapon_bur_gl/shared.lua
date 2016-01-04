@@ -59,6 +59,7 @@ function SWEP:PrimaryAttack()
 	self.Owner:SetAnimation(PLAYER_ATTACK1)
 	self:SendWeaponAnim(ACT_VM_PRIMARYATTACK)
 	self:TakePrimaryAmmo(1)
+	self:SetNextPrimaryFire(CurTime() + self.Primary.Delay)
 	self:EmitSound(self.Primary.Sound, 100, 100)
 	
 	if SERVER then
