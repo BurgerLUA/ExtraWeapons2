@@ -25,7 +25,7 @@ SWEP.Primary.Damage			= 100
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/ar2/npc_ar2_altfire.wav")
 SWEP.Primary.Cone			= 0.01
-SWEP.Primary.ClipSize		= 1
+SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 2
 SWEP.Primary.Delay			= 2
 SWEP.Primary.Ammo			= "Thumper"
@@ -44,7 +44,7 @@ SWEP.HasBoltAction 			= false
 SWEP.HasBurstFire 			= false
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
-SWEP.HasSideRecoil			= true
+SWEP.HasSideRecoil			= false
 
 
 SWEP.IsReloading = false
@@ -80,52 +80,5 @@ function SWEP:PrimaryAttack()
 	end
 	
 end
-
-
-
-function SWEP:Reload()
-
-	if self:Clip1() >= self.Primary.ClipSize then return end
-
-	if self.Owner:GetAmmoCount(self.Primary.Ammo) <= 0 then return end
-	
-	if self.IsReloading == true then return end
-	self:SendWeaponAnim(ACT_VM_HOLSTER)
-	self.IsReloading = true
-	if not self.ReloadDelay then 
-		self.ReloadDelay = 0
-	end
-	if self.ReloadDelay > CurTime() then return end
-	
-	self.ReloadDelay=CurTime() + 1
-	self.Weapon:EmitSound("weapons/357/357_reload1.wav",100,100)
-
-end
-
-function SWEP:Think()
-	if self.ReloadDelay < CurTime() then
-		if self.IsReloading == true then
-			self:SendWeaponAnim(ACT_VM_DRAW)
-			
-			self.Owner:RemoveAmmo(1,self.Primary.Ammo)
-			self:SetClip1(1)
-			
-			
-			
-			self.IsReloading = false
-		end
-	end
-end
-	
-	
-function SWEP:Holster()
-	if self.IsReloading then 
-		return false
-	else
-		return true
-	end
-end
-	
-
 
 
