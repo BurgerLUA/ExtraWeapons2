@@ -26,7 +26,7 @@ SWEP.HoldType				= "revolver"
 SWEP.Primary.Damage			= 75 * 1
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/357/357_fire2.wav")
-SWEP.Primary.Cone			= 0.015
+SWEP.Primary.Cone			= 0.005
 SWEP.Primary.ClipSize		= 6
 SWEP.Primary.SpareClip		= 36
 SWEP.Primary.Delay			= 1/(75/60)
@@ -48,7 +48,7 @@ SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
 SWEP.BurstOverride			= 6
-SWEP.BurstConeMul			= 2
+SWEP.BurstConeMul			= 4
 
 SWEP.HasIronSights 			= true
 SWEP.EnableIronCross		= true

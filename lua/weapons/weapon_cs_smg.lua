@@ -29,7 +29,7 @@ SWEP.Primary.Delay			= 1/(750/60)
 SWEP.Primary.Ammo			= "smg1"
 SWEP.Primary.Automatic 		= true
 SWEP.ReloadSound			= Sound("weapons/smg1/smg1_reload.wav")
-SWEP.BurstSound				= Sound("weapons/smg1/smg1_fireburst1.wav")
+--SWEP.BurstSound				= Sound("weapons/smg1/smg1_fireburst1.wav")
 
 SWEP.RecoilMul				= 1
 SWEP.VelConeMul				= 0.75
