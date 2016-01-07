@@ -27,7 +27,7 @@ SWEP.Primary.ClipSize		= 18
 SWEP.Primary.SpareClip		= 150
 SWEP.Primary.Delay			= 1/(800/60)
 SWEP.Primary.Ammo			= "Battery"
-SWEP.Primary.Automatic 		= false
+SWEP.Primary.Automatic 		= true
 SWEP.ReloadSound			= Sound("weapons/pistol/pistol_reload1.wav")
 
 SWEP.RecoilMul				= 4
@@ -49,3 +49,5 @@ SWEP.HasGoodSights			= true
 SWEP.IronSightTime			= 0.25
 SWEP.IronSightsPos 			= Vector(0, 20, 0)
 SWEP.IronSightsAng 			= Vector(0, 5, -45)
+
+SWEP.DamageFalloff			= 750
