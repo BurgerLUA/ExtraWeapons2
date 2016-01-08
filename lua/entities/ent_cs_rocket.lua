@@ -10,6 +10,7 @@ AddCSLuaFile()
 
 function ENT:Initialize()
 	if SERVER then
+	
 		self:SetModel("models/weapons/w_missile_closed.mdl") 
 		self:PhysicsInit(SOLID_VPHYSICS)
 		self:SetMoveType(MOVETYPE_VPHYSICS)
@@ -22,7 +23,6 @@ function ENT:Initialize()
 			phys:SetBuoyancyRatio(0)
 			phys:EnableGravity(false)
 		end
-		
 		
 		util.SpriteTrail( self, 0, Color(255,255,255,255), false, 0, 32,5, 32, "trails/smoke.vmt" )
 		
@@ -46,7 +46,7 @@ function ENT:Think()
 	if SERVER then
 		
 		local Base = self.Owner:GetEyeTrace().HitPos - self:GetPos()
-		local Force = Base:GetNormal()*FrameTime()*self:GetPhysicsObject():GetMass()*300000
+		local Force = Base:GetNormal()*FrameTime()*self:GetPhysicsObject():GetMass()*10000 - self:GetForward()*1000
 		
 		self:GetPhysicsObject():ApplyForceCenter(Force)
 		

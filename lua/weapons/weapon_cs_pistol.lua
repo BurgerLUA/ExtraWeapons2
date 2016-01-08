@@ -30,7 +30,11 @@ SWEP.Primary.Ammo			= "Battery"
 SWEP.Primary.Automatic 		= true
 SWEP.ReloadSound			= Sound("weapons/pistol/pistol_reload1.wav")
 
-SWEP.RecoilMul				= 4
+SWEP.RecoilMul				= 1
+SWEP.SideRecoilMul			= 0.25
+SWEP.VelConeMul				= 1
+SWEP.HeatMul				= 1
+
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 0.5
 SWEP.HasCrosshair 			= true
@@ -41,7 +45,8 @@ SWEP.HasBoltAction 			= false
 SWEP.HasBurstFire 			= false
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
-SWEP.HasSideRecoil			= false
+SWEP.HasSideRecoil			= true
+SWEP.HasDownRecoil			= true
 
 SWEP.HasIronSights 			= true
 SWEP.EnableIronCross		= true

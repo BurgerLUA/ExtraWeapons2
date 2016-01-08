@@ -31,8 +31,10 @@ SWEP.Primary.Automatic 		= true
 SWEP.ReloadSound			= Sound("weapons/smg1/smg1_reload.wav")
 --SWEP.BurstSound				= Sound("weapons/smg1/smg1_fireburst1.wav")
 
-SWEP.RecoilMul				= 1
-SWEP.VelConeMul				= 0.75
+SWEP.RecoilMul				= 2
+SWEP.SideRecoilMul			= 0.25
+SWEP.VelConeMul				= 1.25
+SWEP.HeatMul				= 0.5
 
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 0.25
@@ -45,6 +47,8 @@ SWEP.HasBurstFire 			= true
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
+SWEP.HasDownRecoil			= true
+
 SWEP.Object					= "grenade_ar2"
 
 SWEP.HasIronSights 			= true
