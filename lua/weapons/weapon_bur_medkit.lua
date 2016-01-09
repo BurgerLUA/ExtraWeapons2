@@ -1,11 +1,11 @@
 AddCSLuaFile()
 
-SWEP.PrintName			= "Modified Medkit"
+SWEP.PrintName		= "Modified Medkit"
 SWEP.Author			= "robotboy655 & MaxOfS2D"
 SWEP.Purpose    	= "Heal people with your primary attack, or yourself with the secondary."
-SWEP.Category = "Burger's Weapons"
+SWEP.Category 		= "Burger's Weapons"
 
-
+SWEP.MoveSpeed		= 0
 
 SWEP.Spawnable			= true
 SWEP.UseHands			= true
@@ -18,7 +18,7 @@ SWEP.Slot				= 0
 SWEP.SlotPos			= 1
 
 SWEP.Primary.ClipSize		= 100
-SWEP.Primary.DefaultClip	= 50
+SWEP.Primary.DefaultClip	= 1
 SWEP.Primary.Automatic		= true
 SWEP.Primary.Ammo			= "none"
 
@@ -39,10 +39,6 @@ function SWEP:Initialize()
 
 	if ( CLIENT ) then return end
 
-	timer.Create( "medkit_ammo" .. self:EntIndex(), 2, 0, function()
-		if ( self:Clip1() < self.MaxAmmo ) then self:SetClip1( math.min( self:Clip1() + 1, self.MaxAmmo ) ) end
-	end )
-
 end
 
 function SWEP:PrimaryAttack()
@@ -55,35 +51,8 @@ function SWEP:PrimaryAttack()
 		filter = self.Owner
 	} )
 
-	local ent = tr.Entity
-	
-	local need = self.HealAmount
-	if ( IsValid( ent ) ) then need = math.min( ent:GetMaxHealth() - ent:Health(), self.HealAmount ) end
-
-	if ( IsValid( ent ) && self:Clip1() >= need && ent:Health() < ent:GetMaxHealth() ) then
-
-		self:TakePrimaryAmmo( need )
-
-		ent:SetHealth( math.min( ent:GetMaxHealth(), ent:Health() + need ) )
-		ent:EmitSound( HealSound )
-
-		self:SendWeaponAnim( ACT_VM_PRIMARYATTACK )
-
-		self:SetNextPrimaryFire( CurTime() + self:SequenceDuration() + 0 )
-		self:SetNextSecondaryFire( CurTime() + self:SequenceDuration() + 0.25 )
-		
-		self.Owner:SetAnimation( PLAYER_ATTACK1 )
-
-		timer.Create( "weapon_idle" .. self:EntIndex(), self:SequenceDuration(), 1, function() if ( IsValid( self ) ) then self:SendWeaponAnim( ACT_VM_IDLE ) end end )
-
-	else
-
-		self:EmitSound( DenySound )
-		
-		self:SetNextPrimaryFire( CurTime() + 1 )
-		self:SetNextSecondaryFire( CurTime() + 1 )
-
-	end
+	local target = tr.Entity
+	self:HealTarget(target)
 
 end
 
@@ -91,51 +60,39 @@ function SWEP:SecondaryAttack()
 
 	if ( CLIENT ) then return end
 
-	local ent = self.Owner
-	
-	local need = self.HealAmount
-	if ( IsValid( ent ) ) then need = math.min( ent:GetMaxHealth() - ent:Health(), self.HealAmount ) end
+	local target = self.Owner
+	self:HealTarget(target)
 
-	if ( IsValid( ent ) && self:Clip1() >= need && ent:Health() < ent:GetMaxHealth() ) then
+end
 
-		self:TakePrimaryAmmo( need )
+function SWEP:HealTarget(target)
 
-		ent:SetHealth( math.min( ent:GetMaxHealth(), ent:Health() + need ) )
-		ent:EmitSound( HealSound )
+	if ( IsValid( target ) && self:Clip1() >= 1 && target:Health() < target:GetMaxHealth() ) then
 
-		self:SendWeaponAnim( ACT_VM_PRIMARYATTACK )
+		self:TakePrimaryAmmo( 1 )
 
-		self:SetNextPrimaryFire( CurTime() + self:SequenceDuration() + 0 )
-		self:SetNextSecondaryFire( CurTime() + self:SequenceDuration() + 0.25 )
-		
-		
+		target:SetHealth( target:GetMaxHealth() )
+		target:EmitSound( HealSound )
+
 		self.Owner:SetAnimation( PLAYER_ATTACK1 )
-
-		timer.Create( "weapon_idle" .. self:EntIndex(), self:SequenceDuration(), 1, function() if ( IsValid( self ) ) then self:SendWeaponAnim( ACT_VM_IDLE ) end end )
+		self:SendWeaponAnim( ACT_VM_PRIMARYATTACK )
+		self:SetNextPrimaryFire( CurTime() + self:SequenceDuration() + 1 )
+		self:SetNextSecondaryFire( CurTime() + self:SequenceDuration() + 1 )
 
 	else
 
 		self:EmitSound( DenySound )
-
 		self:SetNextPrimaryFire( CurTime() + 1 )
 		self:SetNextSecondaryFire( CurTime() + 1 )
 
 	end
 
-end
-
-function SWEP:OnRemove()
-
-	timer.Stop( "medkit_ammo" .. self:EntIndex() )
-	timer.Stop( "weapon_idle" .. self:EntIndex() )
 
 end
 
 function SWEP:Holster()
-
-	timer.Stop( "weapon_idle" .. self:EntIndex() )
 	
-	return true
+	return (self:GetNextPrimaryFire() <= CurTime() and self:GetNextSecondaryFire() <= CurTime())
 
 end
 
