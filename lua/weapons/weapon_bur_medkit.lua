@@ -5,7 +5,7 @@ SWEP.Author			= "robotboy655 & MaxOfS2D"
 SWEP.Purpose    	= "Heal people with your primary attack, or yourself with the secondary."
 SWEP.Category 		= "Burger's Weapons"
 
-SWEP.MoveSpeed		= 0
+SWEP.MoveSpeed		= 100
 
 SWEP.Spawnable			= true
 SWEP.UseHands			= true
