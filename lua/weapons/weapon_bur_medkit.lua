@@ -5,7 +5,7 @@ SWEP.Author			= "robotboy655 & MaxOfS2D"
 SWEP.Purpose    	= "Heal people with your primary attack, or yourself with the secondary."
 SWEP.Category 		= "Burger's Weapons"
 
-SWEP.MoveSpeed		= 100
+SWEP.MoveSpeed			= 200
 
 SWEP.Spawnable			= true
 SWEP.UseHands			= true
@@ -17,18 +17,24 @@ SWEP.ViewModelFOV		= 54
 SWEP.Slot				= 0
 SWEP.SlotPos			= 1
 
-SWEP.Primary.ClipSize		= 100
-SWEP.Primary.DefaultClip	= 1
+game.AddAmmoType({name = "medical"})
+
+if CLIENT then 
+	language.Add("medical_ammo","Medical Supplies")
+end
+
+SWEP.Primary.ClipSize		= -1
+SWEP.Primary.DefaultClip	= 50
 SWEP.Primary.Automatic		= true
-SWEP.Primary.Ammo			= "none"
+SWEP.Primary.Ammo			= "medical"
 
 SWEP.Secondary.ClipSize		= -1
 SWEP.Secondary.DefaultClip	= -1
 SWEP.Secondary.Automatic	= true
 SWEP.Secondary.Ammo			= "none"
 
-SWEP.HealAmount = 5 -- Maximum heal amount per use
-SWEP.MaxAmmo = 100 -- Maxumum ammo
+SWEP.AutoSwitchTo = false
+SWEP.AutoSwitchFrom = true
 
 local HealSound = Sound( "items/smallmedkit1.wav" )
 local DenySound = Sound( "items/medshotno1.wav" )
@@ -43,65 +49,68 @@ end
 
 function SWEP:PrimaryAttack()
 
-	if ( CLIENT ) then return end
+	self:Animation()
+	
+	if CLIENT then return end
 
-	local tr = util.TraceLine( {
-		start = self.Owner:GetShootPos(),
-		endpos = self.Owner:GetShootPos() + self.Owner:GetAimVector() * 64,
-		filter = self.Owner
-	} )
+	if IsFirstTimePredicted() then
+		local tr = util.TraceLine( {
+			start = self.Owner:GetShootPos(),
+			endpos = self.Owner:GetShootPos() + self.Owner:GetAimVector() * 64,
+			filter = self.Owner
+		} )
 
-	local target = tr.Entity
-	self:HealTarget(target)
-
+		local target = tr.Entity
+		self:HealTarget(target)
+	end
+	
+	
+	
+	
 end
 
 function SWEP:SecondaryAttack()
 
-	if ( CLIENT ) then return end
+	self:Animation()
+	
+	if CLIENT then return end
+	
+	if IsFirstTimePredicted() then
+		self:HealTarget(self.Owner)
+	end
+	
+end
 
-	local target = self.Owner
-	self:HealTarget(target)
+function SWEP:Animation()
+	self.Owner:SetAnimation( PLAYER_ATTACK1 )
+	self:SendWeaponAnim( ACT_VM_PRIMARYATTACK )
+	self:SetNextPrimaryFire( CurTime() + self:SequenceDuration() )
+	self:SetNextSecondaryFire( CurTime() + self:SequenceDuration() )
+end
 
+
+function SWEP:CanHeal(target)
+	return ( IsValid( target ) && self:Ammo1() ~= 0 && target:Health() < target:GetMaxHealth() )
 end
 
 function SWEP:HealTarget(target)
 
-	if ( IsValid( target ) && self:Clip1() >= 1 && target:Health() < target:GetMaxHealth() ) then
+	if self:CanHeal(target) then
+	
+		local DesiredHeal = math.Clamp(target:GetMaxHealth() - target:Health(),0, math.min(20,self:Ammo1()))
+		
+		self:TakePrimaryAmmo( DesiredHeal )
 
-		self:TakePrimaryAmmo( 1 )
-
-		target:SetHealth( target:GetMaxHealth() )
+		target:SetHealth( target:Health() + DesiredHeal )
 		target:EmitSound( HealSound )
-
-		self.Owner:SetAnimation( PLAYER_ATTACK1 )
-		self:SendWeaponAnim( ACT_VM_PRIMARYATTACK )
-		self:SetNextPrimaryFire( CurTime() + self:SequenceDuration() + 1 )
-		self:SetNextSecondaryFire( CurTime() + self:SequenceDuration() + 1 )
-
+		
 	else
-
-		self:EmitSound( DenySound )
-		self:SetNextPrimaryFire( CurTime() + 1 )
-		self:SetNextSecondaryFire( CurTime() + 1 )
-
+		self.Owner:EmitSound( DenySound )
 	end
 
 
 end
 
 function SWEP:Holster()
-	
 	return (self:GetNextPrimaryFire() <= CurTime() and self:GetNextSecondaryFire() <= CurTime())
-
-end
-
-function SWEP:CustomAmmoDisplay()
-
-	self.AmmoDisplay = self.AmmoDisplay or {} 
-	self.AmmoDisplay.Draw = true
-	self.AmmoDisplay.PrimaryClip = self:Clip1()
-
-	return self.AmmoDisplay
-
 end

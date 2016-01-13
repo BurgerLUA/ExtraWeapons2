@@ -25,7 +25,7 @@ function ENT:Initialize()
 		end
 		
 		util.SpriteTrail( self, 0, Color(255,255,255,255), false, 0, 32,5, 32, "trails/smoke.vmt" )
-		
+
 	end
 end
 
@@ -46,8 +46,14 @@ function ENT:Think()
 	if SERVER then
 		
 		local Base = self.Owner:GetEyeTrace().HitPos - self:GetPos()
-		local Force = Base:GetNormal()*FrameTime()*self:GetPhysicsObject():GetMass()*10000 - self:GetForward()*1000
+		local Force = (Base:GetNormal()*FrameTime()*self:GetPhysicsObject():GetMass()*100000)
+		local Max = 500
 		
+		Force.x = math.Clamp(Force.x,-Max,Max)
+		Force.y = math.Clamp(Force.y,-Max,Max)
+		Force.z = math.Clamp(Force.z,-Max,Max)
+		Force = Force + self:GetForward() * -(Max*0.75)
+
 		self:GetPhysicsObject():ApplyForceCenter(Force)
 		
 	end

@@ -22,7 +22,7 @@ SWEP.WorldModel			= "models/weapons/w_rocket_launcher.mdl"
 game.AddAmmoType({name = "dildoair", })
 
 if CLIENT then
-	language.Add("dildoair_ammo","Gay Farts")
+	language.Add("dildoair_ammo","Air")
 end
 
 SWEP.Primary.ClipSize		= -1

@@ -16,8 +16,8 @@ SWEP.AdminOnly				= false
 SWEP.Slot					= 4
 SWEP.SlotPos				= 2
 
-SWEP.ViewModel			= "models/weapons/c_shotgun.mdl"
-SWEP.WorldModel			= "models/weapons/w_shotgun.mdl"
+SWEP.ViewModel				= "models/weapons/c_shotgun.mdl"
+SWEP.WorldModel				= "models/weapons/w_shotgun.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "shotgun"
 
@@ -52,9 +52,7 @@ SWEP.ReloadDelay = 0
 
 function SWEP:PrimaryAttack()	
 
-	if self:Clip1() == 0 then
-			self:Reload()
-	return end
+	if self:Ammo1() <= 0 then return end
 	
 	self.Owner:SetAnimation(PLAYER_ATTACK1)
 	self:SendWeaponAnim(ACT_VM_PRIMARYATTACK)

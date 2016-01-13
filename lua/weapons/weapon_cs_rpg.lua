@@ -27,7 +27,7 @@ SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/rpg/rocketfire1.wav")
 SWEP.Primary.Cone			= .0025
 SWEP.Primary.ClipSize		= -1
-SWEP.Primary.SpareClip		= 3
+SWEP.Primary.SpareClip		= 1
 SWEP.Primary.Delay			= 1/(30/60)
 SWEP.Primary.Ammo			= "RPG_Round"
 SWEP.Primary.Automatic 		= true
@@ -35,7 +35,7 @@ SWEP.Primary.Automatic 		= true
 SWEP.RecoilMul				= 0.25
 SWEP.VelConeMul				= 0
 
-SWEP.HasScope 				= true
+SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 3
 SWEP.HasCrosshair 			= true
 SWEP.HasCSSZoom 			= true
