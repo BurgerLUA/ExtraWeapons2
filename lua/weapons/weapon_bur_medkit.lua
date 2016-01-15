@@ -97,7 +97,7 @@ function SWEP:HealTarget(target)
 
 	if self:CanHeal(target) then
 	
-		local DesiredHeal = math.Clamp(target:GetMaxHealth() - target:Health(),0, math.min(20,self:Ammo1()))
+		local DesiredHeal = math.Clamp(target:GetMaxHealth() - target:Health(),0, math.min(15,self:Ammo1()))
 		
 		self:TakePrimaryAmmo( DesiredHeal )
 
@@ -109,8 +109,4 @@ function SWEP:HealTarget(target)
 	end
 
 
-end
-
-function SWEP:Holster()
-	return (self:GetNextPrimaryFire() <= CurTime() and self:GetNextSecondaryFire() <= CurTime())
 end
