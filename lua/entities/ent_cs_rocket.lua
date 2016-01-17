@@ -44,17 +44,31 @@ end
 
 function ENT:Think()
 	if SERVER then
+	
+		local TraceData = {
+			start = self.Owner:EyePos(),
+			endpos = self.Owner:EyePos() + self.Owner:EyeAngles():Forward()*1000000,
+			filter = function(ent) 
+						if ent ~= self and ent ~= self.Owner then
+							return true 
+						end
+					end,
+			mask = MASK_SHOT,
+			ignoreworld = false,
+		}
 		
-		local Base = self.Owner:GetEyeTrace().HitPos - self:GetPos()
-		local Force = (Base:GetNormal()*FrameTime()*self:GetPhysicsObject():GetMass()*100000)
+		local Trace = util.TraceLine(TraceData)
+		
+		local Base = Trace.HitPos - self:GetPos()
+		local Force = Base:GetNormal()
 		local Max = 500
-		
+
 		Force.x = math.Clamp(Force.x,-Max,Max)
 		Force.y = math.Clamp(Force.y,-Max,Max)
 		Force.z = math.Clamp(Force.z,-Max,Max)
-		Force = Force + self:GetForward() * -(Max*0.75)
+		Force = Force + self:GetForward()
 
-		self:GetPhysicsObject():ApplyForceCenter(Force)
+		self:GetPhysicsObject():ApplyForceCenter(Force*FrameTime()*self:GetPhysicsObject():GetMass()*100000)
 		
 	end
 end
