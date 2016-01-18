@@ -18,7 +18,7 @@ SWEP.AdminOnly				= false
 SWEP.Slot					= 1
 SWEP.SlotPos				= 1
 
-SWEP.ViewModel 				= "models/weapons/v_357.mdl"
+SWEP.ViewModel 				= "models/weapons/c_357.mdl"
 SWEP.WorldModel				= "models/weapons/w_357.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "revolver"
@@ -56,7 +56,7 @@ SWEP.HasIronSights 			= true
 SWEP.EnableIronCross		= true
 SWEP.HasGoodSights			= true
 SWEP.IronSightTime			= 0.25
-SWEP.IronSightsPos 			= Vector(-5, 4, 1)
+SWEP.IronSightsPos 			= Vector(-3, 4, -1)
 SWEP.IronSightsAng 			= Vector(0, 0.125, 0)
 
-SWEP.DamageFalloff			= 1000
+SWEP.DamageFalloff			= 3000

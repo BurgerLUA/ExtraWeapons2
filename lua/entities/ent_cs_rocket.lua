@@ -86,7 +86,7 @@ function ENT:Detonate(pos)
 		util.Effect( "Explosion", effectdata)
 
 		if self.Owner then
-			util.BlastDamage(self, self.Owner, pos, 400, 300)
+			util.BlastDamage(self, self.Owner, pos, 500, 95)
 		end
 		
 		self:EmitSound("weapons/hegrenade/explode"..math.random(3,5)..".wav",100,100)

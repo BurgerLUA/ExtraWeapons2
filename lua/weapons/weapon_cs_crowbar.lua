@@ -17,7 +17,7 @@ SWEP.AdminOnly				= false
 SWEP.Slot					= 0
 SWEP.SlotPos				= 1
 
-SWEP.ViewModel 				= "models/weapons/v_crowbar.mdl"
+SWEP.ViewModel 				= "models/weapons/c_crowbar.mdl"
 SWEP.WorldModel				= "models/weapons/w_crowbar.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "melee"

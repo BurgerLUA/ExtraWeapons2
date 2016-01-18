@@ -17,7 +17,7 @@ SWEP.AdminOnly				= false
 SWEP.Slot					= 3
 SWEP.SlotPos				= 1
 
-SWEP.ViewModel 				= "models/weapons/v_crossbow.mdl"
+SWEP.ViewModel 				= "models/weapons/c_crossbow.mdl"
 SWEP.WorldModel				= "models/weapons/w_crossbow.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "crossbow"
