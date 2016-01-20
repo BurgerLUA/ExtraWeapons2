@@ -5,7 +5,7 @@ end
 SWEP.Category				= "Burger's Weapons"
 SWEP.PrintName				= "Sensor Launcher"
 SWEP.Base					= "weapon_cs_base"
-SWEP.WeaponType				= "Equipment"
+SWEP.WeaponType				= "Free"
 
 SWEP.Cost					= 2000
 SWEP.MoveSpeed				= 200

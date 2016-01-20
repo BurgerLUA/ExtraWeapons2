@@ -49,7 +49,7 @@ function SWEP:PrimaryAttack()
 		if v.FakeOwner == self.Owner then Count = Count + 1 end
 	end
 	
-	if Count > 5 then return end
+	if Count >= 5 then return end
 
 	self:SendWeaponAnim( ACT_SLAM_THROW_THROW )
 		
