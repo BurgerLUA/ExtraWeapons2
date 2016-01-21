@@ -88,7 +88,7 @@ function ENT:Think()
 
 			end
 			
-			self.NextFire = CurTime() + 0.5
+			self.NextFire = CurTime() + 1
 			
 		end	
 	end
@@ -108,10 +108,9 @@ function ENT:FindTarget()
 	if table.Count(Targets) > 0 then
 	
 		local Winner = table.GetWinningKey(Targets)
-		
-		print(Winner)
+		local Winner = table.GetWinningKey(Targets)
 	
-		if math.abs(Targets[Winner]) < 1000 then
+		if math.abs(Targets[Winner]) < 500 then
 			return Winner
 		end	
 

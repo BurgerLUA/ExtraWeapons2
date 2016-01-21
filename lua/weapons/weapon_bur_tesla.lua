@@ -76,7 +76,7 @@ function SWEP:PrimaryAttack()
 	ent:SetAngles(EA + Angle(-90,0,0))
 	ent:Spawn()
 	ent:Activate()
-	--ent:SetOwner(self.Owner)
+	ent:SetOwner(self.Owner)
 	ent:GetPhysicsObject():SetVelocity(self.Owner:GetVelocity() + EA:Forward() * 500 + EA:Up()*100)
 
 end
