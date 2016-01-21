@@ -25,6 +25,9 @@ SWEP.Primary.Automatic   		= true
 SWEP.Primary.Ammo         		= "none"
 SWEP.Primary.Delay 				= 0.1
 
+SWEP.PenisHeal = 0
+
+
 SWEP.Secondary.Sound			= Sound ("vo/ravenholm/engage03.wav")						
 SWEP.Secondary.ClipSize			= -1
 SWEP.Secondary.DefaultClip		= -1
@@ -41,8 +44,6 @@ function SWEP:Initialize()
 	util.PrecacheSound(self.Secondary.Sound) 
 end 
 
-local Test = 0
-
 function SWEP:PrimaryAttack()
 
 	self:SetNextPrimaryFire( CurTime() + self.Primary.Delay )
@@ -50,14 +51,19 @@ function SWEP:PrimaryAttack()
 	self.Weapon:EmitSound(self.Primary.Sound)
 	self.Owner:ViewPunch( Angle( -0.1, 0, 0 ) )
 
-	if Test <= 2 then 
-		Test = Test+1 
-	else 
-		Test = 0 
+	if self.PenisHeal < 2 then
+		self.PenisHeal = self.PenisHeal + 1
+	else
+		self.PenisHeal = 0
 	end
-
-	if self.Owner:Health() <= self.Owner:GetMaxHealth()-1 and Test==0 then self.Owner:SetHealth(self.Owner:Health() + 1) end
 	
+	if self.PenisHeal == 0 then
+		self.Owner:SetHealth( math.Clamp(self.Owner:Health() + 1,0,100) )
+	end
+	
+	--print(self.PenisHeal)
+	
+
 	if (SERVER) then
 		self:ShootPiss(self:GetPenisPosAng(45))
 	end
