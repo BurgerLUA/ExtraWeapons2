@@ -11,7 +11,7 @@ SWEP.AutoSwitchTo		= false
 SWEP.AutoSwitchFrom		= false
 SWEP.Category = "Burger's Weapons"
 
-SWEP.Slot				= 3
+SWEP.Slot				= 4
 SWEP.SlotPos			= 1
 SWEP.DrawAmmo			= true
 SWEP.DrawCrosshair		= true
