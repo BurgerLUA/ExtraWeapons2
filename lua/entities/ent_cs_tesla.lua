@@ -25,7 +25,7 @@ function ENT:Initialize()
 			phys:AddAngleVelocity( VectorRand()*100 )
 		end
 		
-		self.Ammo = 10
+		self.Ammo = 30
 		self.NextFire = 0
 		
 		util.SpriteTrail( self, 0, Color(0,0,255,255), false, 32,0,1, 32, "trails/laser.vmt" )
@@ -54,44 +54,71 @@ end
 
 function ENT:Think()
 	if SERVER then
-		if self.NextFire <= CurTime() then
-			if self:GetNWBool("Armed",false) and not self:GetNWBool("Detonated",false) then
-				if self.Ammo > 0 then
-		
-					local Cone = 0
-					local Damage = 5
-					local Target = self:FindTarget()
-					
-					if IsValid(Target) then
-					
-						local TargetPos = Target:GetPos() + Target:OBBCenter()
-						local Angles = (TargetPos - self:GetPos()):Angle()
 	
-						local PhysBullet = ents.Create("ent_cs_bullet")
-						PhysBullet:SetPos(self:GetPos() + Angles:Forward()*10 )
-						PhysBullet:SetAngles( Angles + Angle(math.Rand(-Cone,Cone)*45,math.Rand(-Cone,Cone)*45,0) )
-						PhysBullet:SetColor(Color(0,0,255,255))
-						PhysBullet:Spawn()
-						PhysBullet:SetNWFloat("Damage",Damage)
-						PhysBullet:SetOwner(self.Owner or self)
-						
-						self.Ammo = self.Ammo - 1
-						self:EmitSound("weapons/ar2/ar2_altfire.wav")
-						
-					end
-
-				else		
-					if not self:GetNWBool("Detonated",false) then
-						self:Detonate(self:GetPos())
+		if self.Owner:KeyDown(IN_ATTACK2) then
+		
+			if self.NextFire <= CurTime() then
+			
+				if self:GetNWBool("Armed",false) and not self:GetNWBool("Detonated",false) then
+					if self.Ammo > 0 then
+						self:FireBullet(self.Owner:EyeAngles())
 					end
 				end
-
+				
+				self.NextFire = CurTime() + 0.1
+				
 			end
+
+		else
+		
+			if self.NextFire <= CurTime() then
+				if self:GetNWBool("Armed",false) and not self:GetNWBool("Detonated",false) then
+					if self.Ammo > 0 then
 			
-			self.NextFire = CurTime() + 1
+						local Target = self:FindTarget()
+
+						if IsValid(Target) then
+
+							local TargetPos = Target:GetPos() + Target:OBBCenter()
+							local Angles = (TargetPos - self:GetPos()):Angle()
+							
+							self:FireBullet(Angles)
+							
+						end
+
+					else		
+						if not self:GetNWBool("Detonated",false) then
+							self:Detonate(self:GetPos())
+						end
+					end
+
+				end
 			
+				self.NextFire = CurTime() + 0.33
+		
+			end
+
 		end	
+		
 	end
+end
+
+function ENT:FireBullet(ang)
+		
+	local Cone = 0
+	local Damage = 5
+
+	local PhysBullet = ents.Create("ent_cs_bullet")
+	PhysBullet:SetPos(self:GetPos() + ang:Forward()*10 )
+	PhysBullet:SetAngles( ang + Angle(math.Rand(-Cone,Cone)*45,math.Rand(-Cone,Cone)*45,0) )
+	PhysBullet:SetColor(Color(0,0,255,255))
+	PhysBullet:Spawn()
+	PhysBullet:SetNWFloat("Damage",Damage)
+	PhysBullet:SetOwner(self.Owner or self)
+	
+	self.Ammo = self.Ammo - 1
+	self:EmitSound("weapons/ar2/ar2_altfire.wav")
+		
 end
 
 function ENT:FindTarget()
@@ -115,9 +142,6 @@ function ENT:FindTarget()
 		end	
 
 	end
-	
-	
-
 end
 
 function ENT:Arm()
@@ -139,21 +163,6 @@ function ENT:Detonate(pos)
 	
 		if not self:IsValid() then return end
 		
-		--[[
-		local effectdata = EffectData()
-			effectdata:SetStart( pos + Vector(0,0,100)) // not sure if we need a start and origin (endpoint) for this effect, but whatever
-			effectdata:SetOrigin( pos)
-			effectdata:SetScale( 1 )
-			effectdata:SetRadius( 100 )
-		util.Effect( "Explosion", effectdata)
-
-		if self.Owner then
-			util.BlastDamage(self, self.Owner, pos, 100, 20 + self.Ammo*3)
-		end
-		--]]
-		
-		--self:EmitSound("weapons/ar2/ar2_altfire.wav")
-		
 		self:SetCollisionGroup(COLLISION_GROUP_WORLD)
 		
 		self:SetNWBool("Detonated",true)
@@ -165,7 +174,7 @@ function ENT:Detonate(pos)
 			Phys:EnableCollisions(false)
 		end
 		
-		SafeRemoveEntityDelayed(self,10)
+		SafeRemoveEntityDelayed(self,1)
 		
 	end
 end

@@ -51,13 +51,17 @@ function SWEP:PrimaryAttack()
 	if self.Owner:GetAmmoCount(self.Primary.Ammo) <= 0 then return end
 	
 	
-	local Count = 0
+	local Exists = false
 	
 	for k, v in pairs(ents.FindByClass("ent_cs_tesla")) do
-		if v.FakeOwner == self.Owner then Count = Count + 1 end
+		if v.Owner == self.Owner then
+			Exists = true
+		end
 	end
 	
-	if Count >= 3 then return end
+	if Exists then
+		self.Owner:ChatPrint("Only 1 tesla turret can be deployed at a time.")
+	return end
 		
 	self:TakePrimaryAmmo(1)
 
