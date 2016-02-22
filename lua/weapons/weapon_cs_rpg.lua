@@ -6,7 +6,7 @@ end
 SWEP.Category				= "HL2 to CSS"
 SWEP.PrintName				= "RPG LAUNCHER"
 SWEP.Base					= "weapon_cs_base"
-SWEP.WeaponType				= "Free"
+SWEP.WeaponType				= "Primary"
 
 SWEP.Cost					= 3500
 SWEP.MoveSpeed				= 230
