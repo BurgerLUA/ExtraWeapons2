@@ -22,7 +22,7 @@ SWEP.WorldModel				= "models/weapons/w_irifle.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 
-SWEP.Primary.Damage			= 11 * 2
+SWEP.Primary.Damage			= 11 * 3
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/ar2/fire1.wav")
 SWEP.Primary.Cone			= .0025

@@ -19,7 +19,7 @@ SWEP.WorldModel				= "models/weapons/w_pistol.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "revolver"
 
-SWEP.Primary.Damage			= 8 * 2
+SWEP.Primary.Damage			= 8 * 3
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/pistol/pistol_fire2.wav")
 SWEP.Primary.Cone			= .005

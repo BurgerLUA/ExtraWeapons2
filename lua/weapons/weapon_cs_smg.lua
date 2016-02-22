@@ -19,7 +19,7 @@ SWEP.WorldModel				= "models/weapons/w_smg1.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "smg"
 
-SWEP.Primary.Damage			= 5 * 2
+SWEP.Primary.Damage			= 5 * 3
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/smg1/smg1_fire1.wav")
 SWEP.Primary.Cone			= .0025

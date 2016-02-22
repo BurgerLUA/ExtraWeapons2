@@ -55,7 +55,7 @@ end
 function ENT:Think()
 	if SERVER then
 	
-		if self.Owner:KeyDown(IN_ATTACK2) then
+		if self.Owner:KeyDown(IN_ATTACK2) and self.Owner:GetActiveWeapon() and self.Owner:GetActiveWeapon():IsValid() and self.Owner:GetActiveWeapon():GetClass() == "weapon_bur_tesla" then
 		
 			if self.NextFire <= CurTime() then
 			
