@@ -176,10 +176,12 @@ function ENT:Detonate(self,pos)
 		
 			if v:GetClass() == "prop_physics" then
 		
+				--[[
 				if math.Rand(0,100) >= 70 then
 					v:Ignite(250/20 - v:GetPos():Distance( self:GetPos() )/20,0)
 				end
-			
+				--]]
+				
 				timer.Simple(0,function() 
 					if v:IsValid() == false then return end
 					constraint.RemoveAll(v)

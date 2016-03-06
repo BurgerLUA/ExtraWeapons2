@@ -19,7 +19,7 @@ SWEP.WorldModel				= "models/weapons/w_pistol.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "revolver"
 
-SWEP.Primary.Damage			= 8 * 3
+SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/pistol/pistol_fire2.wav")
 SWEP.Primary.Cone			= .005
@@ -33,7 +33,11 @@ SWEP.ReloadSound			= Sound("weapons/pistol/pistol_reload1.wav")
 SWEP.RecoilMul				= 1
 SWEP.SideRecoilMul			= 0.25
 SWEP.VelConeMul				= 1
-SWEP.HeatMul				= 1
+SWEP.HeatMul				= 0.5
+
+SWEP.BurstOverride			= 3
+SWEP.BurstConeMul			= 0.1
+SWEP.BurstSpeedOverride 	= 1
 
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 0.5
@@ -42,11 +46,12 @@ SWEP.HasCSSZoom 			= false
 
 SWEP.HasPumpAction 			= false
 SWEP.HasBoltAction 			= false
-SWEP.HasBurstFire 			= false
+SWEP.HasBurstFire 			= true
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
-SWEP.HasDownRecoil			= true
+SWEP.HasDownRecoil			= false
+SWEP.HasDryFire				= false
 
 SWEP.HasIronSights 			= true
 SWEP.EnableIronCross		= true

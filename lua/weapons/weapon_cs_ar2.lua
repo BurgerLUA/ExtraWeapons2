@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "HL2 to CSS"
-SWEP.PrintName				= "PULSE OSIPR"
+SWEP.PrintName				= "OSIPR"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
@@ -22,21 +22,30 @@ SWEP.WorldModel				= "models/weapons/w_irifle.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 
-SWEP.Primary.Damage			= 11 * 3
+SWEP.Primary.Damage			= 30
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/ar2/fire1.wav")
-SWEP.Primary.Cone			= .0025
+SWEP.Primary.Cone			= 0.006
 SWEP.Primary.ClipSize		= 30
 SWEP.Primary.SpareClip		= 90
-SWEP.Primary.Delay			= 1/(666/60)
-SWEP.Primary.Ammo			= "AirboatGun"
+SWEP.Primary.Delay			= 0.09
+SWEP.Primary.Ammo			= "ar2"
 SWEP.Primary.Automatic 		= true
 
-SWEP.RecoilMul				= 1
+SWEP.RecoilMul				= 1.5
+SWEP.SideRecoilMul			= 1
 SWEP.VelConeMul				= 1.5
+SWEP.HeatMul				= 0.75
+
+SWEP.BurstOverride			= 2
+SWEP.BurstConeMul			= 0
+SWEP.BurstSpeedOverride 	= 3
+SWEP.BurstRecoilMul			= 0.1
+SWEP.BurstHeatMul			= 0.3
+SWEP.BurstZoomMul			= 3
 
 SWEP.HasScope 				= true
-SWEP.ZoomAmount 			= 3
+SWEP.ZoomAmount 			= 4
 SWEP.HasCrosshair 			= true
 SWEP.HasCSSZoom 			= true
 
@@ -46,16 +55,14 @@ SWEP.HasBurstFire 			= true
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
-SWEP.BurstOverride			= 5
-SWEP.BurstSpeedOverride 	= 1
-SWEP.BurstConeMul			= 0.8
---SWEP.BurstSound = "weapons/ar1/ar1_dist1.wav"
+SWEP.HasDownRecoil			= false
+SWEP.HasDryFire				= false
 
 SWEP.HasIronSights 			= false
 SWEP.EnableIronCross		= false
 SWEP.HasGoodSights			= false
-SWEP.IronSightTime			= 0
-SWEP.IronSightsPos 			= Vector(0, 0, 0)
+SWEP.IronSightTime			= 0.125
+SWEP.IronSightsPos 			= Vector(-5.921, 0, 1.679)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
 SWEP.DamageFalloff			= 3000
