@@ -73,11 +73,11 @@ function SWEP:ShootPiss(ShootPos,ShootAng)
 	ent:SetAngles(ShootAng)
 	ent:SetOwner(self.Owner)
 	ent:Spawn()
-	local Trail = util.SpriteTrail(ent, 0, Color(255,255,0), false, 5, 1, .8, 1/(15+1)*0.5, "trails/laser.vmt")
+	local Trail = util.SpriteTrail(ent, 0, Color(0,0,0), false, 5, 1, .8, 1/(15+1)*0.5, "trails/laser.vmt")
 	
 	local phys = ent:GetPhysicsObject();
 	if IsValid(phys) then
-		phys:ApplyForceCenter(ShootAng:Forward()*1000 + self.Owner:GetVelocity())
+		phys:ApplyForceCenter(ShootAng:Forward()*300 + self.Owner:GetVelocity())
 	end
 	
 end
@@ -107,7 +107,7 @@ function SWEP:ShootCum(ShootPos,ShootAng)
 	
 	local phys = ent:GetPhysicsObject()
 	if IsValid(phys) then
-		phys:ApplyForceCenter(ShootAng:Forward()*800 + self.Owner:GetVelocity())
+		phys:ApplyForceCenter(ShootAng:Forward()*300 + self.Owner:GetVelocity())
 	end
 	
 end

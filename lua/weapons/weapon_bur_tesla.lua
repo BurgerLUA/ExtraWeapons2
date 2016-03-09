@@ -34,7 +34,7 @@ SWEP.Primary.Ammo			= "tesla_ball"
 
 SWEP.Secondary.ClipSize		= -1
 SWEP.Secondary.DefaultClip	= -1
-SWEP.Secondary.Automatic	= false
+SWEP.Secondary.Automatic	= true
 SWEP.Secondary.Ammo			= "none"
 
 if CLIENT then
@@ -54,7 +54,7 @@ function SWEP:PrimaryAttack()
 	local Exists = false
 	
 	for k, v in pairs(ents.FindByClass("ent_cs_tesla")) do
-		if v.Owner == self.Owner then
+		if v:GetOwner() == self.Owner then
 			Exists = true
 		end
 	end
@@ -87,5 +87,22 @@ end
  
 
 function SWEP:SecondaryAttack()
+	if SERVER then
+		for k, v in pairs(ents.FindByClass("ent_cs_tesla")) do
+			if v:GetOwner() == self.Owner then
+				v:FreeFire()
+			end
+		end
+	end
+end
 
+
+function SWEP:Reload()
+	if SERVER then
+		for k, v in pairs(ents.FindByClass("ent_cs_tesla")) do
+			if v:GetOwner() == self.Owner then
+				v:Detonate(v:GetPos())
+			end
+		end
+	end
 end

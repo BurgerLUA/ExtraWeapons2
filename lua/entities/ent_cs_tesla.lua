@@ -52,54 +52,50 @@ function ENT:OnTakeDamage(damageinfo)
 	self:Detonate(self:GetPos())
 end
 
+function ENT:FreeFire()
+	if self.NextFire <= CurTime() then
+			
+		if self:GetNWBool("Armed",false) and not self:GetNWBool("Detonated",false) then
+			if self.Ammo > 0 then
+				self:FireBullet(self.Owner:EyeAngles())
+			end
+		end
+		
+		self.NextFire = CurTime() + 0.1
+		
+	end
+end
+
 function ENT:Think()
 	if SERVER then
 	
-		if self.Owner:KeyDown(IN_ATTACK2) and self.Owner:GetActiveWeapon() and self.Owner:GetActiveWeapon():IsValid() and self.Owner:GetActiveWeapon():GetClass() == "weapon_bur_tesla" then
+		if self.NextFire <= CurTime() then
+			if self:GetNWBool("Armed",false) and not self:GetNWBool("Detonated",false) then
+				if self.Ammo > 0 then
 		
-			if self.NextFire <= CurTime() then
-			
-				if self:GetNWBool("Armed",false) and not self:GetNWBool("Detonated",false) then
-					if self.Ammo > 0 then
-						self:FireBullet(self.Owner:EyeAngles())
-					end
-				end
-				
-				self.NextFire = CurTime() + 0.1
-				
-			end
+					local Target = self:FindTarget()
 
-		else
-		
-			if self.NextFire <= CurTime() then
-				if self:GetNWBool("Armed",false) and not self:GetNWBool("Detonated",false) then
-					if self.Ammo > 0 then
-			
-						local Target = self:FindTarget()
+					if IsValid(Target) then
 
-						if IsValid(Target) then
-
-							local TargetPos = Target:GetPos() + Target:OBBCenter()
-							local Angles = (TargetPos - self:GetPos()):Angle()
-							
-							self:FireBullet(Angles)
-							
-						end
-
-					else		
-						if not self:GetNWBool("Detonated",false) then
-							self:Detonate(self:GetPos())
-						end
+						local TargetPos = Target:GetPos() + Target:OBBCenter()
+						local Angles = (TargetPos - self:GetPos()):Angle()
+						
+						self:FireBullet(Angles)
+						
 					end
 
+				else		
+					if not self:GetNWBool("Detonated",false) then
+						self:Detonate(self:GetPos())
+					end
 				end
-			
-				self.NextFire = CurTime() + 0.33
-		
-			end
 
-		end	
+			end
 		
+			self.NextFire = CurTime() + 0.33
+
+		end
+
 	end
 end
 

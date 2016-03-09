@@ -9,7 +9,7 @@ SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
 SWEP.Cost					= 5750
-SWEP.MoveSpeed				= 50
+SWEP.MoveSpeed				= 100
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
@@ -23,10 +23,10 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "shotgun"
 SWEP.UseHands 				= false
 
-SWEP.Primary.Damage			= 10
+SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/minigun/mini-1.wav")
-SWEP.Primary.Cone			= 0.025
+SWEP.Primary.Cone			= 0.0125
 SWEP.Primary.ClipSize		= 250
 SWEP.Primary.SpareClip		= 1000
 SWEP.Primary.Delay			= 0.05
@@ -34,9 +34,9 @@ SWEP.Primary.Ammo			= "AirboatGun"
 SWEP.Primary.Automatic 		= true
 
 SWEP.RecoilMul				= 1
-SWEP.SideRecoilMul			= 0.1
-SWEP.VelConeMul				= 1
-SWEP.HeatMul				= 1
+SWEP.SideRecoilMul			= 1
+SWEP.VelConeMul				= 5
+SWEP.HeatMul				= 0.25
 
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 0.5

@@ -91,7 +91,14 @@ function SWEP:ShootPiss(ShootPos,ShootAng)
 	ent:SetAngles(ShootAng)
 	ent:SetOwner(self.Owner)
 	ent:Spawn()
-	local Trail = util.SpriteTrail(ent, 0, Color(255,255,0), false, 5, 1, .8, 1/(15+1)*0.5, "trails/laser.vmt")
+	
+	local PissColor = Color(255,255,0,255)
+	
+	if self.Owner:Health() < 100 and math.random(1,100) <= 25 then
+		PissColor = Color(255,0,0,255)
+	end
+	
+	local Trail = util.SpriteTrail(ent, 0, PissColor, false, 5, 1, .8, 1/(15+1)*0.5, "trails/laser.vmt")
 	
 	local phys = ent:GetPhysicsObject();
 	if IsValid(phys) then

@@ -120,13 +120,11 @@ function SWEP:Think()
 	
 			local CarryPoint = self.Owner:EyePos() + self.Owner:EyeAngles():Forward()*self.Range
 
-			local Force = (CarryPoint - self:GetCarryEntity():GetPos()):GetNormal() * FrameTime() * 1000 * PhysObj:GetMass()
+			local Force = (CarryPoint - self:GetCarryEntity():GetPos()):GetNormal() * FrameTime() * 100000
 			
-			if CarryPoint:Distance(Ent:GetPos()) < 10 and Ent:GetVelocity():Length() < 10 then
-				Ent:SetPos(CarryPoint)
-			else
-				PhysObj:ApplyForceCenter(Force)
-			end
+
+			PhysObj:ApplyForceCenter(Force + Vector(0,0,1)*PhysObj:GetMass()*6.6)
+
 
 		end
 	
