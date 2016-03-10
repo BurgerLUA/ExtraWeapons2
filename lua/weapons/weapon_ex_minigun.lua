@@ -9,7 +9,7 @@ SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
 SWEP.Cost					= 5750
-SWEP.MoveSpeed				= 100
+SWEP.MoveSpeed				= 125
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
@@ -23,19 +23,25 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "shotgun"
 SWEP.UseHands 				= false
 
+game.AddAmmoType({name = "ex_mingun"})
+
+if CLIENT then 
+	language.Add("ex_mingun_ammo","5.56MM Short")
+end
+
 SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/minigun/mini-1.wav")
 SWEP.Primary.Cone			= 0.0125
-SWEP.Primary.ClipSize		= 250
+SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 1000
 SWEP.Primary.Delay			= 0.05
-SWEP.Primary.Ammo			= "AirboatGun"
+SWEP.Primary.Ammo			= "ex_mingun"
 SWEP.Primary.Automatic 		= true
 
 SWEP.RecoilMul				= 1
 SWEP.SideRecoilMul			= 1
-SWEP.VelConeMul				= 5
+SWEP.VelConeMul				= 2
 SWEP.HeatMul				= 0.25
 
 SWEP.HasScope 				= false

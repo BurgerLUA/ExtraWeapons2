@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "models/ctf_weapons/v_ar2/misc_bits"
+	"$bumpmap" "models/ctf_weapons/v_ar2/misc_bits"
+	"$envmaptint" "[.2 .2 .2]"
+	"$envmap" "env_cubemap"
+}

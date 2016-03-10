@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "models/ctf_weapons/v_sniper/round"
+	"$bumpmap" "models/ctf_Weapons/v_sniper/round"
+	"$envmapmask" "models/ctf_weapons/v_sniper/round"
+	"$normalmapalphaenvmapmask" 1
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[ .3 .3 .3]"
+	"$model" 1
+}

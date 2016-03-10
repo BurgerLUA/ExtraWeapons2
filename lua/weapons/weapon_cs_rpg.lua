@@ -9,7 +9,7 @@ SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
 SWEP.Cost					= 3500
-SWEP.MoveSpeed				= 230
+SWEP.MoveSpeed				= 200
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
@@ -25,7 +25,7 @@ SWEP.HoldType				= "rpg"
 game.AddAmmoType({name = "css_rocket"})
 
 if CLIENT then 
-	language.Add("css_rocket_ammo","FUCK YOU BILL I CHANGED THE AMMO")
+	language.Add("css_rocket_ammo","RPG")
 end
 
 SWEP.Primary.Damage			= 100

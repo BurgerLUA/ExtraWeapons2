@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models/ctf_weapons/v_sniper/scope"
+	"$bumpmap" "models/ctf_weapons/v_sniper/scope_normal"
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[.1 .1 .1]"
+	"$normalmapalphaenvmapmask" 1
+}

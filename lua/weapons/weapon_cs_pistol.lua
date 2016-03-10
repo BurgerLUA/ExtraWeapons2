@@ -22,7 +22,7 @@ SWEP.HoldType				= "revolver"
 SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/pistol/pistol_fire2.wav")
-SWEP.Primary.Cone			= .005
+SWEP.Primary.Cone			= 0.01
 SWEP.Primary.ClipSize		= 18
 SWEP.Primary.SpareClip		= 150
 SWEP.Primary.Delay			= 1/(800/60)
@@ -33,11 +33,12 @@ SWEP.ReloadSound			= Sound("weapons/pistol/pistol_reload1.wav")
 SWEP.RecoilMul				= 1
 SWEP.SideRecoilMul			= 0.25
 SWEP.VelConeMul				= 1
-SWEP.HeatMul				= 0.5
+SWEP.HeatMul				= 1
 
 SWEP.BurstOverride			= 3
 SWEP.BurstConeMul			= 0.1
 SWEP.BurstSpeedOverride 	= 1
+SWEP.BurstHeatMul			= 0.5
 
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 0.5
