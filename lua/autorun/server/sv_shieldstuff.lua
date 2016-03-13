@@ -50,6 +50,8 @@ function BurgerShield_Think()
 				if v:HasWeapon("weapon_bur_medkit") then
 					if v:GetAmmoCount("medical") < 100 then
 						v:GiveAmmo(1,"medical", true )
+					elseif v:GetAmmoCount("medical") > 100 then
+						v:SetAmmo( math.max(100,v:GetAmmoCount("medical")-10), "medical" )
 					end
 				end
 			end
