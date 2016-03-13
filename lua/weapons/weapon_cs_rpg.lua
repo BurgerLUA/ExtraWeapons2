@@ -1,7 +1,9 @@
+--[[
 if CLIENT then
 	killicon.AddFont( "weapon_cs_ar2",			"HL2MPTypeDeath",	"2",	Color( 255, 80, 0, 255 ) )
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/sg552")
 end
+--]]
 
 SWEP.Category				= "HL2 to CSS"
 SWEP.PrintName				= "RPG LAUNCHER"
