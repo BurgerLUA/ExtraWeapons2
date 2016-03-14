@@ -22,7 +22,7 @@ SWEP.WorldModel				= "models/weapons/w_crossbow.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "crossbow"
 
-SWEP.Primary.Damage			= 100
+SWEP.Primary.Damage			= 200
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/crossbow/xbow_fire1.wav")
 SWEP.Primary.Cone			= 0
@@ -32,7 +32,7 @@ SWEP.Primary.Delay			= 1/(30/60)
 SWEP.Primary.Ammo			= "XBowBolt"
 SWEP.Primary.Automatic 		= false
 
-SWEP.RecoilMul				= 1
+SWEP.RecoilMul				= 0.5
 SWEP.VelConeMul				= 0
 
 SWEP.HasScope 				= true

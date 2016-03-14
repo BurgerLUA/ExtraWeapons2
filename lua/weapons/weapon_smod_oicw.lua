@@ -1,5 +1,5 @@
 if CLIENT then
-	killicon.AddFont( "weapon_smod_OICW", "ChatFont", "OICW", Color( 255, 80, 0, 255 ) )
+	killicon.AddFont( "weapon_smod_oicw", "ChatFont", "OICW", Color( 255, 80, 0, 255 ) )
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/ak47")
 end
 
@@ -22,7 +22,7 @@ SWEP.WorldModel				= "models/weapons/w_oicw.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 
-SWEP.Primary.Damage			= 33
+SWEP.Primary.Damage			= 30
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/oicw/ar2_fire1.wav")
 SWEP.Primary.Cone			= 0.0075
@@ -50,8 +50,8 @@ SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
 SWEP.HasDownRecoil			= false
 
-SWEP.BurstOverride			= 10
-SWEP.BurstConeMul			= 1.5
+SWEP.BurstOverride			= 3
+SWEP.BurstConeMul			= 1
 SWEP.BurstSpeedOverride 	= 1
 SWEP.BurstRecoilMul			= 0.5
 SWEP.BurstHeatMul			= 0.5

@@ -22,7 +22,7 @@ SWEP.HoldType				= "duel"
 SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/pistol/pistol_fire2.wav")
-SWEP.Primary.Cone			= 0.03
+SWEP.Primary.Cone			= 0.06
 SWEP.Primary.ClipSize		= 36
 SWEP.Primary.SpareClip		= 150
 SWEP.Primary.Delay			= 1/(1600/60)
@@ -36,7 +36,7 @@ SWEP.VelConeMul				= 2
 SWEP.HeatMul				= 2
 
 SWEP.BurstOverride			= 6
-SWEP.BurstConeMul			= 1
+SWEP.BurstConeMul			= 0.5
 SWEP.BurstSpeedOverride 	= 1
 SWEP.BurstHeatMul			= 1
 

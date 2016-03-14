@@ -23,17 +23,17 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "shotgun"
 SWEP.UseHands 				= false
 
-SWEP.Primary.Damage			= 30
+SWEP.Primary.Damage			= 5
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/airboat/airboat_gun_energy1.wav")
 SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= -1
-SWEP.Primary.SpareClip		= 100
-SWEP.Primary.Delay			= 0.15
+SWEP.Primary.SpareClip		= 500
+SWEP.Primary.Delay			= 0.05
 SWEP.Primary.Ammo			= "ar2"
 SWEP.Primary.Automatic 		= true
 
-SWEP.RecoilMul				= 1
+SWEP.RecoilMul				= 1.25
 SWEP.SideRecoilMul			= 1
 SWEP.VelConeMul				= 2
 SWEP.HeatMul				= 0

@@ -21,13 +21,13 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 SWEP.UseHands 				= false
 
-SWEP.Primary.Damage			= 95
+SWEP.Primary.Damage			= 85
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/shotgun/shotgun_fire6.wav")
 SWEP.Primary.Cone			= 0.002
 SWEP.Primary.ClipSize		= 2
 SWEP.Primary.SpareClip		= 36
-SWEP.Primary.Delay			= 1/(120/60)
+SWEP.Primary.Delay			= 1/7
 SWEP.Primary.Ammo			= "357"
 SWEP.Primary.Automatic 		= false
 

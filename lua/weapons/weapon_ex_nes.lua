@@ -19,7 +19,7 @@ SWEP.WorldModel				= "models/weapons/w_pist_nesz.mdl"
 SWEP.ViewModelFlip 			= true
 SWEP.HoldType				= "revolver"
 
-SWEP.Primary.Damage			= 100
+SWEP.Primary.Damage			= 200
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/NESZapper/NESZap1.wav")
 SWEP.Primary.Cone			= 0

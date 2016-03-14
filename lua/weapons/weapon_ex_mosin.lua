@@ -8,6 +8,9 @@ SWEP.PrintName				= "Mosin-Nagant"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
+SWEP.Cost					= 2750
+SWEP.MoveSpeed				= 260
+
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
 
@@ -20,18 +23,18 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 SWEP.UseHands 				= false
 
-SWEP.Primary.Damage			= 95
+SWEP.Primary.Damage			= 90
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/k98_shoot.wav")
 SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= 5
 SWEP.Primary.SpareClip		= 50
 SWEP.Primary.Delay			= 1.3
-SWEP.Primary.Ammo			= "357"
+SWEP.Primary.Ammo			= "StriderMinigun"
 SWEP.Primary.Automatic 		= false
 
 SWEP.RecoilMul				= 0.25
-SWEP.SideRecoilMul			= 0.5
+SWEP.SideRecoilMul			= 1
 SWEP.VelConeMul				= 2
 SWEP.HeatMul				= 0.5
 

@@ -22,7 +22,7 @@ SWEP.WorldModel				= "models/weapons/w_svd.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 
-SWEP.Primary.Damage			= 95
+SWEP.Primary.Damage			= 105
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("svd.wav")
 SWEP.Primary.Cone			= 0
