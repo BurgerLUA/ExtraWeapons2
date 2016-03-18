@@ -25,7 +25,7 @@ SWEP.UseHands 				= false
 
 SWEP.Primary.Damage			= 90
 SWEP.Primary.NumShots		= 1
-SWEP.Primary.Sound			= Sound("weapons/k98_shoot.wav")
+SWEP.Primary.Sound			= Sound("weapons/AK101/ak101_fire.wav")
 SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= 5
 SWEP.Primary.SpareClip		= 50
