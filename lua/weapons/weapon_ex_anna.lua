@@ -5,7 +5,7 @@ end
 
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "ANNABELLE"
+SWEP.PrintName				= ".44-40 MODEL 1892"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
@@ -21,6 +21,12 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 SWEP.UseHands 				= false
 
+game.AddAmmoType({name = "ex_4440"})
+
+if CLIENT then 
+	language.Add("ex_4440_ammo",".44-40")
+end
+
 SWEP.Primary.Damage			= 85
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/shotgun/shotgun_fire6.wav")
@@ -28,7 +34,7 @@ SWEP.Primary.Cone			= 0.002
 SWEP.Primary.ClipSize		= 2
 SWEP.Primary.SpareClip		= 36
 SWEP.Primary.Delay			= 1/7
-SWEP.Primary.Ammo			= "357"
+SWEP.Primary.Ammo			= "ex_4440"
 SWEP.Primary.Automatic 		= false
 
 SWEP.ReloadSound			= Sound("weapons/winchester/win_reload1.wav")

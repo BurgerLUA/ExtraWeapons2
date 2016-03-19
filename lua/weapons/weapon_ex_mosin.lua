@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "Mosin-Nagant"
+SWEP.PrintName				= "7.62MM MOSIN-NAGANT"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 

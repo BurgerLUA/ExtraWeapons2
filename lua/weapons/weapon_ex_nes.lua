@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "NES ZAPPER"
+SWEP.PrintName				= "CHILDHOOD NES ZAPPER"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Secondary"
 
@@ -19,19 +19,25 @@ SWEP.WorldModel				= "models/weapons/w_pist_nesz.mdl"
 SWEP.ViewModelFlip 			= true
 SWEP.HoldType				= "revolver"
 
-SWEP.Primary.Damage			= 200
+game.AddAmmoType({name = "ex_childhood"})
+
+if CLIENT then 
+	language.Add("ex_childhood_ammo","NOSTALGIA BULLET")
+end
+
+SWEP.Primary.Damage			= 100
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/NESZapper/NESZap1.wav")
-SWEP.Primary.Cone			= 0
-SWEP.Primary.ClipSize		= 1
-SWEP.Primary.SpareClip		= 64
-SWEP.Primary.Delay			= 1
-SWEP.Primary.Ammo			= "Battery"
+SWEP.Primary.Cone			= 0.1
+SWEP.Primary.ClipSize		= 3
+SWEP.Primary.SpareClip		= 27
+SWEP.Primary.Delay			= 1/7
+SWEP.Primary.Ammo			= "ex_childhood"
 SWEP.Primary.Automatic 		= false
 
 SWEP.RecoilMul				= 0.1
 SWEP.SideRecoilMul			= 0.1
-SWEP.VelConeMul				= 2
+SWEP.VelConeMul				= 0.5
 SWEP.HeatMul				= 0.1
 
 SWEP.ReloadSound			= Sound("weapons/NESZapper/NESKill.wav")
@@ -57,4 +63,4 @@ SWEP.IronSightTime			= 0.25
 SWEP.IronSightsPos 			= Vector(4, 5, 1)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
-SWEP.DamageFalloff			= 1000
+SWEP.DamageFalloff			= 5000

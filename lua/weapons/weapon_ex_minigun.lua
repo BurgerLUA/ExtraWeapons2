@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "5.56MM MINIGUN"
+SWEP.PrintName				= "5.56MM-S MINIGUN"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
@@ -26,7 +26,7 @@ SWEP.UseHands 				= false
 game.AddAmmoType({name = "ex_mingun"})
 
 if CLIENT then 
-	language.Add("ex_mingun_ammo","5.56MM Short")
+	language.Add("ex_mingun_ammo","5.56MM-S")
 end
 
 SWEP.Primary.Damage			= 20

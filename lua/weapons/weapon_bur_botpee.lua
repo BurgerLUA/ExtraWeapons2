@@ -51,7 +51,7 @@ function SWEP:PrimaryAttack()
 	self.Weapon:EmitSound(self.Primary.Sound)
 	self.Owner:ViewPunch( Angle( -0.1, 0, 0 ) )
 
-	self.Owner:SetHealth( math.Clamp(self.Owner:Health() + 3,0,100) )
+	self.Owner:SetHealth( math.Clamp(self.Owner:Health() + 1,0,100) )
 
 	if (SERVER) then
 		self:ShootPiss(self:GetPenisPosAng(20))
@@ -73,7 +73,7 @@ function SWEP:ShootPiss(ShootPos,ShootAng)
 	ent:SetAngles(ShootAng)
 	ent:SetOwner(self.Owner)
 	ent:Spawn()
-	local Trail = util.SpriteTrail(ent, 0, Color(0,0,0), false, 5, 1, .8, 1/(15+1)*0.5, "trails/laser.vmt")
+	local Trail = util.SpriteTrail(ent, 0, Color(0,0,0,255), false, 5, 1, .8, 1/(15+1)*0.5, "trails/laser.vmt")
 	
 	local phys = ent:GetPhysicsObject();
 	if IsValid(phys) then

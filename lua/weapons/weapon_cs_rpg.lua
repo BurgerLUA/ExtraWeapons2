@@ -6,7 +6,7 @@ end
 --]]
 
 SWEP.Category				= "HL2 to CSS"
-SWEP.PrintName				= "RPG LAUNCHER"
+SWEP.PrintName				= "ROCKET LAUNCHER"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 

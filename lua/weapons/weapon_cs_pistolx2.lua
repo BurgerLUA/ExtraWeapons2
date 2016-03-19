@@ -11,6 +11,8 @@ SWEP.WeaponType				= "Secondary"
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
 
+SWEP.MoveSpeed				= 200
+
 SWEP.Slot					= 1
 SWEP.SlotPos				= 1
 
@@ -22,7 +24,7 @@ SWEP.HoldType				= "duel"
 SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/pistol/pistol_fire2.wav")
-SWEP.Primary.Cone			= 0.06
+SWEP.Primary.Cone			= 0.02
 SWEP.Primary.ClipSize		= 36
 SWEP.Primary.SpareClip		= 150
 SWEP.Primary.Delay			= 1/(1600/60)
@@ -33,7 +35,7 @@ SWEP.Primary.Automatic 		= true
 SWEP.RecoilMul				= 1
 SWEP.SideRecoilMul			= 0.25
 SWEP.VelConeMul				= 2
-SWEP.HeatMul				= 2
+SWEP.HeatMul				= 0.5
 
 SWEP.BurstOverride			= 6
 SWEP.BurstConeMul			= 0.5
@@ -53,6 +55,7 @@ SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
 SWEP.HasDownRecoil			= false
 SWEP.HasDryFire				= false
+SWEP.HasDual				= true
 
 SWEP.HasIronSights 			= true
 SWEP.EnableIronCross		= true
@@ -61,4 +64,6 @@ SWEP.IronSightTime			= 0.25
 SWEP.IronSightsPos 			= Vector(0, 5, 3)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
-SWEP.DamageFalloff			= 300
+SWEP.DamageFalloff			= 1000
+
+SWEP.EnableTracer			= false

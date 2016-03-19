@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "PULSE COMBINE SNIPER"
+SWEP.PrintName				= "CHARGED PULSE SNIPER"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 

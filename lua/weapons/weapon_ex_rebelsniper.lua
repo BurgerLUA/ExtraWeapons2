@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "REBEL SNIPER"
+SWEP.PrintName				= "20X102MM CANNON SNIPER"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
@@ -34,7 +34,7 @@ SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("beta/fire1.wav")
 SWEP.Primary.Cone			= 0.0015
 SWEP.Primary.ClipSize		= 1
-SWEP.Primary.SpareClip		= 4
+SWEP.Primary.SpareClip		= 20
 SWEP.Primary.Delay			= 1
 SWEP.Primary.Ammo			= "ex_cannon"
 SWEP.Primary.Automatic 		= false
