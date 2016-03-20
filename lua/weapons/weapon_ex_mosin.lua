@@ -23,7 +23,7 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 SWEP.UseHands 				= false
 
-SWEP.Primary.Damage			= 90
+SWEP.Primary.Damage			= 95
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/AK101/ak101_fire.wav")
 SWEP.Primary.Cone			= 0
@@ -36,7 +36,7 @@ SWEP.Primary.Automatic 		= false
 SWEP.RecoilMul				= 0.25
 SWEP.SideRecoilMul			= 1
 SWEP.VelConeMul				= 2
-SWEP.HeatMul				= 0.5
+SWEP.HeatMul				= 0.25
 
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 1

@@ -28,17 +28,17 @@ end
 SWEP.Primary.Damage			= 100
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/NESZapper/NESZap1.wav")
-SWEP.Primary.Cone			= 0.1
+SWEP.Primary.Cone			= 0.0025
 SWEP.Primary.ClipSize		= 3
 SWEP.Primary.SpareClip		= 27
 SWEP.Primary.Delay			= 1/7
 SWEP.Primary.Ammo			= "ex_childhood"
 SWEP.Primary.Automatic 		= false
 
-SWEP.RecoilMul				= 0.1
+SWEP.RecoilMul				= 0.5
 SWEP.SideRecoilMul			= 0.1
 SWEP.VelConeMul				= 0.5
-SWEP.HeatMul				= 0.1
+SWEP.HeatMul				= 4
 
 SWEP.ReloadSound			= Sound("weapons/NESZapper/NESKill.wav")
 
