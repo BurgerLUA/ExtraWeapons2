@@ -24,7 +24,7 @@ SWEP.HoldType				= "duel"
 SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/pistol/pistol_fire2.wav")
-SWEP.Primary.Cone			= 0.02
+SWEP.Primary.Cone			= 0.04
 SWEP.Primary.ClipSize		= 36
 SWEP.Primary.SpareClip		= 150
 SWEP.Primary.Delay			= 1/(1600/60)
@@ -64,6 +64,6 @@ SWEP.IronSightTime			= 0.25
 SWEP.IronSightsPos 			= Vector(0, 5, 3)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
-SWEP.DamageFalloff			= 1000
+SWEP.DamageFalloff			= 500
 
 SWEP.EnableTracer			= false

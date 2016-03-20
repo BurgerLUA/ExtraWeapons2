@@ -31,7 +31,7 @@ SWEP.Primary.Sound			= Sound("weapons/NESZapper/NESZap1.wav")
 SWEP.Primary.Cone			= 0.0025
 SWEP.Primary.ClipSize		= 3
 SWEP.Primary.SpareClip		= 27
-SWEP.Primary.Delay			= 1/7
+SWEP.Primary.Delay			= 1
 SWEP.Primary.Ammo			= "ex_childhood"
 SWEP.Primary.Automatic 		= false
 

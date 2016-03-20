@@ -23,7 +23,7 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 SWEP.UseHands 				= false
 
-SWEP.Primary.Damage			= 95
+SWEP.Primary.Damage			= 105
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/AK101/ak101_fire.wav")
 SWEP.Primary.Cone			= 0
@@ -62,3 +62,5 @@ SWEP.IronSightsPos 			= Vector(-1, 4, 0)
 SWEP.IronSightsAng 			= Vector(1,1.5, -5)
 
 SWEP.DamageFalloff			= 3000
+
+SWEP.DisableReloadUntilEmpty = true
