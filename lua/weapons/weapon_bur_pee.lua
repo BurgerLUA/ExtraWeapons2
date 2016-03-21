@@ -96,8 +96,8 @@ function SWEP:Reload()
 		self:Rape()
 	end
 	
-	self:SetNextPrimaryFire( CurTime() + self.Secondary.Delay )
-	self:SetNextSecondaryFire( CurTime() + self.Secondary.Delay )
+	self:SetNextPrimaryFire( CurTime() + 1 )
+	self:SetNextSecondaryFire( CurTime() + 1 )
 
 end
 
@@ -110,12 +110,16 @@ end
 
 function SWEP:Rape()
 
-	local tr = self.Owner:GetEyeTrace().Entity
-	if not tr:IsValid() then return end
-	if tr:IsNPC() or tr:IsPlayer() or ( tr:GetClass() == 'prop_ragdoll' ) then else return end
-	if tr:GetPos():Distance( self.Owner:GetPos() ) > 50 then return end
-	
-	RunConsoleCommand( "RAPEDEMBITCHEZ1" )
+	if SERVER then
+
+		local tr = self.Owner:GetEyeTrace().Entity
+		if not tr:IsValid() then return end
+		if tr:IsNPC() or tr:IsPlayer() or ( tr:GetClass() == 'prop_ragdoll' ) then else return end
+		if tr:GetPos():Distance( self.Owner:GetPos() ) > 50 then return end
+		
+		self.Owner:ConCommand( "RAPEDEMBITCHEZ1" )
+		
+	end
 
 end
 
@@ -294,7 +298,7 @@ if SERVER then
 		local plyVictimHealth = plyVictim:Health()
 		local plyVictimPos = plyVictim:GetPos()
 		
-		if plyVictimHealth > 50 then return end
+		if plyVictimHealth > 75 then return end
 		
 		InProgress = true
 		
