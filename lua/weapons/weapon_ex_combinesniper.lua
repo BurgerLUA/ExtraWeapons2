@@ -32,8 +32,8 @@ end
 SWEP.Primary.Damage			= 95
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("jaanus/ep2sniper_fire.wav")
-SWEP.Primary.Cone			= 0.001
-SWEP.Primary.ClipSize		= 4
+SWEP.Primary.Cone			= 0
+SWEP.Primary.ClipSize		= 2
 SWEP.Primary.SpareClip		= 60
 SWEP.Primary.Delay			= 1
 SWEP.Primary.Ammo			= "ex_charged"
@@ -67,3 +67,5 @@ SWEP.IronSightsPos 			= Vector(0, 0, 0)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
 SWEP.DamageFalloff			= 9000
+
+SWEP.IgnoreDrawDelay		= true

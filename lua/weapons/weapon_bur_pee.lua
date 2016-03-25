@@ -298,7 +298,7 @@ if SERVER then
 		local plyVictimHealth = plyVictim:Health()
 		local plyVictimPos = plyVictim:GetPos()
 		
-		if plyVictimHealth > 75 then return end
+		--if plyVictimHealth > 75 then return end
 		
 		InProgress = true
 		
