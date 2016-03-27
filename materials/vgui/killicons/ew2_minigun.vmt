@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui/killicons/ew2_minigun"
+	"$vertexalpha" 1
+	"$vertexcolor" 1
+}

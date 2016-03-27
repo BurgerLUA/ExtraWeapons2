@@ -1,6 +1,6 @@
 if CLIENT then
-	killicon.AddFont( "weapon_ex_combinesniper", "ChatFont", "Combine Sniper", Color( 255, 80, 0, 255 ) )
-	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/awp")
+	killicon.Add( "weapon_ex_combinesniper", "vgui/killicons/ew2_combinesniper", Color( 255, 80, 0, 255 ) )
+	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/killicons/ew2_combinesniper")
 end
 
 SWEP.Category				= "Extra Weapons"
