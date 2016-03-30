@@ -28,3 +28,31 @@ end
 hook.Add("Think","BurgerShield_Think",BurgerShield_Think)
 
 
+function ExtraWeapons_PlayerDeath(victim,inflictor,attacker)
+
+	if victim ~= attacker then
+		
+
+		local Weapon = attacker:GetActiveWeapon()
+		
+		if Weapon and Weapon:IsValid() and Weapon:GetClass() == "weapon_ex_nes" then
+		
+			victim:EmitSound("weapons/NESZapper/NESHit1.wav")
+			attacker:EmitSound("weapons/NESZapper/NESHit1.wav")
+			
+			timer.Simple(2, function()
+				if Weapon and Weapon:IsValid() then
+			
+					attacker:EmitSound("weapons/NESZapper/NESKill.wav")
+			
+					attacker:SetAmmo(3,Weapon:GetPrimaryAmmoType())
+				end
+			end)
+
+		end
+		
+	end
+
+end
+
+hook.Add("PlayerDeath","ExtraWeapons_PlayerDeath",ExtraWeapons_PlayerDeath)

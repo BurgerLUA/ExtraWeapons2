@@ -40,8 +40,10 @@ SWEP.Primary.Delay			= 1/(30/60)
 SWEP.Primary.Ammo			= "css_rocket"
 SWEP.Primary.Automatic 		= true
 
-SWEP.RecoilMul				= 0
+SWEP.RecoilMul				= 1
+SWEP.SideRecoilMul			= 0
 SWEP.VelConeMul				= 0
+SWEP.HeatMul				= 0
 
 SWEP.HasScope 				= true
 SWEP.ZoomAmount 			= 3

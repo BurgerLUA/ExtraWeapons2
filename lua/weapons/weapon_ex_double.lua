@@ -9,7 +9,7 @@ SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
 SWEP.Cost					= 4750
-SWEP.MoveSpeed				= 170
+SWEP.MoveSpeed				= 150
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
@@ -26,16 +26,16 @@ SWEP.DrawHands 				= false
 game.AddAmmoType({name = "ex_double"})
 
 if CLIENT then 
-	language.Add("ex_double_ammo","8MMX2")
+	language.Add("ex_double_ammo","8MM")
 end
 
-SWEP.Primary.Damage			= 12.5
-SWEP.Primary.NumShots		= 2
+SWEP.Primary.Damage			= 20
+SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("NPC_Hunter.FlechetteShoot")
-SWEP.Primary.Cone			= 0.001
+SWEP.Primary.Cone			= 0.002
 SWEP.Primary.ClipSize		= -1
-SWEP.Primary.SpareClip		= 100
-SWEP.Primary.Delay			= 0.25
+SWEP.Primary.SpareClip		= 200
+SWEP.Primary.Delay			= 0.075
 SWEP.Primary.Ammo			= "ex_double"
 SWEP.Primary.Automatic 		= true
 
@@ -45,23 +45,30 @@ SWEP.VelConeMul				= 2
 SWEP.HeatMul				= 1
 
 SWEP.HasScope 				= true
-SWEP.ZoomAmount 			= 8
+SWEP.ZoomAmount 			= 5
 SWEP.HasCrosshair 			= false
 SWEP.HasCSSZoom 			= false
 
 SWEP.HasPumpAction 			= false
 SWEP.HasBoltAction 			= false
-SWEP.HasBurstFire 			= false
+SWEP.HasBurstFire 			= true
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
-SWEP.HasDownRecoil			= false
+SWEP.HasDownRecoil			= true
+
+SWEP.BurstOverride			= 2
+SWEP.BurstConeMul			= 0.1
+SWEP.BurstSpeedOverride 	= 6
+SWEP.BurstRecoilMul			= 0.5
+SWEP.BurstHeatMul			= 1
+SWEP.BurstZoomMul			= 3
 
 SWEP.HasIronSights 			= false
 SWEP.EnableIronCross		= false
 SWEP.HasGoodSights			= false
 SWEP.IronSightTime			= 0.25
-SWEP.IronSightsPos 			= Vector(3, 10, 0)
+SWEP.IronSightsPos 			= Vector(-5, 0, -4)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
-SWEP.DamageFalloff			= 5000
+SWEP.DamageFalloff			= 3000

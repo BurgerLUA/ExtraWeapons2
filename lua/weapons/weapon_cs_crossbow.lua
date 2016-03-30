@@ -32,8 +32,10 @@ SWEP.Primary.Delay			= 1/(30/60)
 SWEP.Primary.Ammo			= "XBowBolt"
 SWEP.Primary.Automatic 		= false
 
-SWEP.RecoilMul				= 0.5
+SWEP.RecoilMul				= 1
+SWEP.SideRecoilMul			= 0
 SWEP.VelConeMul				= 0
+SWEP.HeatMul				= 0
 
 SWEP.HasScope 				= true
 SWEP.ZoomAmount 			= 7

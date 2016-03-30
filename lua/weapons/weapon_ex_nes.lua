@@ -25,20 +25,20 @@ if CLIENT then
 	language.Add("ex_childhood_ammo","NOSTALGIA BULLET")
 end
 
-SWEP.Primary.Damage			= 100
+SWEP.Primary.Damage			= 300
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/NESZapper/NESZap1.wav")
 SWEP.Primary.Cone			= 0.0025
-SWEP.Primary.ClipSize		= 3
-SWEP.Primary.SpareClip		= 27
-SWEP.Primary.Delay			= 1
+SWEP.Primary.ClipSize		= -1
+SWEP.Primary.SpareClip		= 6
+SWEP.Primary.Delay			= 0.1
 SWEP.Primary.Ammo			= "ex_childhood"
 SWEP.Primary.Automatic 		= false
 
-SWEP.RecoilMul				= 0.5
+SWEP.RecoilMul				= 0.25
 SWEP.SideRecoilMul			= 0.1
 SWEP.VelConeMul				= 0.5
-SWEP.HeatMul				= 4
+SWEP.HeatMul				= 1
 
 SWEP.ReloadSound			= Sound("weapons/NESZapper/NESKill.wav")
 
@@ -64,3 +64,14 @@ SWEP.IronSightsPos 			= Vector(4, 5, 1)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
 SWEP.DamageFalloff			= 5000
+
+function SWEP:SpareThink()
+
+	local WeaponAmmo = self:Ammo1()
+
+	if self:Ammo1() > 3 then
+		self.Owner:SetAmmo(3,self:GetPrimaryAmmoType())
+	end
+
+end
+
