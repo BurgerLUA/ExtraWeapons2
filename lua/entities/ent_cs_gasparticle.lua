@@ -16,7 +16,7 @@ function ENT:Initialize()
 		self:SetModel("models/Items/AR2_Grenade.mdl") 
 		self:PhysicsInitSphere( size, "wood" )
 		self:SetCollisionBounds( Vector( -size, -size, -size ), Vector( size, size, size ) )
-		self:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
+		self:SetCollisionGroup(COLLISION_GROUP_WORLD)
 
 		local phys = self:GetPhysicsObject()
 		
@@ -45,7 +45,7 @@ function ENT:Think()
 	
 	for k,v in pairs(Players) do
 		if v:GetPos():Distance(self:GetPos()) <= 100 then
-			v:TakeDamage(10,self.Owner,self)
+			v:TakeDamage(2,self.Owner,self)
 		end
 	end
 	
@@ -75,7 +75,7 @@ function ENT:DrawTranslucent()
 		
 		cam.Start3D(EyePos(),EyeAngles()) -- Start the 3D function so we can draw onto the screen.
 			render.SetMaterial( mat1 ) -- Tell render what material we want, in this case the flash from the gravgun
-			render.DrawSprite( self:GetPos(), 320 + bonus*10, 320 + bonus*10, Color(r,g,b,a)) -- Draw the sprite in the middle of the map, at 16x16 in it's original colour with full alpha.
+			render.DrawSprite( self:GetPos(), 8 + bonus*50, 8 + bonus*50, Color(r,g,b,a)) -- Draw the sprite in the middle of the map, at 16x16 in it's original colour with full alpha.
 		cam.End3D()
 	end
 end

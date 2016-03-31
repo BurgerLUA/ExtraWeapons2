@@ -25,7 +25,7 @@ function ENT:Initialize()
 			phys:SetBuoyancyRatio(0)
 		end
 		
-		self.Delay = CurTime() + 3
+		self.Delay = CurTime() + 1
 		self.NextParticle = 0
 		self.IsDetonated = false
 		
@@ -38,11 +38,11 @@ function ENT:PhysicsCollide(data, physobj)
 		if self:GetVelocity():Length() > 50 then
 			self:EmitSound(self.BounceSound)
 		end
-		
-		if self:GetVelocity():Length() < 5 then
-			self:SetMoveType(MOVETYPE_NONE)
+		--[[
+		if self:GetVelocity():Length() < 10 then
+			self:EnableMotion(false)
 		end
-		
+		--]]
 	end
 end
 
@@ -55,12 +55,13 @@ function ENT:Think()
 			if self.NextParticle <= CurTime() then 
 			
 				local ent = ents.Create("ent_cs_gasparticle")
-				ent:SetPos(self:GetPos())
+				ent:SetPos(self:GetPos() + self:GetUp()*5)
 				ent:SetAngles(Angle(0,0,0))
 				ent:Spawn()
 				ent:Activate()
 				ent:SetOwner(self.Owner)
-				ent:GetPhysicsObject():SetVelocity(Vector(math.Rand(-25,25),math.Rand(-25,25),math.Rand(0,25)))
+				ent:GetPhysicsObject():SetVelocity( self:GetUp()*100 + self:GetRight()*math.random(-10,10) + self:GetForward()*math.random(-10,10) )
+				
 				
 				self.NextParticle = CurTime() + 0.1
 			end
@@ -78,7 +79,7 @@ function ENT:Detonate(self,pos)
 	if SERVER then
 		if not self:IsValid() then return end
 		self:EmitSound(self.ExplodeSound)
-		SafeRemoveEntityDelayed(self,10)
+		SafeRemoveEntityDelayed(self,15)
 	end
 end
 
