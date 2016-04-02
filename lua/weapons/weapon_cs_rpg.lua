@@ -30,7 +30,7 @@ if CLIENT then
 	language.Add("css_rocket_ammo","RPG")
 end
 
-SWEP.Primary.Damage			= 100
+SWEP.Primary.Damage			= 200
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/rpg/rocketfire1.wav")
 SWEP.Primary.Cone			= .0025
@@ -40,7 +40,7 @@ SWEP.Primary.Delay			= 1/(30/60)
 SWEP.Primary.Ammo			= "css_rocket"
 SWEP.Primary.Automatic 		= true
 
-SWEP.RecoilMul				= 1
+SWEP.RecoilMul				= 0.1
 SWEP.SideRecoilMul			= 0
 SWEP.VelConeMul				= 0
 SWEP.HeatMul				= 0

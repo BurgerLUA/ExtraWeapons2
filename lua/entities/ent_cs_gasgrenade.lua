@@ -60,10 +60,10 @@ function ENT:Think()
 				ent:Spawn()
 				ent:Activate()
 				ent:SetOwner(self.Owner)
-				ent:GetPhysicsObject():SetVelocity( self:GetUp()*100 + self:GetRight()*math.random(-10,10) + self:GetForward()*math.random(-10,10) )
+				ent:GetPhysicsObject():SetVelocity( self:GetUp()*50 + self:GetRight()*math.random(-10,10) + self:GetForward()*math.random(-10,10) )
 				
 				
-				self.NextParticle = CurTime() + 0.1
+				self.NextParticle = CurTime() + 0.2
 			end
 			
 			if self.IsDetonated == false then

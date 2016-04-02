@@ -19,7 +19,7 @@ SWEP.WorldModel				= "models/weapons/w_smg1.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "smg"
 
-SWEP.Primary.Damage			= 15
+SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/smg1/smg1_fire1.wav")
 SWEP.Primary.Cone			= .005
@@ -31,12 +31,13 @@ SWEP.Primary.Automatic 		= true
 SWEP.ReloadSound			= Sound("weapons/smg1/smg1_reload.wav")
 --SWEP.BurstSound				= Sound("weapons/smg1/smg1_fireburst1.wav")
 
-SWEP.RecoilMul				= 2
-SWEP.SideRecoilMul			= 0.5
+SWEP.RecoilMul				= 1
+SWEP.SideRecoilMul			= 0.25
 SWEP.VelConeMul				= 1.25
-SWEP.HeatMul				= 0.5
+SWEP.HeatMul				= 0.125
 
 SWEP.BurstConeMul			= 0.5
+SWEP.BurstRecoilMul			= 0.5
 
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 0.25
@@ -45,12 +46,13 @@ SWEP.HasCSSZoom 			= false
 
 SWEP.HasPumpAction 			= false
 SWEP.HasBoltAction 			= false
-SWEP.HasBurstFire 			= true
+SWEP.HasBurstFire 			= false
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
 SWEP.HasDownRecoil			= false
 SWEP.HasDryFire				= false
+SWEP.HasSpecialFire 		= true
 
 SWEP.Object					= "grenade_ar2"
 
@@ -63,20 +65,27 @@ SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
 SWEP.DamageFalloff			= 2000
 
+function SWEP:SpecialFire()
 
-
---[[
-function SWEP:SecondaryAttack()
+	if not self:CanPrimaryAttack() then	return end
+	if self:IsBusy() then return end
+	if self:GetNextPrimaryFire() > CurTime() then return end
 	
-	if self.Owner:GetAmmoCount(self.Secondary.Ammo) > 0 then
-		self.Owner:SetAnimation(PLAYER_ATTACK1)
-		self:SendWeaponAnim(ACT_VM_SECONDARYATTACK)
+	if self:Clip1() < 45 then return end
+	self:TakePrimaryAmmo(45)
+	self.Owner:SetAnimation(PLAYER_ATTACK1)
+	self:WeaponAnimation(self:Clip1(),ACT_VM_SECONDARYATTACK)
+
+	if (IsFirstTimePredicted() or game.SinglePlayer()) then
+		if (CLIENT or game.SinglePlayer()) then 
+			self:AddRecoil() -- Predict
+		end
+
 		self:ThrowObject(self.Object,1000)
-		self:EmitGunSound(self.Secondary.Sound)
-		self:TakeSecondaryAmmo(1)
+		
+		self:EmitGunSound("weapons/ar2/ar2_altfire.wav")
 	end
 	
-	self:SetNextSecondaryFire(CurTime() + 1)
+	self:SetNextPrimaryFire(CurTime() + self.Primary.Delay*10*2)
 	
 end
---]]

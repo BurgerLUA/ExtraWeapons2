@@ -12,7 +12,7 @@ SWEP.Cost					= 300
 SWEP.MoveSpeed				= 250
 
 SWEP.Spawnable				= true
-SWEP.AdminOnly				= true
+SWEP.AdminOnly				= false
 
 SWEP.Slot					= 4
 SWEP.SlotPos				= 1
@@ -22,14 +22,20 @@ SWEP.WorldModel				= "models/weapons/w_eq_smokegrenade.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "melee"
 
-SWEP.Primary.Damage			= 0
-SWEP.Primary.NumShots		= 0
+game.AddAmmoType({name = "ex_gasgrenade"})
+
+if CLIENT then 
+	language.Add("ex_gasgrenade_ammo","Gas Grenade")
+end
+
+SWEP.Primary.Damage			= 15 * 5
+SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/ak47/ak47-1.wav")
 SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 1
 SWEP.Primary.Delay			= 1
-SWEP.Primary.Ammo			= "smokegrenade"
+SWEP.Primary.Ammo			= "ex_gasgrenade"
 SWEP.Primary.Automatic 		= false
 
 SWEP.RecoilMul				= 1
@@ -50,3 +56,5 @@ SWEP.HasAnimated			= false
 SWEP.HasThrown				= false
 SWEP.CanHolster				= true
 SWEP.Object					= "ent_cs_gasgrenade"
+
+SWEP.DamageFalloff			= 300

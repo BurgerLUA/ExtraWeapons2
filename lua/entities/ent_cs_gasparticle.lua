@@ -45,7 +45,7 @@ function ENT:Think()
 	
 	for k,v in pairs(Players) do
 		if v:GetPos():Distance(self:GetPos()) <= 100 then
-			v:TakeDamage(2,self.Owner,self)
+			v:TakeDamage(5,self.Owner,self)
 		end
 	end
 	
