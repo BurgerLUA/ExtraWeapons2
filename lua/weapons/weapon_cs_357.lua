@@ -1,7 +1,6 @@
 if CLIENT then
 	killicon.AddFont( "weapon_cs_357",			"HL2MPTypeDeath",	".",	Color( 255, 80, 0, 255 ) )
 	killicon.AddFont( "ent_cs_crossbow_bolt",		"HL2MPTypeDeath",	"1",	Color( 255, 80, 0, 255 ) )
-	killicon.AddFont( "ent_cs_rpg_missile",		"HL2MPTypeDeath",	"3",	Color( 255, 80, 0, 255 ) )
 	killicon.AddFont( "ent_cs_combine_ball",	"HL2MPTypeDeath",	"8",	Color( 255, 80, 0, 255 ) )
 	killicon.AddFont( "ent_cs_smg1_grenade",		"HL2MPTypeDeath",	"7",	Color( 255, 80, 0, 255 ) )
 	killicon.AddFont( "weapon_cs_stunstick",	"HL2MPTypeDeath",	"!",	Color( 255, 80, 0, 255 ) )
@@ -23,7 +22,7 @@ SWEP.WorldModel				= "models/weapons/w_357.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "revolver"
 
-SWEP.Primary.Damage			= 90
+SWEP.Primary.Damage			= 75
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/357/357_fire2.wav")
 SWEP.Primary.Cone			= 0.002

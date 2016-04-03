@@ -21,7 +21,7 @@ SWEP.WorldModel				= "models/weapons/w_pistol.mdl"
 SWEP.ViewModelFlip 			= false
 SWEP.HoldType				= "duel"
 
-SWEP.Primary.Damage			= 20
+SWEP.Primary.Damage			= 25
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/pistol/pistol_fire2.wav")
 SWEP.Primary.Cone			= 0.075
@@ -35,7 +35,7 @@ SWEP.Primary.Automatic 		= true
 SWEP.RecoilMul				= 1
 SWEP.SideRecoilMul			= 0.25
 SWEP.VelConeMul				= 2
-SWEP.HeatMul				= 0.5
+SWEP.HeatMul				= 0.75
 
 SWEP.BurstOverride			= 6
 SWEP.BurstConeMul			= 0.5
@@ -43,7 +43,7 @@ SWEP.BurstSpeedOverride 	= 1
 SWEP.BurstHeatMul			= 1
 
 SWEP.HasScope 				= false
-SWEP.ZoomAmount 			= 0.5
+SWEP.ZoomAmount 			= 0.25
 SWEP.HasCrosshair 			= true
 SWEP.HasCSSZoom 			= false
 
@@ -64,7 +64,7 @@ SWEP.IronSightTime			= 0.25
 SWEP.IronSightsPos 			= Vector(0, 5, 3)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
-SWEP.DamageFalloff			= 500
+SWEP.DamageFalloff			= 300
 
 SWEP.EnableTracer			= false
 

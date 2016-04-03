@@ -17,18 +17,17 @@ SWEP.SlotPos				= 1
 SWEP.ViewModel 				= "models/weapons/c_shotgun.mdl"
 SWEP.WorldModel				= "models/weapons/w_shotgun.mdl"
 SWEP.VModelFlip 			= false
-SWEP.HoldType				= "shotgun"
+SWEP.HoldType				= "ar2"
 
 SWEP.Primary.Damage			= (63*2) / 7
-SWEP.Primary.Range			= 512
 SWEP.Primary.NumShots		= 7
 SWEP.Primary.Sound			= Sound("weapons/shotgun/shotgun_fire7.wav")
 SWEP.Primary.Cone			= 0.04
 SWEP.Primary.ClipSize		= 6
 SWEP.Primary.SpareClip		= 32
-SWEP.Primary.Delay			= 1/(60/60)
+SWEP.Primary.Delay			= 1/(160/60)
 SWEP.Primary.Ammo			= "Buckshot"
-SWEP.Primary.Automatic 		= false
+SWEP.Primary.Automatic 		= true
 
 SWEP.ReloadSound = Sound("weapons/shotgun/shotgun_reload3.wav")
 --SWEP.BurstSound = Sound("weapons/shotgun/shotgun_dbl_fire.wav")
@@ -39,7 +38,7 @@ SWEP.VelConeMul				= 1.5
 SWEP.HeatMul				= 1
 
 SWEP.BurstOverride			= 2
-SWEP.BurstSpeedOverride 	= 0.3
+SWEP.BurstSpeedOverride 	= 0.5
 SWEP.BurstHeatMul			= 1.5
 
 SWEP.HasScope 				= false
@@ -63,3 +62,4 @@ SWEP.IronSightsPos 			= Vector(-6.3, 0, 1)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
 SWEP.DamageFalloff			= 200
+SWEP.Primary.Range			= 400

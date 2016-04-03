@@ -23,13 +23,13 @@ SWEP.ViewModelFlip 			= true
 SWEP.HoldType				= "smg"
 SWEP.UseHands 				= false
 
-SWEP.Primary.Damage			= 20
+SWEP.Primary.Damage			= 15
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/p90_mini/p90-1.wav")
 SWEP.Primary.Cone			= 0.009
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 100
-SWEP.Primary.Delay			= 1/(1200/60)
+SWEP.Primary.Delay			= 0.05
 SWEP.Primary.Ammo			= "AlyxGun"
 SWEP.Primary.Automatic 		= true
 

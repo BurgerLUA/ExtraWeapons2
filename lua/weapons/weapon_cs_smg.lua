@@ -19,7 +19,7 @@ SWEP.WorldModel				= "models/weapons/w_smg1.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "smg"
 
-SWEP.Primary.Damage			= 20
+SWEP.Primary.Damage			= 25
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/smg1/smg1_fire1.wav")
 SWEP.Primary.Cone			= .005
@@ -63,7 +63,7 @@ SWEP.IronSightTime			= 0.25
 SWEP.IronSightsPos 			= Vector(-6.43, 0, 0)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
-SWEP.DamageFalloff			= 2000
+SWEP.DamageFalloff			= 1000
 
 function SWEP:SpecialFire()
 
@@ -71,8 +71,8 @@ function SWEP:SpecialFire()
 	if self:IsBusy() then return end
 	if self:GetNextPrimaryFire() > CurTime() then return end
 	
-	if self:Clip1() < 45 then return end
-	self:TakePrimaryAmmo(45)
+	if self:Clip1() < 15 then return end
+	self:TakePrimaryAmmo(15)
 	self.Owner:SetAnimation(PLAYER_ATTACK1)
 	self:WeaponAnimation(self:Clip1(),ACT_VM_SECONDARYATTACK)
 

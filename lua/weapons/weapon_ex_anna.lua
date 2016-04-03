@@ -12,7 +12,7 @@ SWEP.WeaponType				= "Primary"
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
 
-SWEP.Slot					= 3
+SWEP.Slot					= 2
 SWEP.SlotPos				= 1
 
 SWEP.ViewModel 				= "models/weapons/v_annabelle.mdl"
@@ -27,19 +27,19 @@ if CLIENT then
 	language.Add("ex_4440_ammo",".44-40")
 end
 
-SWEP.Primary.Damage			= 85
+SWEP.Primary.Damage			= 80
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/shotgun/shotgun_fire6.wav")
 SWEP.Primary.Cone			= 0.002
 SWEP.Primary.ClipSize		= 2
 SWEP.Primary.SpareClip		= 36
-SWEP.Primary.Delay			= 1/7
+SWEP.Primary.Delay			= 1/10
 SWEP.Primary.Ammo			= "ex_4440"
 SWEP.Primary.Automatic 		= false
 
 SWEP.ReloadSound			= Sound("weapons/winchester/win_reload1.wav")
 
-SWEP.RecoilMul				= 0.2
+SWEP.RecoilMul				= 0.1
 SWEP.SideRecoilMul			= 0.5
 SWEP.VelConeMul				= 2
 SWEP.HeatMul				= 0.2

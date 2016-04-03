@@ -25,7 +25,7 @@ if CLIENT then
 	language.Add("ex_childhood_ammo","NOSTALGIA BULLET")
 end
 
-SWEP.Primary.Damage			= 300
+SWEP.Primary.Damage			= 100
 SWEP.Primary.NumShots 		= 1
 SWEP.Primary.Sound			= Sound("weapons/NESZapper/NESZap1.wav")
 SWEP.Primary.Cone			= 0.0025

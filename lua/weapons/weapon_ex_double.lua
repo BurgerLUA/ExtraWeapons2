@@ -29,13 +29,13 @@ if CLIENT then
 	language.Add("ex_double_ammo","8MM")
 end
 
-SWEP.Primary.Damage			= 20
+SWEP.Primary.Damage			= 25
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("NPC_Hunter.FlechetteShoot")
 SWEP.Primary.Cone			= 0.002
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 200
-SWEP.Primary.Delay			= 0.075
+SWEP.Primary.Delay			= 1/(600/60)
 SWEP.Primary.Ammo			= "ex_double"
 SWEP.Primary.Automatic 		= true
 
@@ -57,12 +57,12 @@ SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
 SWEP.HasDownRecoil			= true
 
-SWEP.BurstOverride			= 2
+SWEP.BurstOverride			= 4
 SWEP.BurstConeMul			= 0.1
-SWEP.BurstSpeedOverride 	= 6
-SWEP.BurstRecoilMul			= 0.5
-SWEP.BurstHeatMul			= 1
-SWEP.BurstZoomMul			= 3
+SWEP.BurstSpeedOverride 	= 4
+SWEP.BurstRecoilMul			= 0.25
+SWEP.BurstHeatMul			= 0.25
+SWEP.BurstZoomMul			= 4
 
 SWEP.HasIronSights 			= false
 SWEP.EnableIronCross		= false

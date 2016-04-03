@@ -23,12 +23,12 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 SWEP.UseHands 				= false
 
-SWEP.Primary.Damage			= 100
+SWEP.Primary.Damage			= 75
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/AK101/ak101_fire.wav")
 SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= 5
-SWEP.Primary.SpareClip		= 50
+SWEP.Primary.SpareClip		= 5*4
 SWEP.Primary.Delay			= 1.1
 SWEP.Primary.Ammo			= "StriderMinigun"
 SWEP.Primary.Automatic 		= false

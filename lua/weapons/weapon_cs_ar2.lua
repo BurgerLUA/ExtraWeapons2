@@ -22,13 +22,13 @@ SWEP.WorldModel				= "models/weapons/w_irifle.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 
-SWEP.Primary.Damage			= 33
+SWEP.Primary.Damage			= 34
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/ar2/fire1.wav")
 SWEP.Primary.Cone			= 0.006
 SWEP.Primary.ClipSize		= 30
 SWEP.Primary.SpareClip		= 90
-SWEP.Primary.Delay			= 0.09
+SWEP.Primary.Delay			= 0.1
 SWEP.Primary.Ammo			= "ar2"
 SWEP.Primary.Automatic 		= true
 
