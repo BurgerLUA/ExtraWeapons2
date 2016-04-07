@@ -29,7 +29,7 @@ if CLIENT then
 	language.Add("ex_mingun_ammo","5.56MM-S")
 end
 
-SWEP.Primary.Damage			= 20
+SWEP.Primary.Damage			= 25
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/minigun/mini-1.wav")
 SWEP.Primary.Cone			= 0.0125
@@ -64,4 +64,6 @@ SWEP.IronSightTime			= 0.125
 SWEP.IronSightsPos 			= Vector(0, 0, 0)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
-SWEP.DamageFalloff			= 2500
+SWEP.DamageFalloff			= 1000
+
+SWEP.HasBuildUp				= true

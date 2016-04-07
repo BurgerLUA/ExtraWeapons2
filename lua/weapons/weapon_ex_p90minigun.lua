@@ -59,3 +59,5 @@ SWEP.IronSightsPos 			= Vector(5, 0, -4)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
 SWEP.DamageFalloff			= 1000
+
+SWEP.HasBuildUp				= true
