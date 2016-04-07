@@ -33,7 +33,7 @@ end
 SWEP.Primary.Damage			= 200
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/rpg/rocketfire1.wav")
-SWEP.Primary.Cone			= .0025
+SWEP.Primary.Cone			= .00125
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 1
 SWEP.Primary.Delay			= 1/(30/60)

@@ -35,7 +35,7 @@ SWEP.Primary.Automatic 		= true
 SWEP.RecoilMul				= 0.75
 SWEP.SideRecoilMul			= 1
 SWEP.VelConeMul				= 2
-SWEP.HeatMul				= 1
+SWEP.HeatMul				= 0.75
 
 SWEP.BurstOverride			= 3
 SWEP.BurstConeMul			= 0

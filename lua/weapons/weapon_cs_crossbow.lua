@@ -24,7 +24,7 @@ SWEP.HoldType				= "crossbow"
 
 SWEP.Primary.Damage			= 200
 SWEP.Primary.NumShots		= 1
-SWEP.Primary.Sound			= Sound("weapons/crossbow/xbow_fire1.wav")
+SWEP.Primary.Sound			= Sound("weapons/crossbow/fire1.wav")
 SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 6
@@ -32,7 +32,7 @@ SWEP.Primary.Delay			= 1/(30/60)
 SWEP.Primary.Ammo			= "XBowBolt"
 SWEP.Primary.Automatic 		= false
 
-SWEP.RecoilMul				= 1
+SWEP.RecoilMul				= 0.1
 SWEP.SideRecoilMul			= 0
 SWEP.VelConeMul				= 0
 SWEP.HeatMul				= 0
@@ -62,5 +62,5 @@ function SWEP:ShootBullet(Damage,Shots,Cone,Source,Direction,Source)
 	self:ThrowObject("crossbow_bolt",4000)
 	self:SendWeaponAnim(ACT_VM_RELOAD)
 	self.Owner:SetAnimation(PLAYER_RELOAD)
-	self.Owner:EmitSound("weapons/crossbow/xbow_reload1.wav")
+	self.Owner:EmitSound("weapons/crossbow/reload1.wav")
 end

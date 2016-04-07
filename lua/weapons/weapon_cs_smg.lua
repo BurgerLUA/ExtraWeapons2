@@ -19,10 +19,10 @@ SWEP.WorldModel				= "models/weapons/w_smg1.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "smg"
 
-SWEP.Primary.Damage			= 25
+SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/smg1/smg1_fire1.wav")
-SWEP.Primary.Cone			= .005
+SWEP.Primary.Cone			= .0025
 SWEP.Primary.ClipSize		= 45
 SWEP.Primary.SpareClip		= 120
 SWEP.Primary.Delay			= 1/(750/60)
@@ -34,7 +34,7 @@ SWEP.ReloadSound			= Sound("weapons/smg1/smg1_reload.wav")
 SWEP.RecoilMul				= 1
 SWEP.SideRecoilMul			= 0.25
 SWEP.VelConeMul				= 1.25
-SWEP.HeatMul				= 0.125
+SWEP.HeatMul				= 0.5
 
 SWEP.BurstConeMul			= 0.5
 SWEP.BurstRecoilMul			= 0.5
