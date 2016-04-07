@@ -9,7 +9,7 @@ SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
 SWEP.Cost					= 4750
-SWEP.MoveSpeed				= 0
+SWEP.MoveSpeed				= 200
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
@@ -35,7 +35,7 @@ SWEP.Primary.Sound			= Sound("jaanus/ep2sniper_fire.wav")
 SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 20
-SWEP.Primary.Delay			= 0.75
+SWEP.Primary.Delay			= 1
 SWEP.Primary.Ammo			= "ex_charged"
 SWEP.Primary.Automatic 		= false
 
@@ -44,7 +44,7 @@ SWEP.ReloadSound			= Sound("jaanus/ep2sniper_reload.wav")
 SWEP.RecoilMul				= 0.125
 SWEP.SideRecoilMul			= 0.5
 SWEP.VelConeMul				= 10
-SWEP.HeatMul				= 1
+SWEP.HeatMul				= 0
 
 SWEP.HasScope 				= true
 SWEP.ZoomAmount 			= 8
@@ -66,8 +66,38 @@ SWEP.IronSightTime			= 0
 SWEP.IronSightsPos 			= Vector(0, 0, 0)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
+SWEP.IgnoreScopeHide		= true
+
 SWEP.DamageFalloff			= 9000
 
 SWEP.IgnoreDrawDelay		= true
 
-SWEP.CustomScope			= Material("vgui/svdscope1")
+SWEP.CustomScope			= Material("jaanus/ep2snip_parascope")
+
+local Beam = Material("trails/laser")
+
+function SWEP:ViewModelDrawn(Weapon)
+
+	local ply = self.Owner
+
+	local Trace = ply:GetEyeTrace()
+	
+	local StartPos = ply:GetEyeTrace().StartPos
+	local EndPos =  ply:GetEyeTrace().HitPos
+	
+	--PrintTable(Weapon:GetAttachments())
+	
+	local MuzzleAttachment = Weapon:LookupAttachment( "laser" )
+	local MuzzlePos = Weapon:GetAttachment(MuzzleAttachment).Pos
+	local MuzzleAng = Weapon:GetAttachment(MuzzleAttachment).Ang
+	
+	local SetPos = MuzzlePos + MuzzleAng:Forward()*1000
+	
+	if self:CanPrimaryAttack() then
+		SetPos = EndPos
+	end
+
+	render.SetMaterial(Beam)
+	render.DrawBeam(MuzzlePos,SetPos,2,0,1,Color(0,255,255,255))
+
+end

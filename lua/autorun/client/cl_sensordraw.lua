@@ -1,5 +1,7 @@
 local Mat = Material("sprites/bomb_planted_ring")
 
+local Beam = Material("trails/laser")
+
 function SensorHandleDrawing(ply)
 
 	if not IsValid(ply) then return end
@@ -22,24 +24,25 @@ function SensorHandleDrawing(ply)
 		render.DrawSprite(Pos,ply:OBBMaxs().z*1.2,ply:OBBMaxs().z*1.2, Color(255,0,0,255))
 	end
 	
-	--[[
-	if ply:GetActiveWeapon() ~= NULL and ply:GetActiveWeapon():GetClass() == "weapon_ex_combinesniper" then
+	local Weapon = ply:GetActiveWeapon()
+	
+	if Weapon ~= NULL and Weapon:GetClass() == "weapon_ex_combinesniper" then
 	
 		local Trace = ply:GetEyeTrace()
 	
 		local StartPos = ply:GetEyeTrace().StartPos
 		local EndPos =  ply:GetEyeTrace().HitPos
-	
-		cam.Start3D2D( Vector(0,0,0), Angle(0,0,0), 1 )
 		
-			surface.SetDrawColor( Color( 255, 165, 0, 255 ) )
-			surface.DrawRect( 0, 0, 8, 8 )
-			render.DrawLine( StartPos, EndPos, Color( 100, 149, 237, 255 ), true )
-			
-		cam.End3D2D()
+		--PrintTable(Weapon:GetAttachments())
+		
+		local MuzzleAttachment = Weapon:LookupAttachment( "laser" )
+		local MuzzlePos = Weapon:GetAttachment(MuzzleAttachment).Pos
+	
+		render.SetMaterial(Beam)
+		render.DrawBeam(MuzzlePos,EndPos,2,0,1,Color(0,255,255,255))
 
 	end
-	--]]
+	
 
 end
 
