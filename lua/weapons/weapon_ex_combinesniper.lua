@@ -9,7 +9,7 @@ SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
 SWEP.Cost					= 4750
-SWEP.MoveSpeed				= 200
+SWEP.MoveSpeed				= 50
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
@@ -29,13 +29,13 @@ if CLIENT then
 	language.Add("ex_charged_ammo","Charged Pulse")
 end
 
-SWEP.Primary.Damage			= 200
+SWEP.Primary.Damage			= 100
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("jaanus/ep2sniper_fire.wav")
 SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 20
-SWEP.Primary.Delay			= 1
+SWEP.Primary.Delay			= 0.9
 SWEP.Primary.Ammo			= "ex_charged"
 SWEP.Primary.Automatic 		= false
 
@@ -43,7 +43,7 @@ SWEP.ReloadSound			= Sound("jaanus/ep2sniper_reload.wav")
 
 SWEP.RecoilMul				= 0.125
 SWEP.SideRecoilMul			= 0.5
-SWEP.VelConeMul				= 10
+SWEP.VelConeMul				= 0
 SWEP.HeatMul				= 0
 
 SWEP.HasScope 				= true
@@ -63,41 +63,47 @@ SWEP.HasIronSights 			= false
 SWEP.EnableIronCross		= false
 SWEP.HasGoodSights			= false
 SWEP.IronSightTime			= 0
-SWEP.IronSightsPos 			= Vector(0, 0, 0)
+SWEP.IronSightsPos 			= Vector(-6, 0, -5)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
-SWEP.IgnoreScopeHide		= true
+SWEP.IgnoreScopeHide		= false
 
-SWEP.DamageFalloff			= 9000
+SWEP.DamageFalloff			= 10000
 
 SWEP.IgnoreDrawDelay		= true
 
-SWEP.CustomScope			= Material("jaanus/ep2snip_parascope")
+SWEP.CustomScope			= Material("sprites/light_ignorez")
+SWEP.CustomScopeSOverride	= 32
+SWEP.CustomScopeCOverride	= Color(0,255,255,255)
 
 local Beam = Material("trails/laser")
 
-function SWEP:ViewModelDrawn(Weapon)
+function SWEP:PostDrawViewModel()
 
-	local ply = self.Owner
+	if CLIENT then
+		local Weapon = self.Owner:GetViewModel()
 
-	local Trace = ply:GetEyeTrace()
-	
-	local StartPos = ply:GetEyeTrace().StartPos
-	local EndPos =  ply:GetEyeTrace().HitPos
-	
-	--PrintTable(Weapon:GetAttachments())
-	
-	local MuzzleAttachment = Weapon:LookupAttachment( "laser" )
-	local MuzzlePos = Weapon:GetAttachment(MuzzleAttachment).Pos
-	local MuzzleAng = Weapon:GetAttachment(MuzzleAttachment).Ang
-	
-	local SetPos = MuzzlePos + MuzzleAng:Forward()*1000
-	
-	if self:CanPrimaryAttack() then
-		SetPos = EndPos
+		local ply = self.Owner
+
+		local Trace = ply:GetEyeTrace()
+		
+		local StartPos = ply:GetEyeTrace().StartPos
+		local EndPos =  ply:GetEyeTrace().HitPos
+		
+		--PrintTable(Weapon:GetAttachments())
+		
+		local MuzzleAttachment = Weapon:LookupAttachment( "laser" )
+		local MuzzlePos = Weapon:GetAttachment(MuzzleAttachment).Pos
+		local MuzzleAng = Weapon:GetAttachment(MuzzleAttachment).Ang
+		
+		local SetPos = MuzzlePos + MuzzleAng:Forward()*1000
+		
+		if self:CanPrimaryAttack() then
+			SetPos = EndPos
+		end
+
+		render.SetMaterial(Beam)
+		render.DrawBeam(MuzzlePos,SetPos,2,0,1,Color(0,255,255,255))
 	end
-
-	render.SetMaterial(Beam)
-	render.DrawBeam(MuzzlePos,SetPos,2,0,1,Color(0,255,255,255))
 
 end

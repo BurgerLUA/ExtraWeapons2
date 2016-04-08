@@ -41,12 +41,16 @@ function ENT:Think()
 
 	if CLIENT then return end
 
-	local Players = player.GetAll()
+	if self.SpawnTime + 1 <= CurTime() then
 	
-	for k,v in pairs(Players) do
-		if v:GetPos():Distance(self:GetPos()) <= 100 then
-			v:TakeDamage(5,self.Owner,self)
+		local Players = player.GetAll()
+		
+		for k,v in pairs(Players) do
+			if v:GetPos():Distance(self:GetPos()) <= 100 then
+				v:TakeDamage(5,self.Owner,self)
+			end
 		end
+		
 	end
 	
 	self:NextThink(CurTime() + 1)
