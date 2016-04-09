@@ -69,9 +69,39 @@ function SWEP:SpareThink()
 
 	local WeaponAmmo = self:Ammo1()
 
-	if self:Ammo1() > 3 then
-		self.Owner:SetAmmo(3,self:GetPrimaryAmmoType())
+	if self:Ammo1() > 1 then
+		self.Owner:SetAmmo(1,self:GetPrimaryAmmoType())
 	end
 
 end
+
+function ExtraWeapons_PlayerDeath(victim,inflictor,attacker)
+
+	if victim ~= attacker then
+	
+		if attacker:Alive() then
+			local Weapon = attacker:GetActiveWeapon()
+			
+			if Weapon and Weapon:IsValid() and Weapon:GetClass() == "weapon_ex_nes" then
+			
+				victim:EmitSound("weapons/NESZapper/NESHit1.wav")
+				attacker:EmitSound("weapons/NESZapper/NESHit1.wav")
+				
+				timer.Simple(2, function()
+					if Weapon and Weapon:IsValid() then
+				
+						attacker:EmitSound("weapons/NESZapper/NESKill.wav")
+				
+						attacker:SetAmmo(1,Weapon:GetPrimaryAmmoType())
+					end
+				end)
+
+			end
+		end
+		
+	end
+
+end
+
+hook.Add("PlayerDeath","ExtraWeapons_PlayerDeath",ExtraWeapons_PlayerDeath)
 
