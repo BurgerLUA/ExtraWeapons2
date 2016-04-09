@@ -19,7 +19,7 @@ function BurgerShield_Think()
 			end
 		end
 		
-		NextHealthThink = CurTime() + 3
+		NextHealthThink = CurTime() + 1 
 
 	end
 	
