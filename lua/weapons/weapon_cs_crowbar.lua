@@ -62,7 +62,7 @@ function SWEP:PrimaryAttack()
 	self:SendWeaponAnim(ACT_VM_HITCENTER)
 	self:SetNextPrimaryFire(CurTime() + self.Primary.Delay)
 	self:SetNextSecondaryFire(CurTime() + self.Primary.Delay)
-	self:Swing(self.Primary.Damage)
+	self:NewSwing(self.Primary.Damage)
 end
 
 function SWEP:SecondaryAttack()
@@ -71,7 +71,7 @@ function SWEP:SecondaryAttack()
 	self:SendWeaponAnim(ACT_VM_MISSCENTER)
 	self:SetNextPrimaryFire(CurTime() + self.Secondary.Delay)
 	self:SetNextSecondaryFire(CurTime() + self.Secondary.Delay)
-	self:Swing(self.Primary.Damage * 2 )	
+	self:NewSwing(self.Primary.Damage * 2 )	
 end
 
 function SWEP:Reload()
