@@ -1,6 +1,6 @@
 if CLIENT then
-	killicon.AddFont( "weapon_cs_smoke", "csd", "P", Color( 255, 80, 0, 255 ) )
-	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/css_smokegrenade")
+	killicon.AddFont( "weapon_ex_gas", "csd", "P", Color( 255, 80, 0, 255 ) )
+	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/smokegrenade")
 end
 
 SWEP.Category				= "Extra Weapons"
@@ -17,8 +17,8 @@ SWEP.AdminOnly				= false
 SWEP.Slot					= 4
 SWEP.SlotPos				= 1
 
-SWEP.ViewModel 				= "models/weapons/cstrike/c_eq_css_smokegrenade.mdl"
-SWEP.WorldModel				= "models/weapons/w_eq_css_smokegrenade.mdl"
+SWEP.ViewModel 				= "models/weapons/cstrike/c_eq_smokegrenade.mdl"
+SWEP.WorldModel				= "models/weapons/w_eq_smokegrenade.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "melee"
 
