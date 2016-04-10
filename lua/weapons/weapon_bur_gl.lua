@@ -1,9 +1,5 @@
-if SERVER then
-	AddCSLuaFile("shared.lua")
-end
-
-SWEP.Category				= "Burger's Weapons"
-SWEP.PrintName				= "Sensor Launcher"
+SWEP.Category				= "Extra Weapons"
+SWEP.PrintName				= "SENSOR LAUNCHER"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Free"
 
@@ -46,9 +42,18 @@ SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= false
 
-
 SWEP.IsReloading = false
 SWEP.ReloadDelay = 0
+
+game.AddAmmoType({
+	name = "bur_sensor",
+	dmgtype = DMG_BULLET,
+	tracer = TRACER_LINE_AND_WHIZ
+})
+
+if CLIENT then
+	language.Add("bur_sensor_ammo","Wall Sensor")
+end
 
 function SWEP:PrimaryAttack()	
 

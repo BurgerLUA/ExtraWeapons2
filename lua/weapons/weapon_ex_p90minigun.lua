@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "5.7MM P90 MINIGUN"
+SWEP.PrintName				= "P90 MINIGUN"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
@@ -30,7 +30,7 @@ SWEP.Primary.Cone			= 0.009
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 100
 SWEP.Primary.Delay			= 0.05
-SWEP.Primary.Ammo			= "AlyxGun"
+SWEP.Primary.Ammo			= "css_57mm"
 SWEP.Primary.Automatic 		= true
 
 SWEP.RecoilMul				= 1
@@ -57,6 +57,8 @@ SWEP.HasGoodSights			= false
 SWEP.IronSightTime			= 0
 SWEP.IronSightsPos 			= Vector(5, 0, -4)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
+
+SWEP.BuildUpAmount			= 20
 
 SWEP.DamageFalloff			= 1000
 

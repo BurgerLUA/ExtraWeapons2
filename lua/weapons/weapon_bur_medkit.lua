@@ -1,9 +1,9 @@
 AddCSLuaFile()
 
-SWEP.PrintName		= "Modified Medkit"
+SWEP.PrintName		= "MODIFIED MEDKIT"
 SWEP.Author			= "robotboy655 & MaxOfS2D"
 SWEP.Purpose    	= "Heal people with your primary attack, or yourself with the secondary."
-SWEP.Category 		= "Burger's Weapons"
+SWEP.Category 		= "Extra Weapons"
 
 SWEP.MoveSpeed			= 200
 

@@ -1,7 +1,7 @@
 AddCSLuaFile()
 
-SWEP.PrintName			= "Tesla Turret"			
-SWEP.Author			= "Burger"
+SWEP.PrintName			= "TESLA TURRET"			
+SWEP.Author				= "Burger"
 SWEP.Instructions		= "Left Click to throw c4, right click to detonate."
 
 SWEP.Spawnable 			= true
@@ -10,7 +10,7 @@ SWEP.AdminOnly 			= false
 SWEP.Weight				= 5
 SWEP.AutoSwitchTo		= false
 SWEP.AutoSwitchFrom		= false
-SWEP.Category 			= "Burger's Weapons"
+SWEP.Category				= "Extra Weapons"
 
 SWEP.Slot				= 4
 SWEP.SlotPos			= 1
@@ -21,10 +21,10 @@ SWEP.ViewModel			= "models/weapons/c_arms_citizen.mdl"
 SWEP.WorldModel			= ""
 SWEP.HoldType 			= "normal"
 
-game.AddAmmoType({name = "tesla_ball"})
+game.AddAmmoType({name = "bur_tesla_ball"})
 
 if CLIENT then 
-	language.Add("tesla_ball_ammo","Tesla Ball")
+	language.Add("bur_tesla_ball_ammo","Tesla Ball")
 end
 
 SWEP.Primary.ClipSize		= -1

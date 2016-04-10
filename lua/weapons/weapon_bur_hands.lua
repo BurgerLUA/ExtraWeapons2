@@ -1,5 +1,5 @@
 SWEP.PrintName 					= "Hands"                         
-SWEP.Category 					= "Burger's Weapons"                	
+SWEP.Category					= "Extra Weapons"           	
 
 SWEP.ViewModel 					= "models/weapons/c_arms_citizen.mdl"
 SWEP.WorldModel 				= ""
@@ -11,8 +11,8 @@ SWEP.HoldType 					= "normal"
 SWEP.DrawCrosshair 				= false
 SWEP.DrawAmmo 					= false  
 
-SWEP.Spawnable 					= true
-SWEP.AdminSpawnable 			= true
+SWEP.Spawnable 					= false
+SWEP.AdminSpawnable 			= false
 
 SWEP.AutoSwitchTo 				= false
 SWEP.AutoSwitchFrom 			= true

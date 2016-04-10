@@ -4,12 +4,12 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "CHARGED PULSE SNIPER"
+SWEP.PrintName				= "COMBINE SNIPER"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
 SWEP.Cost					= 4750
-SWEP.MoveSpeed				= 50
+SWEP.MoveSpeed				= 150
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
@@ -23,31 +23,35 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 SWEP.DrawHands 				= false
 
-game.AddAmmoType({name = "ex_charged"})
+game.AddAmmoType({
+	name = "ex_charged",
+	dmgtype = DMG_DISSOLVE,
+	tracer = TRACER_BEAM
+})
 
 if CLIENT then 
 	language.Add("ex_charged_ammo","Charged Pulse")
 end
 
-SWEP.Primary.Damage			= 100
+SWEP.Primary.Damage			= 200
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("jaanus/ep2sniper_fire.wav")
 SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 20
-SWEP.Primary.Delay			= 0.9
+SWEP.Primary.Delay			= 0.8
 SWEP.Primary.Ammo			= "ex_charged"
 SWEP.Primary.Automatic 		= false
 
 SWEP.ReloadSound			= Sound("jaanus/ep2sniper_reload.wav")
 
-SWEP.RecoilMul				= 0.125
+SWEP.RecoilMul				= 0.01
 SWEP.SideRecoilMul			= 0.5
 SWEP.VelConeMul				= 0
 SWEP.HeatMul				= 0
 
 SWEP.HasScope 				= true
-SWEP.ZoomAmount 			= 8
+SWEP.ZoomAmount 			= 7
 SWEP.HasCrosshair 			= false
 SWEP.HasCSSZoom 			= false
 
@@ -62,9 +66,11 @@ SWEP.HasDownRecoil			= false
 SWEP.HasIronSights 			= false
 SWEP.EnableIronCross		= false
 SWEP.HasGoodSights			= false
-SWEP.IronSightTime			= 0
-SWEP.IronSightsPos 			= Vector(-6, 0, -5)
-SWEP.IronSightsAng 			= Vector(0, 0, 0)
+SWEP.IronSightTime			= 0.5
+SWEP.IronSightsPos 			= Vector(-6, 0, 0)
+SWEP.IronSightsAng 			= Vector(0, 0, -10)
+
+SWEP.TracerName 			= "AR2Tracer"
 
 SWEP.IgnoreScopeHide		= false
 
@@ -86,9 +92,8 @@ function SWEP:PostDrawViewModel()
 		local ply = self.Owner
 
 		local Trace = ply:GetEyeTrace()
-		
-		local StartPos = ply:GetEyeTrace().StartPos
-		local EndPos =  ply:GetEyeTrace().HitPos
+		local StartPos = Trace.StartPos
+		local EndPos = Trace.HitPos
 		
 		--PrintTable(Weapon:GetAttachments())
 		
@@ -96,14 +101,13 @@ function SWEP:PostDrawViewModel()
 		local MuzzlePos = Weapon:GetAttachment(MuzzleAttachment).Pos
 		local MuzzleAng = Weapon:GetAttachment(MuzzleAttachment).Ang
 		
-		local SetPos = MuzzlePos + MuzzleAng:Forward()*1000
+		--local SetPos = MuzzlePos + MuzzleAng:Forward()*1000
 		
 		if self:CanPrimaryAttack() then
-			SetPos = EndPos
+			render.SetMaterial(Beam)
+			render.DrawBeam(MuzzlePos,EndPos,2,0,1,Color(0,255,255,255))
 		end
-
-		render.SetMaterial(Beam)
-		render.DrawBeam(MuzzlePos,SetPos,2,0,1,Color(0,255,255,255))
+		
 	end
 
 end

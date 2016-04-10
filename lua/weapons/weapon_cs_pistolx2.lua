@@ -3,8 +3,8 @@ if CLIENT then
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/usp45")
 end
 
-SWEP.Category				= "HL2 to CSS"
-SWEP.PrintName				= "9MM USP MATCH AKIMBO"
+SWEP.Category				= "Extra Weapons"
+SWEP.PrintName				= "PISTOL AKIMBO"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Secondary"
 
@@ -28,7 +28,7 @@ SWEP.Primary.Cone			= 0.075
 SWEP.Primary.ClipSize		= 36
 SWEP.Primary.SpareClip		= 150
 SWEP.Primary.Delay			= 1/(1400/60)
-SWEP.Primary.Ammo			= "Battery"
+SWEP.Primary.Ammo			= "pistol"
 SWEP.Primary.Automatic 		= true
 --SWEP.ReloadSound			= Sound("weapons/pistol/pistol_reload1.wav")
 

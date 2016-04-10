@@ -3,8 +3,8 @@ if CLIENT then
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/m3")
 end
 
-SWEP.Category				= "HL2 to CSS"
-SWEP.PrintName				= "12 GAUGE SPAS12"
+SWEP.Category				= "Extra Weapons"
+SWEP.PrintName				= "SHOTGUN"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 

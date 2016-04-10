@@ -49,8 +49,6 @@ function ENT:PhysicsCollide(data, physobj)
 		elseif data.HitEntity:GetClass() == "prop_physics" then
 			physobj:SetPos(self.HitP-self.HitN*2)
 			
-
-			
 			timer.Simple(0.1,function()
 				--self:SetParent(data.HitEntity)
 				if data.HitEntity == nil then return end
@@ -58,7 +56,7 @@ function ENT:PhysicsCollide(data, physobj)
 				constraint.Weld(self,data.HitEntity,0,0,0,true)
 				self.Welded = 1
 			end)
-			
+
 			timer.Create("CheckValid"..self:EntIndex(), 0, 0, function()
 				if data.HitEntity:IsValid() == false then
 					timer.Destroy("CheckValid"..self:EntIndex()) 
@@ -169,18 +167,19 @@ function ENT:Detonate(self,pos)
 		effectdata:SetOrigin( pos )
 		effectdata:SetScale( 1 )
 	util.Effect( "Explosion", effectdata )	
-	util.BlastDamage(self, self.FakeOwner, pos, 250, 100)
+	util.BlastDamage(self, self.FakeOwner, pos, 250, 250)
 	
+	--[[
 	if table.Count(ents.FindInSphere(self:GetPos(),250)) > 0 then
 		for k,v in pairs(ents.FindInSphere(self:GetPos(),250)) do
 		
 			if v:GetClass() == "prop_physics" then
 		
-				--[[
+				
 				if math.Rand(0,100) >= 70 then
 					v:Ignite(250/20 - v:GetPos():Distance( self:GetPos() )/20,0)
 				end
-				--]]
+				
 				
 				timer.Simple(0,function() 
 					if v:IsValid() == false then return end
@@ -199,7 +198,7 @@ function ENT:Detonate(self,pos)
 		end
 
 	end
-	
+	--]]
 					
 	self.Pos1 = self.HitP + self.HitN
 	self.Pos2 = self.HitP - self.HitN

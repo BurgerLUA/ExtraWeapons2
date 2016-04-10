@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "20X102MM CANNON SNIPER"
+SWEP.PrintName				= "REBEL SNIPER"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
@@ -23,7 +23,11 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 SWEP.DrawHands 				= false
 
-game.AddAmmoType({name = "ex_cannon"})
+game.AddAmmoType({
+	name = "ex_cannon",
+	dmgtype = DMG_BULLET,
+	tracer = TRACER_LINE_AND_WHIZ
+})
 
 if CLIENT then 
 	language.Add("ex_cannon_ammo","20x102mm")

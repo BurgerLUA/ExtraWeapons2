@@ -1,5 +1,5 @@
-SWEP.PrintName			= "Remote C4"			
-SWEP.Author			= "Burger"
+SWEP.PrintName			= "REMOTE CHARGES"			
+SWEP.Author				= "Burger"
 SWEP.Instructions		= "Left Click to throw c4, right click to detonate."
 
 SWEP.Spawnable = true
@@ -8,7 +8,7 @@ SWEP.AdminOnly = false
 SWEP.Weight			= 5
 SWEP.AutoSwitchTo		= false
 SWEP.AutoSwitchFrom		= false
-SWEP.Category = "Burger's Weapons"
+SWEP.Category				= "Extra Weapons"
 
 SWEP.Slot			= 4
 SWEP.SlotPos			= 0

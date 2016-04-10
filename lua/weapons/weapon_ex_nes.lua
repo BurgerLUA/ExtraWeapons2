@@ -4,9 +4,11 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "CHILDHOOD NES ZAPPER"
+SWEP.PrintName				= "NES ZAPPER"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Secondary"
+
+SWEP.FuckBots				= true
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
@@ -19,10 +21,14 @@ SWEP.WorldModel				= "models/weapons/w_pist_nesz.mdl"
 SWEP.ViewModelFlip 			= true
 SWEP.HoldType				= "revolver"
 
-game.AddAmmoType({name = "ex_childhood"})
+game.AddAmmoType({
+	name = "ex_childhood",
+	dmgtype = DMG_DISSOLVE,
+	tracer = TRACER_LINE_AND_WHIZ
+})
 
 if CLIENT then 
-	language.Add("ex_childhood_ammo","NOSTALGIA BULLET")
+	language.Add("ex_childhood","NES Charge")
 end
 
 SWEP.Primary.Damage			= 100

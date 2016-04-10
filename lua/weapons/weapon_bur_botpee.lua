@@ -1,5 +1,5 @@
-SWEP.PrintName 					= "Penis"                         
-SWEP.Category 					= "Burger's Weapons"                	
+SWEP.PrintName 					= "BOT PENIS"                         
+SWEP.Category 					= "Extra Weapons"                	
 
 SWEP.ViewModel 					= "models/weapons/c_arms_citizen.mdl"
 SWEP.WorldModel 				= ""

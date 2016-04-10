@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "8MMX2 BISHOT"
+SWEP.PrintName				= "BISHOT"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
@@ -23,10 +23,14 @@ SWEP.ViewModelFlip 			= false
 SWEP.HoldType				= "ar2"
 SWEP.DrawHands 				= false
 
-game.AddAmmoType({name = "ex_double"})
+game.AddAmmoType({
+	name = "ex_double",
+	dmgtype = DMG_BULLET,
+	tracer = TRACER_LINE_AND_WHIZ
+})
 
 if CLIENT then 
-	language.Add("ex_double_ammo","8MM")
+	language.Add("ex_double_ammo","8mm")
 end
 
 SWEP.Primary.Damage			= 25

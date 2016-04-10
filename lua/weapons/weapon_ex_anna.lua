@@ -3,9 +3,8 @@ if CLIENT then
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/killicons/ew2_annabelle")
 end
 
-
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= ".44-40 MODEL 1892"
+SWEP.PrintName				= "ANNABELLE"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
@@ -21,7 +20,11 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 SWEP.UseHands 				= false
 
-game.AddAmmoType({name = "ex_4440"})
+game.AddAmmoType({
+	name = "ex_4440",
+	dmgtype = DMG_BULLET,
+	tracer = TRACER_LINE_AND_WHIZ
+})
 
 if CLIENT then 
 	language.Add("ex_4440_ammo",".44-40")

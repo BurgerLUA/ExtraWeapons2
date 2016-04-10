@@ -3,7 +3,7 @@ if CLIENT then
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/achievements/pistol_round_knife_kill")
 end
 
-SWEP.Category				= "HL2 to CSS"
+SWEP.Category				= "Extra Weapons"
 SWEP.PrintName				= "CROWBAR"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Free"

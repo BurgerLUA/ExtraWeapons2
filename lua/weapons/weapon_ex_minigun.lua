@@ -4,12 +4,12 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "5.56MM-S MINIGUN"
+SWEP.PrintName				= "MINIGUN"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
 SWEP.Cost					= 5750
-SWEP.MoveSpeed				= 125
+SWEP.MoveSpeed				= 150
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
@@ -23,23 +23,27 @@ SWEP.VModelFlip 			= false
 SWEP.HoldType				= "shotgun"
 SWEP.UseHands 				= false
 
-game.AddAmmoType({name = "ex_mingun"})
+game.AddAmmoType({
+	name = "ex_minigun",
+	dmgtype = DMG_BULLET,
+	tracer = TRACER_LINE_AND_WHIZ
+})
 
 if CLIENT then 
-	language.Add("ex_mingun_ammo","5.56MM-S")
+	language.Add("ex_minigun_ammo","12.7mm")
 end
 
-SWEP.Primary.Damage			= 25
+SWEP.Primary.Damage			= 30
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/minigun/mini-1.wav")
 SWEP.Primary.Cone			= 0.0125
 SWEP.Primary.ClipSize		= -1
-SWEP.Primary.SpareClip		= 1000
+SWEP.Primary.SpareClip		= 400
 SWEP.Primary.Delay			= 0.05
-SWEP.Primary.Ammo			= "ex_mingun"
+SWEP.Primary.Ammo			= "ex_minigun"
 SWEP.Primary.Automatic 		= true
 
-SWEP.RecoilMul				= 1
+SWEP.RecoilMul				= 0.25
 SWEP.SideRecoilMul			= 1
 SWEP.VelConeMul				= 2
 SWEP.HeatMul				= 0.25
@@ -64,6 +68,18 @@ SWEP.IronSightTime			= 0.125
 SWEP.IronSightsPos 			= Vector(0, 0, 0)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
+SWEP.BuildUpAmount			= 10
+
 SWEP.DamageFalloff			= 1000
 
 SWEP.HasBuildUp				= true
+
+
+
+function SWEP:SpareThink()
+	if self.Owner:KeyDown(IN_ATTACK) then
+		self.MoveSpeed				= 25
+	else
+		self.MoveSpeed				= 150
+	end
+end

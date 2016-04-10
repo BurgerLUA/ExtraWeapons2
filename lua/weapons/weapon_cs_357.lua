@@ -6,8 +6,8 @@ if CLIENT then
 	killicon.AddFont( "weapon_cs_stunstick",	"HL2MPTypeDeath",	"!",	Color( 255, 80, 0, 255 ) )
 end
 
-SWEP.Category				= "HL2 to CSS"
-SWEP.PrintName				= ".357 COLT PYTHON"
+SWEP.Category				= "Extra Weapons"
+SWEP.PrintName				= ".357"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Secondary"
 

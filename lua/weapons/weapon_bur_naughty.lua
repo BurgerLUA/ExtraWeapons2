@@ -1,5 +1,5 @@
-SWEP.PrintName			= "Dilus Launcher 9000"			
-SWEP.Author			= "Burger"
+SWEP.PrintName			= "DILDUS LAUNCHER"			
+SWEP.Author				= "Burger"
 SWEP.Instructions		= ""
 SWEP.HoldType = "rpg"
 
@@ -9,7 +9,7 @@ SWEP.AdminOnly = false
 SWEP.Weight			= 5
 SWEP.AutoSwitchTo		= false
 SWEP.AutoSwitchFrom		= false
-SWEP.Category = "Burger's Weapons"
+SWEP.Category				= "Extra Weapons"
 
 SWEP.Slot				= 4
 SWEP.SlotPos			= 1
@@ -19,10 +19,10 @@ SWEP.DrawCrosshair		= true
 SWEP.ViewModel			= "models/weapons/v_rpg.mdl"
 SWEP.WorldModel			= "models/weapons/w_rocket_launcher.mdl"
 
-game.AddAmmoType({name = "dildoair", })
+game.AddAmmoType({name = "bur_dildoair", })
 
 if CLIENT then
-	language.Add("dildoair_ammo","Air")
+	language.Add("bur_dildoair_ammo","Air")
 end
 
 SWEP.Primary.ClipSize		= -1

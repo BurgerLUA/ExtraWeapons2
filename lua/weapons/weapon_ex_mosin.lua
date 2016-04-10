@@ -4,7 +4,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "7.62MM MOSIN-NAGANT"
+SWEP.PrintName				= "MOSIN-NAGANT"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
@@ -30,7 +30,7 @@ SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= 5
 SWEP.Primary.SpareClip		= 5*4
 SWEP.Primary.Delay			= 1.1
-SWEP.Primary.Ammo			= "StriderMinigun"
+SWEP.Primary.Ammo			= "css_762mm"
 SWEP.Primary.Automatic 		= false
 
 SWEP.RecoilMul				= 0.25
