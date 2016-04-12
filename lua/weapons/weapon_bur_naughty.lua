@@ -28,7 +28,7 @@ end
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.DefaultClip	= 100
 SWEP.Primary.Automatic		= true
-SWEP.Primary.Ammo			= "dildoair"
+SWEP.Primary.Ammo			= "bur_dildoair"
 
 SWEP.Secondary.ClipSize		= -1
 SWEP.Secondary.DefaultClip	= -1

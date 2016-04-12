@@ -6,12 +6,12 @@ end
 SWEP.Category				= "Extra Weapons"
 SWEP.PrintName				= "GAS GUN"
 SWEP.Base					= "weapon_cs_base"
-SWEP.WeaponType				= "Primary"
+SWEP.WeaponType				= "Free"
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
 
-SWEP.Slot					= 2
+SWEP.Slot					= 4
 SWEP.SlotPos				= 1
 
 SWEP.ViewModel 				= "models/weapons/c_smg1.mdl"

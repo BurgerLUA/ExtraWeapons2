@@ -85,7 +85,7 @@ function ExtraWeapons_PlayerDeath(victim,inflictor,attacker)
 
 	if victim ~= attacker then
 	
-		if attacker:Alive() then
+		if attacker and attacker:IsPlayer() and attacker:Alive() then
 			local Weapon = attacker:GetActiveWeapon()
 			
 			if Weapon and Weapon:IsValid() and Weapon:GetClass() == "weapon_ex_nes" then

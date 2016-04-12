@@ -16,7 +16,7 @@ function ENT:Initialize()
 		self:SetModel("models/Items/AR2_Grenade.mdl") 
 		self:PhysicsInitSphere( size, "wood" )
 		self:SetCollisionBounds( Vector( -size, -size, -size ), Vector( size, size, size ) )
-		self:SetCollisionGroup(COLLISION_GROUP_WORLD)
+		self:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
 
 		local phys = self:GetPhysicsObject()
 		
@@ -25,7 +25,7 @@ function ENT:Initialize()
 			phys:SetBuoyancyRatio(0)
 			phys:EnableGravity(false)
 			phys:EnableDrag(true)
-			phys:SetMass(50000)
+			phys:SetMass(1)
 		end
 		
 		SafeRemoveEntityDelayed(self,20)
