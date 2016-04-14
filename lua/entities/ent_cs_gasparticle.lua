@@ -16,7 +16,7 @@ function ENT:Initialize()
 		self:SetModel("models/Items/AR2_Grenade.mdl") 
 		self:PhysicsInitSphere( size, "wood" )
 		self:SetCollisionBounds( Vector( -size, -size, -size ), Vector( size, size, size ) )
-		self:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
+		self:SetCollisionGroup(COLLISION_GROUP_PROJECTILE)
 
 		local phys = self:GetPhysicsObject()
 		

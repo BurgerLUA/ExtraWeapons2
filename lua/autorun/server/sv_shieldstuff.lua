@@ -4,7 +4,7 @@ local NextArmorThink = 0
 local NextHealthThink = 0
 
 function BurgerShield_Think()
-	
+	--[[
 	if NextHealthThink <= CurTime() then
 		
 		for k,v in pairs(player.GetAll()) do
@@ -19,10 +19,10 @@ function BurgerShield_Think()
 			end
 		end
 		
-		NextHealthThink = CurTime() + 1 
+		NextHealthThink = CurTime() + 3
 
 	end
-	
+	--]]
 end
 
 hook.Add("Think","BurgerShield_Think",BurgerShield_Think)

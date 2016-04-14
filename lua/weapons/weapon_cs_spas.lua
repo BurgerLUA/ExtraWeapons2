@@ -63,3 +63,7 @@ SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
 SWEP.DamageFalloff			= 200
 SWEP.Primary.Range			= 400
+
+SWEP.HasHL2Pump				= true
+
+SWEP.PumpSound				= Sound("weapons/shotgun/shotgun_cock.wav")

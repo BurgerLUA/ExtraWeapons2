@@ -1,9 +1,14 @@
 AddCSLuaFile()
 
-SWEP.PrintName		= "MODIFIED MEDKIT"
-SWEP.Author			= "robotboy655 & MaxOfS2D"
-SWEP.Purpose    	= "Heal people with your primary attack, or yourself with the secondary."
-SWEP.Category 		= "Extra Weapons"
+SWEP.PrintName			= "MODIFIED MEDKIT"
+SWEP.Author				= "robotboy655 & MaxOfS2D"
+SWEP.Purpose    		= "Heal people with your primary attack, or yourself with the secondary."
+SWEP.Category 			= "Extra Weapons"
+SWEP.WeaponType			= "Free"
+
+
+SWEP.Base				= "weapon_cs_base"
+
 
 SWEP.MoveSpeed			= 200
 
@@ -23,29 +28,46 @@ if CLIENT then
 	language.Add("medical_ammo","Medical Supplies")
 end
 
+SWEP.Primary.Damage			= 10
+SWEP.Primary.NumShots		= 1
+SWEP.Primary.Sound			= Sound("weapons/357/357_fire2.wav")
+SWEP.Primary.Cone			= 0.01
 SWEP.Primary.ClipSize		= -1
-SWEP.Primary.DefaultClip	= 50
-SWEP.Primary.Automatic		= true
+SWEP.Primary.SpareClip		= 50
+SWEP.Primary.Delay			= 1
 SWEP.Primary.Ammo			= "medical"
+SWEP.Primary.Automatic 		= true
 
-SWEP.Secondary.ClipSize		= -1
-SWEP.Secondary.DefaultClip	= -1
+SWEP.Secondary.Delay		= 1
 SWEP.Secondary.Automatic	= true
-SWEP.Secondary.Ammo			= "none"
 
-SWEP.AutoSwitchTo = false
-SWEP.AutoSwitchFrom = true
+SWEP.RecoilMul				= 1
+SWEP.SideRecoilMul			= 1
+SWEP.VelConeMul				= 0.1
+SWEP.HeatMul				= 1
+
+SWEP.HasScope 				= false
+SWEP.ZoomAmount 			= 1
+SWEP.HasCrosshair			= true
+SWEP.HasCSSZoom 			= false
+
+SWEP.HasPumpAction 			= false
+SWEP.HasBoltAction 			= false
+SWEP.HasBurstFire 			= false
+SWEP.HasSilencer 			= false
+SWEP.HasDoubleZoom			= false
+SWEP.HasSideRecoil			= false
+SWEP.HasDryFire				= false
+
+SWEP.HasIronSights 			= true
+SWEP.EnableIronCross		= true
+SWEP.HasGoodSights			= true
+SWEP.IronSightTime			= 1
+SWEP.IronSightsPos 			= Vector(0,0,0)
+SWEP.IronSightsAng 			= Vector(0,0,0)
 
 local HealSound = Sound( "items/smallmedkit1.wav" )
 local DenySound = Sound( "items/medshotno1.wav" )
-
-function SWEP:Initialize()
-
-	self:SetHoldType( "slam" )
-
-	if ( CLIENT ) then return end
-
-end
 
 function SWEP:PrimaryAttack()
 
@@ -63,9 +85,6 @@ function SWEP:PrimaryAttack()
 		local target = tr.Entity
 		self:HealTarget(target)
 	end
-	
-	
-	
 	
 end
 
@@ -97,7 +116,7 @@ function SWEP:HealTarget(target)
 
 	if self:CanHeal(target) then
 	
-		local DesiredHeal = math.Clamp(target:GetMaxHealth() - target:Health(),0, math.min(15,self:Ammo1()))
+		local DesiredHeal = math.Clamp(target:GetMaxHealth() - target:Health(),0, math.min(10,self:Ammo1()))
 		
 		self:TakePrimaryAmmo( DesiredHeal )
 
