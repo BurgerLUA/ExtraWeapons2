@@ -1,5 +1,5 @@
 if CLIENT then
-	killicon.AddFont( "weapon_ex_gas", "csd", "P", Color( 255, 80, 0, 255 ) )
+	killicon.AddFont( "ent_cs_gasparticle", "csd", "P", Color( 255, 80, 0, 255 ) )
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/smokegrenade")
 end
 

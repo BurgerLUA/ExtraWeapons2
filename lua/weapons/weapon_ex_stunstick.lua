@@ -1,6 +1,5 @@
 if CLIENT then
-	killicon.Add( "weapon_smod_katana", "vgui/killicons/smod_Sword", Color( 0, 128, 255, 255 ) )
-	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/killicons/smod_Sword")
+	killicon.AddFont( "weapon_ex_stunstick",	"HL2MPTypeDeath",	"!",	Color( 255, 80, 0, 255 ) )
 end
 
 SWEP.Category				= "Extra Weapons"
@@ -28,11 +27,11 @@ if CLIENT then
 	language.Add("smod_metal_ammo","Metal")
 end
 
-SWEP.Primary.Damage			= 60
+SWEP.Primary.Damage			= 75
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.ClipSize		= 100
 SWEP.Primary.SpareClip		= 0
-SWEP.Primary.Delay			= 0.8
+SWEP.Primary.Delay			= 0.6
 SWEP.Primary.Ammo			= "smod_weeb"
 SWEP.Primary.Automatic 		= true 
 

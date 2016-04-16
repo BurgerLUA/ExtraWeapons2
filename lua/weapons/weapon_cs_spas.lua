@@ -19,26 +19,26 @@ SWEP.WorldModel				= "models/weapons/w_shotgun.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 
-SWEP.Primary.Damage			= (63*2) / 7
+SWEP.Primary.Damage			= (56*2) / 7
 SWEP.Primary.NumShots		= 7
 SWEP.Primary.Sound			= Sound("weapons/shotgun/shotgun_fire7.wav")
-SWEP.Primary.Cone			= 0.04
+SWEP.Primary.Cone			= 0.05
 SWEP.Primary.ClipSize		= 6
-SWEP.Primary.SpareClip		= 32
-SWEP.Primary.Delay			= 1/(160/60)
+SWEP.Primary.SpareClip		= 30
+SWEP.Primary.Delay			= 0.3
 SWEP.Primary.Ammo			= "Buckshot"
 SWEP.Primary.Automatic 		= true
 
 SWEP.ReloadSound = Sound("weapons/shotgun/shotgun_reload3.wav")
 --SWEP.BurstSound = Sound("weapons/shotgun/shotgun_dbl_fire.wav")
 
-SWEP.RecoilMul 				= 0.125
+SWEP.RecoilMul 				= 0.25
 SWEP.SideRecoilMul			= 1
 SWEP.VelConeMul				= 1.5
 SWEP.HeatMul				= 1
 
 SWEP.BurstOverride			= 2
-SWEP.BurstSpeedOverride 	= 0.5
+SWEP.BurstSpeedOverride 	= 0.1
 SWEP.BurstHeatMul			= 1.5
 
 SWEP.HasScope 				= false
@@ -48,11 +48,11 @@ SWEP.HasCSSZoom 			= false
 
 SWEP.HasPumpAction 			= true
 SWEP.HasBoltAction 			= false
-SWEP.HasBurstFire 			= true
+SWEP.HasBurstFire			= true
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
-SWEP.HasSideRecoil			= false
-SWEP.HasDryFire				= false
+SWEP.HasSideRecoil			= true
+SWEP.HasDownRecoil			= true
 
 SWEP.HasIronSights 			= true
 SWEP.EnableIronCross		= true
@@ -67,3 +67,5 @@ SWEP.Primary.Range			= 400
 SWEP.HasHL2Pump				= true
 
 SWEP.PumpSound				= Sound("weapons/shotgun/shotgun_cock.wav")
+
+SWEP.PenetrationLossScale	= 0.5
