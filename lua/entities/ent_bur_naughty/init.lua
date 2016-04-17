@@ -60,7 +60,7 @@ function ENT:PhysicsCollide(data, physobj)
 			data.HitEntity:Fire("Break")
 		end
 		
-		local Damage = (20+(data.OurOldVelocity:Length()/200)^1.5)*0.4*0.75
+		local Damage = (20+(data.OurOldVelocity:Length()/200)^1.5)*0.4*0.8
 		
 		if data.HitEntity:Health() >= 1 then
 			if data.HitEntity:IsPlayer() then 
