@@ -60,7 +60,7 @@ function ENT:PhysicsCollide(data, physobj)
 			data.HitEntity:Fire("Break")
 		end
 		
-		local Damage = (20+(data.OurOldVelocity:Length()/200)^1.5)*0.2
+		local Damage = (20+(data.OurOldVelocity:Length()/200)^1.5)*0.4*0.75
 		
 		if data.HitEntity:Health() >= 1 then
 			if data.HitEntity:IsPlayer() then 
@@ -72,6 +72,18 @@ function ENT:PhysicsCollide(data, physobj)
 						data.HitEntity:TakeDamage( 1000000, self.Owner, self.Entity )
 						data.HitEntity:EmitSound("weapons/rainblower/rainblower_start.wav")
 						data.HitEntity:EmitSound("vo/npc/alyx/uggh02.wav")
+						
+						local CumEnt = ents.Create("ent_cum")
+						constraint.NoCollide( CumEnt, data.HitEntity, 0, 0 )
+						CumEnt:SetPos(data.HitEntity:GetPos() + Vector(0,0,30) + data.HitEntity:GetForward()*4)
+						CumEnt:SetAngles(self:GetAngles())
+						CumEnt:SetOwner(data.HitEntity)
+						CumEnt:Spawn();
+						CumEnt.trail = util.SpriteTrail(CumEnt, 0, Color(255,255,255), true, math.random(4,5), 0, 0.05 * math.random(1,3), 1/(15+1)*0.5, "sprites/physbeama.vmt")
+						CumEnt.phys = CumEnt:GetPhysicsObject();
+						CumEnt.phys:ApplyForceCenter( data.HitEntity:GetAimVector():GetNormalized() * 400 + data.HitEntity:GetVelocity( ):Length() * data.HitEntity:GetForward());
+							CumEnt.phys:AddAngleVelocity(Vector(0,2,0))
+						
 						
 						for i=1, 10 do 
 							local Coloured = ents.Create("ent_bur_naughty")
@@ -90,19 +102,8 @@ function ENT:PhysicsCollide(data, physobj)
 							Coloured:GetPhysicsObject():SetVelocity(Vector(math.random(-1,1),math.random(-1,1),math.random(-1,1))*800)
 							Coloured:GetPhysicsObject():AddAngleVelocity(Vector(-1000,-1000,-1000))
 						end
-						
 					else
 						data.HitEntity:TakeDamage( Damage, self.Owner, self.Entity )
-						local CumEnt = ents.Create("ent_cum")
-						constraint.NoCollide( CumEnt, data.HitEntity, 0, 0 )
-						CumEnt:SetPos(data.HitEntity:GetPos() + Vector(0,0,30) + data.HitEntity:GetForward()*4)
-						CumEnt:SetAngles(self:GetAngles())
-						CumEnt:SetOwner(data.HitEntity)
-						CumEnt:Spawn();
-						CumEnt.trail = util.SpriteTrail(CumEnt, 0, Color(255,255,255), true, math.random(4,5), 0, 0.05 * math.random(1,3), 1/(15+1)*0.5, "sprites/physbeama.vmt")
-						CumEnt.phys = CumEnt:GetPhysicsObject();
-						CumEnt.phys:ApplyForceCenter( data.HitEntity:GetAimVector():GetNormalized() * 400 + data.HitEntity:GetVelocity( ):Length() * data.HitEntity:GetForward());
-						CumEnt.phys:AddAngleVelocity(Vector(0,2,0))
 					end
 				end
 			else

@@ -85,7 +85,7 @@ function SWEP:PrimaryAttack()
 	self.Weapon:EmitSound("garrysmod/balloon_pop_cute.wav",100-self.FireCount*2,50-self.FireCount*2)
 	self.Owner:SetAnimation( PLAYER_ATTACK1 );
 	self.Weapon:SendWeaponAnim( ACT_VM_PRIMARYATTACK )
-	self.Weapon:SetNextPrimaryFire( CurTime() + 0.3 )	
+	self.Weapon:SetNextPrimaryFire( CurTime() + 0.25 )	
 
 	if SERVER then
 

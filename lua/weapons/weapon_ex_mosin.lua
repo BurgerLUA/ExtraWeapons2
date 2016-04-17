@@ -33,10 +33,10 @@ SWEP.Primary.Delay			= 1.1
 SWEP.Primary.Ammo			= "css_762mm"
 SWEP.Primary.Automatic 		= false
 
-SWEP.RecoilMul				= 0.25
+SWEP.RecoilMul				= 0.5
 SWEP.SideRecoilMul			= 1
-SWEP.VelConeMul				= 0.125
-SWEP.HeatMul				= 0.125
+SWEP.VelConeMul				= 0.4
+SWEP.HeatMul				= 2
 
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 1
@@ -51,9 +51,6 @@ SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= false
 SWEP.HasDryFire				= false
 
-SWEP.BurstOverride			= 6
-SWEP.BurstConeMul			= 10
-
 SWEP.HasIronSights 			= true
 SWEP.EnableIronCross		= true
 SWEP.HasGoodSights			= true
@@ -61,6 +58,6 @@ SWEP.IronSightTime			= 0.25
 SWEP.IronSightsPos 			= Vector(-1, 4, 0)
 SWEP.IronSightsAng 			= Vector(1,1.5, -5)
 
-SWEP.DamageFalloff			= 3000
+SWEP.DamageFalloff			= 2000
 
 SWEP.DisableReloadUntilEmpty = true

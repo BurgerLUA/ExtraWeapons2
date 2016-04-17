@@ -81,7 +81,7 @@ function SWEP:PrimaryAttack()
 		if SERVER then
 			local Shoot = self.Owner:GetShootPos()
 			local Eye= self.Owner:EyeAngles()
-			self:ThrowObject(self.Object,2000)
+			self:ThrowObject(self.Object,4000)
 		end
 
 		if (CLIENT or game.SinglePlayer()) then 
