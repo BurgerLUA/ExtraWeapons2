@@ -19,7 +19,7 @@ SWEP.WorldModel				= "models/weapons/w_shotgun.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "ar2"
 
-SWEP.Primary.Damage			= (56*2) / 7
+SWEP.Primary.Damage			= (56*3) / 7
 SWEP.Primary.NumShots		= 7
 SWEP.Primary.Sound			= Sound("weapons/shotgun/shotgun_fire7.wav")
 SWEP.Primary.Cone			= 0.05
@@ -30,7 +30,7 @@ SWEP.Primary.Ammo			= "Buckshot"
 SWEP.Primary.Automatic 		= true
 
 SWEP.ReloadSound = Sound("weapons/shotgun/shotgun_reload3.wav")
---SWEP.BurstSound = Sound("weapons/shotgun/shotgun_dbl_fire.wav")
+SWEP.BurstSound = Sound("weapons/shotgun/shotgun_dbl_fire.wav")
 
 SWEP.RecoilMul 				= 0.25
 SWEP.SideRecoilMul			= 1

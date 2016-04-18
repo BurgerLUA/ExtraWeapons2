@@ -26,7 +26,7 @@ SWEP.DrawHands 				= false
 game.AddAmmoType({
 	name = "ex_charged",
 	dmgtype = DMG_DISSOLVE,
-	tracer = TRACER_BEAM
+	tracer = TRACER_LINE_AND_WHIZ
 })
 
 if CLIENT then 
@@ -45,7 +45,7 @@ SWEP.Primary.Automatic 		= false
 
 SWEP.ReloadSound			= Sound("jaanus/ep2sniper_reload.wav")
 
-SWEP.RecoilMul				= 0.01
+SWEP.RecoilMul				= 0.03
 SWEP.SideRecoilMul			= 0.5
 SWEP.VelConeMul				= 0
 SWEP.HeatMul				= 0
@@ -82,7 +82,7 @@ SWEP.CustomScope			= Material("sprites/light_ignorez")
 SWEP.CustomScopeSOverride	= 32
 SWEP.CustomScopeCOverride	= Color(0,255,255,255)
 
-local Beam = Material("trails/laser")
+local Beam 					= Material("trails/laser")
 
 function SWEP:PostDrawViewModel()
 

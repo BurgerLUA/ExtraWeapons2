@@ -66,3 +66,5 @@ SWEP.IronSightsPos 			= Vector(-5.921, 0, 1.679)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
 SWEP.DamageFalloff			= 3000
+
+SWEP.TracerName 			= "AR2Tracer"

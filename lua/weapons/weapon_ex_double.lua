@@ -33,13 +33,13 @@ if CLIENT then
 	language.Add("ex_double_ammo","8mm")
 end
 
-SWEP.Primary.Damage			= 25
-SWEP.Primary.NumShots		= 1
-SWEP.Primary.Sound			= Sound("NPC_Hunter.FlechetteShoot")
-SWEP.Primary.Cone			= 0.002
+SWEP.Primary.Damage			= 13
+SWEP.Primary.NumShots		= 2
+SWEP.Primary.Sound			= Sound("weapons/alyx_gun/alyx_gun_fire3.wav")
+SWEP.Primary.Cone			= 0.01
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= 200
-SWEP.Primary.Delay			= 1/(600/60)
+SWEP.Primary.Delay			= 1/(800/60)
 SWEP.Primary.Ammo			= "ex_double"
 SWEP.Primary.Automatic 		= true
 
@@ -49,9 +49,11 @@ SWEP.VelConeMul				= 2
 SWEP.HeatMul				= 1
 
 SWEP.HasScope 				= true
-SWEP.ZoomAmount 			= 5
-SWEP.HasCrosshair 			= false
+SWEP.ZoomAmount 			= 3
+SWEP.HasCrosshair 			= true
 SWEP.HasCSSZoom 			= false
+
+SWEP.TracerName 			= "AR2Tracer"
 
 SWEP.HasPumpAction 			= false
 SWEP.HasBoltAction 			= false
@@ -62,10 +64,10 @@ SWEP.HasSideRecoil			= true
 SWEP.HasDownRecoil			= true
 
 SWEP.BurstOverride			= 4
-SWEP.BurstConeMul			= 0.1
+SWEP.BurstConeMul			= 0.01
 SWEP.BurstSpeedOverride 	= 4
-SWEP.BurstRecoilMul			= 0.25
-SWEP.BurstHeatMul			= 0.25
+SWEP.BurstRecoilMul			= 0.125
+SWEP.BurstHeatMul			= 0.125
 SWEP.BurstZoomMul			= 4
 
 SWEP.HasIronSights 			= false
