@@ -46,8 +46,16 @@ function ENT:Think()
 		local Players = player.GetAll()
 		
 		for k,v in pairs(Players) do
-			if v:GetPos():Distance(self:GetPos()) <= 100 then
-				v:TakeDamage(5,self.Owner,self)
+			if v:GetPos():Distance(self:GetPos()) <= 100 and v:IsLineOfSightClear(self) then
+			
+				local Damage = 5
+				
+				if v:Health() <= Damage then
+					v:TakeDamage(5,self.Owner,self)
+				else
+					v:SetHealth(v:Health() - Damage)
+				end
+				
 			end
 		end
 		
