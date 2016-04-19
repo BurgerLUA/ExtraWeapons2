@@ -1,11 +1,11 @@
 
 
 if CLIENT then
-	killicon.AddFont( "ent_cum", "ChatFont", "ROBOT 8==>" , Color( 255, 80, 0, 255 ) )
-	killicon.AddFont( "ent_pee", "ChatFont", "ROBOT 8==>" , Color( 255, 80, 0, 255 ) )
+	killicon.AddFont( "ent_cum", "ChatFont", "8==>" , Color( 255, 80, 0, 255 ) )
+	killicon.AddFont( "ent_pee", "ChatFont", "8==>" , Color( 255, 80, 0, 255 ) )
 end
 
-SWEP.PrintName 					= "SUPERPENIS"                         
+SWEP.PrintName 					= "PENIS"                         
 SWEP.Category					= "Extra Weapons"           	
 
 SWEP.ViewModel 					= "models/weapons/c_arms_citizen.mdl"
@@ -109,18 +109,9 @@ function SWEP:GetPenisPosAng(Add)
 end
 
 function SWEP:Rape()
-
 	if SERVER then
-
-		local tr = self.Owner:GetEyeTrace().Entity
-		if not tr:IsValid() then return end
-		if tr:IsNPC() or tr:IsPlayer() or ( tr:GetClass() == 'prop_ragdoll' ) then else return end
-		if tr:GetPos():Distance( self.Owner:GetPos() ) > 50 then return end
-		
 		self.Owner:ConCommand( "RAPEDEMBITCHEZ1" )
-		
 	end
-
 end
 
 function SWEP:ShootPiss(ShootPos,ShootAng)
@@ -278,7 +269,6 @@ local sounds3 = {
 	"physics/body/body_medium_impact_hard6.wav",
 }
 
-local InProgress = false
 local SoundDelay = 1.5
 local RapeLength = 43
 
@@ -293,31 +283,34 @@ if SERVER then
 		local plyAttacker = ply
 		local plyAttackerPos = plyAttacker:GetPos()
 		
-		local plyVictim = plyAttacker:GetEyeTrace().Entity
-		if !plyVictim or plyVictim == nil or !plyVictim:IsValid() then return end
-		local plyVictimHealth = plyVictim:Health()
-		local plyVictimPos = plyVictim:GetPos()
+		plyAttacker:LagCompensation(true)
+		local EyeTrace = plyAttacker:GetEyeTrace()
+		local plyVictim = EyeTrace.Entity
+		plyAttacker:LagCompensation(false)
+
+		if not plyVictim or not plyVictim:IsValid() then return end
+	
+		local VictimType = 0
 		
-		--if plyVictimHealth > 75 then return end
-		
-		InProgress = true
-		
-		local VictimType = 1
-		if plyVictim:IsNPC() then
+		if plyVictim:IsPlayer() then
+			plyVictim:RemoveAllItems()
+			plyVictim:Spectate( OBS_MODE_CHASE )
+			plyVictim.Raping = true
+			VictimType = 1
+		elseif plyVictim:IsNPC() then
 			VictimType = 2
 		elseif plyVictim:GetClass() == "prop_ragdoll" then
 			VictimType = 3
 		end
+
+		if VictimType == 0 then return end
+		
+		local plyVictimPos = plyVictim:GetPos()
+		
 		
 		plyAttacker.Raping = true
-		
-		plyAttacker:StripWeapons()
+		plyAttacker:RemoveAllItems()
 		plyAttacker:Spectate( OBS_MODE_CHASE )
-		if VictimType == 1 and plyVictim and plyVictim:IsValid() then
-			plyVictim:StripWeapons()
-			plyVictim:Spectate( OBS_MODE_CHASE )
-			plyVictim.Raping = true
-		end
 		
 		local basepos = plyAttacker:GetPos() + Vector(0,0,20)
 		local traceda = {}
@@ -328,6 +321,7 @@ if SERVER then
 		basepos = trace.HitPos or basepos
 
 		local ragVictim = NULL
+		
 		if VictimType == 3 then
 			ragVictim = plyVictim
 		else
@@ -374,10 +368,14 @@ if SERVER then
 			
 		end
 		
-		ragVictim:EmitSound("burger/no.mp3")
+		--ragVictim:EmitSound("burger/no.mp3")
 		
-		local thrustTimerString = "RapeThrust"..math.random(1337)
+		local thrustTimerString = "RapeThrust" .. plyAttacker:EntIndex()
 		local phys = ragAttacker:GetPhysicsObjectNum( 11 )
+		local ThrustVel = 500
+		
+		
+		
 		if phys and phys:IsValid() then
 			phys:SetVelocity( Vector( 0, 0, 100000 ) )
 			timer.Create( thrustTimerString, 0.3, 0, function()
@@ -391,12 +389,12 @@ if SERVER then
 			end )
 		end
 		
-		
-		local soundTimerString = "EmitRapeSounds"..math.random(1337)
+		--[[
+		local soundTimerString = "EmitRapeSounds" ..  plyAttacker:EntIndex()
 		timer.Create( soundTimerString, SoundDelay, 0, function()
 			--ragVictim:EmitSound( sounds[math.random(#sounds)] )
 		end )
-		
+		--]]
 		
 		timer.Simple( RapeLength, function()
 		
@@ -429,7 +427,7 @@ if SERVER then
 			SafeRemoveEntity( ragAttacker )
 			if VictimType != 3 then SafeRemoveEntity( ragVictim ) end
 			
-			timer.Destroy( soundTimerString )
+			--timer.Destroy( soundTimerString )
 			timer.Destroy( thrustTimerString )
 		
 		end )
