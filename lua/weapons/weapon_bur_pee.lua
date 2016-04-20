@@ -270,7 +270,7 @@ local sounds3 = {
 }
 
 local SoundDelay = 1.5
-local RapeLength = 43
+local RapeLength = 20
 
 if SERVER then
 	concommand.Add("RAPEDEMBITCHEZ1", function( ply, cmd, args )
