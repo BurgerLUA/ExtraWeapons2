@@ -27,16 +27,12 @@ SWEP.Primary.Delay 				= 0.1
 
 SWEP.PenisHeal = 0
 
-
 SWEP.Secondary.Sound			= Sound ("vo/ravenholm/engage03.wav")						
 SWEP.Secondary.ClipSize			= -1
 SWEP.Secondary.DefaultClip		= -1
 SWEP.Secondary.Automatic		= true
 SWEP.Secondary.Ammo				= "none"
 SWEP.Secondary.Delay 			= 1
-
-
-
 
 function SWEP:Initialize()  
 	self:SetWeaponHoldType( self.HoldType )

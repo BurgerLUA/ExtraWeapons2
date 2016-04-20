@@ -14,7 +14,7 @@ SWEP.MoveSpeed				= 250
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
 
-SWEP.Slot					= 2
+SWEP.Slot					= 4
 SWEP.SlotPos				= 1
 
 SWEP.ViewModel 				= "models/weapons/cstrike/c_eq_smokegrenade.mdl"
