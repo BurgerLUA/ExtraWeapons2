@@ -1,7 +1,7 @@
 SWEP.Category				= "Extra Weapons"
 SWEP.PrintName				= "SENSOR LAUNCHER"
 SWEP.Base					= "weapon_cs_base"
-SWEP.WeaponType				= "Free"
+SWEP.WeaponType				= "Primary"
 
 SWEP.Cost					= 2000
 SWEP.MoveSpeed				= 200
@@ -9,7 +9,7 @@ SWEP.MoveSpeed				= 200
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
 
-SWEP.Slot					= 4
+SWEP.Slot					= 2
 SWEP.SlotPos				= 2
 
 SWEP.ViewModel				= "models/weapons/c_shotgun.mdl"
@@ -65,6 +65,13 @@ end
 
 function SWEP:PrimaryAttack()
 
+	if self:GetIsReloading() then
+		if self:GetIsShotgunReload() then
+			self:FinishShotgunReload()
+		else
+			--self:CancelReload()
+		end
+	end
 
 	if not self:CanPrimaryAttack() then	return end
 	if not self:CanShoot() then return end
