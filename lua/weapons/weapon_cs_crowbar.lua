@@ -30,7 +30,7 @@ SWEP.Primary.Delay			= 1/(240/60)
 SWEP.Primary.Ammo			= "none"
 SWEP.Primary.Automatic 		= true 
 
-SWEP.Secondary.Damage		= 50
+SWEP.Secondary.Damage		= 40
 SWEP.Secondary.NumShots		= 1
 SWEP.Secondary.ClipSize		= -1
 SWEP.Secondary.SpareClip	= -1
