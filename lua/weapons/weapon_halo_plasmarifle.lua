@@ -1,6 +1,5 @@
 if CLIENT then
-	killicon.AddFont( "weapon_cs_ar2",			"HL2MPTypeDeath",	"2",	Color( 255, 80, 0, 255 ) )
-	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/sg552")
+	killicon.AddFont( "ent_smod_plasmaprojectile", "ChatFont",	"wort wort wort",	Color( 255, 80, 0, 255 ) )
 end
 
 SWEP.Category				= "Extra Weapons"
@@ -22,11 +21,11 @@ SWEP.WorldModel				= "models/weapons/w_halo_plasmarifle.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "pistol"
 
-SWEP.Primary.Damage			= 25
+SWEP.Primary.Damage			= 15
 SWEP.Primary.NumShots		= 1
-SWEP.Primary.Sound			= Sound("weapons/plasmarifle.wav")
-SWEP.Primary.Cone			= 0.01
-SWEP.Primary.ClipSize		= 100
+SWEP.Primary.Sound			= Sound("weapons/plasma_rifle/plasma_rifle.wav")
+SWEP.Primary.Cone			= 0.015
+SWEP.Primary.ClipSize		= 200
 SWEP.Primary.SpareClip		= 0
 SWEP.Primary.Delay			= ( 1/(450/60) )
 SWEP.Primary.Ammo			= "smod_weeb"
@@ -35,7 +34,8 @@ SWEP.Primary.Automatic 		= true
 SWEP.RecoilMul				= 0.25
 SWEP.SideRecoilMul			= 1
 SWEP.VelConeMul				= 1
-SWEP.HeatMul				= 0.25
+SWEP.HeatMul				= 1
+SWEP.CoolMul				= 0.5
 
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 0.25
@@ -44,7 +44,7 @@ SWEP.HasCSSZoom 			= true
 
 SWEP.HasPumpAction 			= false
 SWEP.HasBoltAction 			= false
-SWEP.HasBurstFire 			= true
+SWEP.HasBurstFire 			= false
 SWEP.HasSilencer 			= false
 SWEP.HasDoubleZoom			= false
 SWEP.HasSideRecoil			= true
@@ -66,3 +66,81 @@ SWEP.TracerName 			= "AR2Tracer"
 
 SWEP.BulletEnt				= "ent_smod_plasmaprojectile"
 SWEP.SourceOverride			= Vector(2,-20,-3)
+
+SWEP.MeleeSoundMiss			= Sound("weapons/plasma_rifle/plasma_melee.wav")
+SWEP.MeleeSoundWallHit		= Sound("weapons/foot/foot_kickwall.wav")
+SWEP.MeleeSoundFleshSmall	= Sound("weapons/foot/foot_kickbody.wav")
+SWEP.MeleeSoundFleshLarge	= Sound("weapons/foot/foot_kickbody.wav")
+
+SWEP.HasSpecialFire			= true
+
+SWEP.BuildUpAmount = 5
+
+SWEP.BuildUpCoolAmount = 20
+
+function SWEP:SpecialFire()
+
+	--PrintTable(GetActivities(self))
+	
+	--if not self:CanPrimaryAttack() then	return end
+	if self:IsBusy() then return end
+	if self:GetNextPrimaryFire() > CurTime() then return end
+	
+	self:SetNextPrimaryFire(CurTime() + 1.3)
+	--self.Owner:SetAnimation(PLAYER_ATTACK1)
+	self:WeaponAnimation(self:Clip1(),ACT_VM_HITCENTER)
+	
+	--if IsFirstTimePredicted() then
+		self:NewSwing(90)
+	--end
+
+end
+
+function SWEP:CustomAmmoDisplay()
+	self.AmmoDisplay = self.AmmoDisplay or {}
+
+	self.AmmoDisplay.Draw = true //draw the display?
+
+	self.AmmoDisplay.PrimaryClip = math.ceil(self:Clip1() / 2)
+	self.AmmoDisplay.PrimaryAmmo = math.Clamp(self:GetBuildUp() * 2 * (1/0.75),0,100)
+
+	return self.AmmoDisplay
+	
+end
+
+
+function SWEP:PostPrimaryFire()
+
+	
+	--[[
+	if CLIENT then
+		PrintTable(self.Owner:GetViewModel():GetMaterials())
+	end
+	--]]
+	
+	if self:GetBuildUp() >= 50 * 0.75 then
+		--if IsFirstTimePredicted() then
+			self:WeaponAnimation(self:Clip1(),ACT_VM_FIDGET)
+			self.Owner:EmitSound(Sound("weapons/plasma_rifle/plasma_overheat.wav"))
+			self:SetNextPrimaryFire(CurTime() + 999)
+			self:SetSpecialFloat(1)
+		--end
+	end
+
+
+end
+
+ function SWEP:SpareThink()
+ 
+	local BuildUp = self:GetBuildUp()
+	
+	if self:GetSpecialFloat() == 1 and BuildUp == 0 then
+		local ViewModel = self.Owner:GetViewModel()
+		self:WeaponAnimation(self:Clip1(),ACT_VM_RELOAD)
+		self:SetNextPrimaryFire(CurTime() + ViewModel:SequenceDuration())
+		self:SetSpecialFloat(0)
+	end
+	
+end
+
+

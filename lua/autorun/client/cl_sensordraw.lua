@@ -37,8 +37,6 @@ function SensorHandleDrawing()
 				local StartPos = ply:GetEyeTrace().StartPos
 				local EndPos =  ply:GetEyeTrace().HitPos
 				
-				--PrintTable(Weapon:GetAttachments())
-				
 				local MuzzleAttachment = Weapon:LookupAttachment( "laser" )
 				local MuzzlePos = Weapon:GetAttachment(MuzzleAttachment).Pos
 			

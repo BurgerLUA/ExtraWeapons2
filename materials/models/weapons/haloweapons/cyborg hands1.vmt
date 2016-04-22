@@ -1,7 +1,7 @@
 "VertexlitGeneric"
 {
-	"$basetexture" "models/Weapons/v_ma5b/cyborg hands1" //Change v_ma5b to wherever the hand VMT is.
-	"$detail" "models/Weapons/v_ma5b/detail" //Same here.
+	"$basetexture" "models/Weapons/haloweapons/cyborg hands1" //Change v_ma5b to wherever the hand VMT is.
+	"$detail" "models/Weapons/haloweapons/detail" //Same here.
 	"$detailscale" 10.0 //Don't change.
 	"$envmap" "env_cubemap" //Pie
                 "$basealphaenvmapmask" 1 //Cake
