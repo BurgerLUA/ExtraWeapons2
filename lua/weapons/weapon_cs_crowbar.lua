@@ -62,20 +62,37 @@ function SWEP:PrimaryAttack()
 	self:SendWeaponAnim(ACT_VM_HITCENTER)
 	self:SetNextPrimaryFire(CurTime() + self.Primary.Delay)
 	self:SetNextSecondaryFire(CurTime() + self.Primary.Delay)
-	self:NewSwing(self.Primary.Damage)
+	
+	if self:NewSwing(self.Primary.Damage) then
+		self:SetNextPrimaryFire(CurTime() + self.Primary.Delay)
+		self:SetNextSecondaryFire(CurTime() + self.Primary.Delay)
+	else
+		self:SetNextPrimaryFire(CurTime() + self.Primary.Delay*2)
+		self:SetNextSecondaryFire(CurTime() + self.Primary.Delay*2)
+	end
+	
 end
 
 function SWEP:SecondaryAttack()
+
 	if self:IsUsing() then return end
 	self.Owner:SetAnimation(PLAYER_ATTACK1)
 	self:SendWeaponAnim(ACT_VM_MISSCENTER)
 	self:SetNextPrimaryFire(CurTime() + self.Secondary.Delay)
 	self:SetNextSecondaryFire(CurTime() + self.Secondary.Delay)
-	self:NewSwing(self.Secondary.Damage * 2 )	
+	
+	if self:NewSwing(self.Secondary.Damage) then
+		self:SetNextPrimaryFire(CurTime() + self.Secondary.Delay)
+		self:SetNextSecondaryFire(CurTime() + self.Secondary.Delay)
+	else
+		self:SetNextPrimaryFire(CurTime() + self.Secondary.Delay*2)
+		self:SetNextSecondaryFire(CurTime() + self.Secondary.Delay*2)
+	end
+	
 end
 
 function SWEP:Reload()
-	PrintTable(GetActivities(self))
+	--PrintTable(GetActivities(self))
 end
 
 function SWEP:Deploy()
