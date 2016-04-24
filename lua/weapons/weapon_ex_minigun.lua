@@ -33,7 +33,7 @@ if CLIENT then
 	language.Add("ex_minigun_ammo","12.7mm")
 end
 
-SWEP.Primary.Damage			= 30
+SWEP.Primary.Damage			= 25
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/minigun/mini-1.wav")
 SWEP.Primary.Cone			= 0.0125
@@ -46,7 +46,7 @@ SWEP.Primary.Automatic 		= true
 SWEP.RecoilMul				= 0.25
 SWEP.SideRecoilMul			= 1
 SWEP.VelConeMul				= 2
-SWEP.HeatMul				= 0.25
+SWEP.HeatMul				= 1
 
 SWEP.HasScope 				= false
 SWEP.ZoomAmount 			= 0.5
@@ -68,13 +68,23 @@ SWEP.IronSightTime			= 0.125
 SWEP.IronSightsPos 			= Vector(0, 0, 0)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
 
-SWEP.BuildUpAmount			= 10
+SWEP.BuildUpAmount			= 20
 
 SWEP.DamageFalloff			= 1000
 
 SWEP.HasBuildUp				= true
 
+function SWEP:CustomAmmoDisplay()
+	self.AmmoDisplay = self.AmmoDisplay or {}
 
+	self.AmmoDisplay.Draw = true //draw the display?
+
+	self.AmmoDisplay.PrimaryClip = self:Ammo1()
+	self.AmmoDisplay.PrimaryAmmo = self:GetBuildUp()
+
+	return self.AmmoDisplay
+	
+end
 
 function SWEP:SpareThink()
 	if self.Owner:KeyDown(IN_ATTACK) then

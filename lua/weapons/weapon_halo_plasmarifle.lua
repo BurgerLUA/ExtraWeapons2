@@ -1,5 +1,7 @@
 if CLIENT then
-	killicon.AddFont( "ent_smod_plasmaprojectile", "ChatFont",	"wort wort wort",	Color( 255, 80, 0, 255 ) )
+	killicon.Add( "weapon_halo_plasmarifle", "vgui/killicons/ew2_HCEplasmarifle", Color( 0, 0, 255, 255 ) )
+	killicon.Add( "ent_smod_plasmaprojectile", "vgui/killicons/ew2_HCEplasmarifle", Color( 0, 0, 255, 255 ) )
+	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/killicons/ew2_HCEplasmarifle")
 end
 
 SWEP.Category				= "Extra Weapons"
