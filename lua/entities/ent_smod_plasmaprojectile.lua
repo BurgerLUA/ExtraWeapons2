@@ -45,7 +45,7 @@ function ENT:PhysicsCollide(colData,collider)
 
 		local Damage = DamageInfo()
 		
-		Damage:SetDamage( 15 )
+		Damage:SetDamage( 20 )
 		Damage:SetDamageType( DMG_CLUB )
 		Damage:SetInflictor( self )
 		Damage:SetAttacker( self.Owner )

@@ -22,7 +22,7 @@ SWEP.WorldModel				= "models/weapons/w_crossbow.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "crossbow"
 
-SWEP.Primary.Damage			= 200
+SWEP.Primary.Damage			= 100
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/crossbow/fire1.wav")
 SWEP.Primary.Cone			= 0
@@ -56,7 +56,6 @@ SWEP.HasGoodSights			= false
 SWEP.IronSightTime			= 0
 SWEP.IronSightsPos 			= Vector(0, 0, 0)
 SWEP.IronSightsAng 			= Vector(0, 0, 0)
-
 
 function SWEP:ShootBullet(Damage,Shots,Cone,Source,Direction,Source)
 	self:ThrowObject("crossbow_bolt",4000)

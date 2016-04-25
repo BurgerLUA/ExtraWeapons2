@@ -33,7 +33,7 @@ if CLIENT then
 	language.Add("ex_charged_ammo","Charged Pulse")
 end
 
-SWEP.Primary.Damage			= 200
+SWEP.Primary.Damage			= 100
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("jaanus/ep2sniper_fire.wav")
 SWEP.Primary.Cone			= 0
@@ -45,10 +45,10 @@ SWEP.Primary.Automatic 		= false
 
 SWEP.ReloadSound			= Sound("jaanus/ep2sniper_reload.wav")
 
-SWEP.RecoilMul				= 0.03
+SWEP.RecoilMul				= 0.06
 SWEP.SideRecoilMul			= 0.5
-SWEP.VelConeMul				= 0
-SWEP.HeatMul				= 0
+SWEP.VelConeMul				= 2
+SWEP.HeatMul				= 1
 
 SWEP.HasScope 				= true
 SWEP.ZoomAmount 			= 7

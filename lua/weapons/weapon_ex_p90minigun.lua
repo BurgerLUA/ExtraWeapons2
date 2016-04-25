@@ -23,12 +23,12 @@ SWEP.ViewModelFlip 			= true
 SWEP.HoldType				= "smg"
 SWEP.UseHands 				= false
 
-SWEP.Primary.Damage			= 15
+SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/p90_mini/p90-1.wav")
 SWEP.Primary.Cone			= 0.009
 SWEP.Primary.ClipSize		= -1
-SWEP.Primary.SpareClip		= 100
+SWEP.Primary.SpareClip		= 200
 SWEP.Primary.Delay			= 0.05
 SWEP.Primary.Ammo			= "css_57mm"
 SWEP.Primary.Automatic 		= true
@@ -63,3 +63,14 @@ SWEP.BuildUpAmount			= 20
 SWEP.DamageFalloff			= 1000
 
 SWEP.HasBuildUp				= true
+
+function SWEP:CustomAmmoDisplay()
+	self.AmmoDisplay = self.AmmoDisplay or {}
+
+	self.AmmoDisplay.Draw = true //draw the display?
+
+	self.AmmoDisplay.PrimaryClip = self:Ammo1()
+	self.AmmoDisplay.PrimaryAmmo = self:GetBuildUp()
+
+	return self.AmmoDisplay
+end

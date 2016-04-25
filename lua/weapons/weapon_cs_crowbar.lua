@@ -22,7 +22,7 @@ SWEP.WorldModel				= "models/weapons/w_crowbar.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "melee"
 
-SWEP.Primary.Damage			= 25
+SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.ClipSize		= -1
 SWEP.Primary.SpareClip		= -1

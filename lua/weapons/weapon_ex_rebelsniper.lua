@@ -36,7 +36,7 @@ end
 SWEP.Primary.Damage			= 5000
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("beta/fire1.wav")
-SWEP.Primary.Cone			= 0.0015
+SWEP.Primary.Cone			= 0
 SWEP.Primary.ClipSize		= 1
 SWEP.Primary.SpareClip		= 20
 SWEP.Primary.Delay			= 1

@@ -5,7 +5,7 @@ if CLIENT then
 end
 
 SWEP.Category				= "Extra Weapons"
-SWEP.PrintName				= "Plasma Rifle"
+SWEP.PrintName				= "PLASMA RIFLE"
 SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
@@ -23,7 +23,7 @@ SWEP.WorldModel				= "models/weapons/w_halo_plasmarifle.mdl"
 SWEP.VModelFlip 			= false
 SWEP.HoldType				= "pistol"
 
-SWEP.Primary.Damage			= 15
+SWEP.Primary.Damage			= 20
 SWEP.Primary.NumShots		= 1
 SWEP.Primary.Sound			= Sound("weapons/plasma_rifle/plasma_rifle.wav")
 SWEP.Primary.Cone			= 0.015
