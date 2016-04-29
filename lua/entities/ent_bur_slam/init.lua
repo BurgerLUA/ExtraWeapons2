@@ -161,44 +161,37 @@ end
 
 
 function ENT:Detonate(self,pos)
+
 	if not self:IsValid() then return end
 	local effectdata = EffectData()
-		effectdata:SetStart( pos ) // not sure if we need a start and origin (endpoint) for this effect, but whatever
-		effectdata:SetOrigin( pos )
-		effectdata:SetScale( 1 )
+	effectdata:SetStart( pos ) // not sure if we need a start and origin (endpoint) for this effect, but whatever
+	effectdata:SetOrigin( pos )
+	effectdata:SetScale( 1 )
 	util.Effect( "Explosion", effectdata )	
 	util.BlastDamage(self, self.FakeOwner, pos, 250, 250)
 	
+	local SphereEnts = ents.FindInSphere(self:GetPos(),250)
 	
-	if table.Count(ents.FindInSphere(self:GetPos(),250)) > 0 then
-		for k,v in pairs(ents.FindInSphere(self:GetPos(),250)) do
+	if table.Count(SphereEnts) > 0 then
+		for k,v in pairs(SphereEnts) do
 		
 			if v:GetClass() == "prop_physics" then
-		
-				--[[
-				if math.Rand(0,100) >= 70 then
-					v:Ignite(250/20 - v:GetPos():Distance( self:GetPos() )/20,0)
-				end
-				--]]
-				
 				timer.Simple(0,function() 
-					if v:IsValid() == false then return end
-					constraint.RemoveAll(v)
-					v:GetPhysicsObject():EnableMotion(true)
-					v:GetPhysicsObject():Wake()
+					if v:IsValid() then
+						constraint.RemoveAll(v)
+						v:GetPhysicsObject():EnableMotion(true)
+						v:GetPhysicsObject():Wake()
+					end
 				 end)
-
 			end
 			
 			if v:GetClass() == "prop_door_rotating" then
 				v:Fire( "Unlock", 0 )
 				v:Fire( "Open", 0.1 )
 			end
-		
+			
 		end
-
 	end
-
 					
 	self.Pos1 = self.HitP + self.HitN
 	self.Pos2 = self.HitP - self.HitN
