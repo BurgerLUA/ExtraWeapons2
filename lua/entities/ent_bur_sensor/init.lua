@@ -40,7 +40,7 @@ function ENT:PhysicsCollide(data, physobj)
 	if not self.Hit then
 	
 		if data.HitEntity:Health() > 0 and data.Speed > 500 then 
-			data.HitEntity:TakeDamage( 100, self.RealOwner, self.Entity )
+			data.HitEntity:TakeDamage( 100, self.Owner, self.Entity )
 		end	
 
 		self.HitP = data.HitPos + self.Entity:GetUp()
@@ -103,7 +103,11 @@ local NextThink = 0
 
 function ENT:Think()
 	if NextThink <= CurTime() then
-		if self.RealOwner:Alive() == false then
+		if self.Owner and self.Owner ~= NULL then
+			if self.Owner:Alive() == false then
+				SafeRemoveEntity(self)
+			end
+		else
 			SafeRemoveEntity(self)
 		end
 		NextThink = CurTime() + 0.25

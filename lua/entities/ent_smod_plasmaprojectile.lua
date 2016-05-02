@@ -52,8 +52,12 @@ function ENT:PhysicsCollide(colData,collider)
 
 		Victim:TakeDamageInfo(Damage)
 	end
+	
+	collider:EnableMotion(false)
+	collider:EnableCollisions(false)
+	
 
-	SafeRemoveEntity(self)
+	SafeRemoveEntityDelayed(self,0.25)
 
 end
 
@@ -86,6 +90,22 @@ function ENT:DrawTranslucent()
 			render.SetMaterial( mat1 ) -- Tell render what material we want, in this case the flash from the gravgun
 			render.DrawSprite( self:GetPos(), 8, 8, Color(0,255,255,255)) -- Draw the sprite in the middle of the map, at 16x16 in it's original colour with full alpha.
 		cam.End3D()
+
+		local FlashLight = DynamicLight( self:EntIndex() )
+		
+		if FlashLight then
+			local FadeOutTime = 1
+			FlashLight.Pos = self:GetPos()
+			FlashLight.Size = 256
+			FlashLight.DieTime = CurTime() + FadeOutTime*10
+			FlashLight.Decay = 1000 / FadeOutTime
+			FlashLight.MinLight = 0
+			FlashLight.r = 0
+			FlashLight.g = 255
+			FlashLight.b = 255
+		end
+
+		
 	end
 	
 end
