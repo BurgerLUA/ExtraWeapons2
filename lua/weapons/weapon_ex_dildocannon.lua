@@ -36,8 +36,8 @@ SWEP.Secondary.Automatic	= false
 SWEP.Secondary.Ammo		= "none"
 
 if CLIENT then
-	killicon.Add("ent_bur_naughty", "vgui/killicons/dilduslauncher", Color(255,255,255,255) )
-	killicon.Add("weapon_bur_naughty", "vgui/killicons/dilduslauncher", Color(255,255,255,255) )
+	killicon.Add("ent_ex_dildo", "vgui/killicons/dilduslauncher", Color(255,255,255,255) )
+	killicon.Add("weapon_ex_dildocannon", "vgui/killicons/dilduslauncher", Color(255,255,255,255) )
 end
 
 function SWEP:Initialize()
@@ -89,7 +89,7 @@ function SWEP:PrimaryAttack()
 
 	if SERVER then
 
-		local ent = ents.Create( "ent_bur_naughty" )
+		local ent = ents.Create( "ent_ex_dildo" )
 		self.SpreadMul = 0.15
 		EA =  self.Owner:EyeAngles() + Angle(math.Rand(1,-1),math.Rand(1,-1),0)*self.FireCount*self.SpreadMul
 		pos = self.Owner:GetShootPos() + EA:Right() * 5 - EA:Up() * 4 + EA:Forward() * 8

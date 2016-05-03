@@ -1,6 +1,6 @@
 if CLIENT then
-	killicon.Add( "weapon_halo_plasmarifle", "vgui/killicons/ew2_HCEplasmarifle", Color( 0, 0, 255, 255 ) )
-	killicon.Add( "ent_smod_plasmaprojectile", "vgui/killicons/ew2_HCEplasmarifle", Color( 0, 0, 255, 255 ) )
+	killicon.Add( "weapon_ex_plasmarifle", "vgui/killicons/ew2_HCEplasmarifle", Color( 0, 0, 255, 255 ) )
+	killicon.Add( "ent_ex_blueplasma", "vgui/killicons/ew2_HCEplasmarifle", Color( 0, 0, 255, 255 ) )
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/killicons/ew2_HCEplasmarifle")
 end
 
@@ -66,7 +66,7 @@ SWEP.AddFOV					= 10
 
 SWEP.TracerName 			= "AR2Tracer"
 
-SWEP.BulletEnt				= "ent_smod_plasmaprojectile"
+SWEP.BulletEnt				= "ent_ex_blueplasma"
 SWEP.SourceOverride			= Vector(2,-20,-3)
 
 SWEP.MeleeSoundMiss			= Sound("weapons/plasma_rifle/plasma_melee.wav")

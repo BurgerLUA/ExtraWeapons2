@@ -1,5 +1,5 @@
 if CLIENT then
-	killicon.AddFont( "weapon_cs_pistolx2",		"HL2MPTypeDeath",	"--",	Color( 255, 80, 0, 255 ) )
+	killicon.AddFont( "weapon_ex_pistolx2",		"HL2MPTypeDeath",	"--",	Color( 255, 80, 0, 255 ) )
 	SWEP.WepSelectIcon 		= surface.GetTextureID("vgui/gfx/vgui/usp45")
 end
 
