@@ -134,8 +134,7 @@ function SWEP:SecondaryAttack()
 end
 
 function SWEP:Reload()
-	--PrintTable(GetActivities(self))
-	--PrintTable(self:GetSequenceList())
+
 end
 
 function SWEP:AddDurability(amount)

@@ -113,13 +113,6 @@ end
 
 function SWEP:PostPrimaryFire()
 
-	
-	--[[
-	if CLIENT then
-		PrintTable(self.Owner:GetViewModel():GetMaterials())
-	end
-	--]]
-	
 	if self:GetBuildUp() >= 50 * 0.75 then
 		--if IsFirstTimePredicted() then
 			self:WeaponAnimation(self:Clip1(),ACT_VM_FIDGET)
@@ -128,7 +121,6 @@ function SWEP:PostPrimaryFire()
 			self:SetSpecialFloat(1)
 		--end
 	end
-
 
 end
 
