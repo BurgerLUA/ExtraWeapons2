@@ -8,7 +8,7 @@ SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Free"
 
 SWEP.Cost					= 0
-SWEP.MoveSpeed				= 240
+SWEP.CSSMoveSpeed				= 240
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false

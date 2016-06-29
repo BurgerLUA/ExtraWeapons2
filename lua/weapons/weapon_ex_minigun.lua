@@ -9,7 +9,7 @@ SWEP.Base					= "weapon_cs_base"
 SWEP.WeaponType				= "Primary"
 
 SWEP.Cost					= 5750
-SWEP.MoveSpeed				= 150
+SWEP.CSSMoveSpeed				= 150
 
 SWEP.Spawnable				= true
 SWEP.AdminOnly				= false
@@ -88,8 +88,8 @@ end
 
 function SWEP:SpareThink()
 	if self.Owner:KeyDown(IN_ATTACK) then
-		self.MoveSpeed				= 25
+		self.CSSMoveSpeed				= 25
 	else
-		self.MoveSpeed				= 150
+		self.CSSMoveSpeed				= 150
 	end
 end
